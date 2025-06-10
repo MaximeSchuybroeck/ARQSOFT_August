@@ -23,24 +23,29 @@ Since we are with only 2 students, we decided to implement 2/3 of the requiremen
       - NB: preferably, 10 and 18 would be configurable.
 
 ## Kanban board
-| Not addressed                                                                               | Work-in-progress   | Addressed | Tested | Completed |
-|---------------------------------------------------------------------------------------------|--------------------|-----------|--------|-----------|
-|                                                                                             | MySQL server setup |           |        |           |
-| MySQL DB implementation                                                                     |                    |           |        |           |
-| Mongo DB setup                                                                              |                    |           |        |           |
-| Mongo DB implementation                                                                     |                    |           |        |           |
-| Google IAM                                                                                  |                    |           |        |           |
-| Facebook IAM                                                                                |                    |           |        |           |
-| Frontend login UI                                                                           |                    |           |        |           |
-| Lending and Authors ID:<br/> 24 hexadecimal characters                                      |                    |           |        |           |
-| Lending and Authors ID:<br/> 20 alphanumeric characters as business entity business id hash |                    |           |        |           |
-| Integer Incremental                                                                         |                    |           |        |           |
-| Recommending Lendings: X books most lent from the Y most lent genre                         |                    |           |        |           |
-| Recommending Lendings: age<10: X books of genre “children”                                  |                    |           |        |           |
-| Recommending Lendings: 10=<age<18: X books of genre “juvenile”                              |                    |           |        |           |
-| Recommending Lendings: 18=<age: X books of the most lent genre of the reader                |                    |           |        |           |
-| Recommending Lendings: NB: preferably, 10 and 18 would be configurable.                     |                    |           |        |           |
-|                                                                                             | Write report       |           |        |           |
+| Not addressed                                                                          | Work-in-progress | Addressed                                                        | Tested | Completed |
+|----------------------------------------------------------------------------------------|------------------|------------------------------------------------------------------|--------|-----------|
+| Design UML diagrams for the MySQL server implementation                                |                  |                                                                  |        |           |
+| Design UML diagrams for the MongoDB implementation                                     |                  |                                                                  |        |           |
+|                                                                                        |                  | Design UML diagrams for the IAM (Identity and Access Management) |        |           |
+| Design UML diagrams for the Lending and Authors ID                                     |                  |                                                                  |        |           |
+| Design UML diagrams for recommending lendings                                          |                  |                                                                  |        |           |
+|                                                                                        |                  | MySQL server setup                                               |        |           |
+| MySQL DB implementation                                                                |                  |                                                                  |        |           |
+| Mongo DB setup                                                                         |                  |                                                                  |        |           |
+| Mongo DB implementation                                                                |                  |                                                                  |        |           |
+| Google IAM                                                                             |                  |                                                                  |        |           |
+| Facebook IAM                                                                           |                  |                                                                  |        |           |
+| Frontend login UI                                                                      |                  |                                                                  |        |           |
+| Lending and Authors ID: 24 hexadecimal characters                                      |                  |                                                                  |        |           |
+| Lending and Authors ID: 20 alphanumeric characters as business entity business id hash |                  |                                                                  |        |           |
+| Integer Incremental                                                                    |                  |                                                                  |        |           |
+| Recommending Lendings: X books most lent from the Y most lent genre                    |                  |                                                                  |        |           |
+| Recommending Lendings: age<10: X books of genre “children”                             |                  |                                                                  |        |           |
+| Recommending Lendings: 10=<age<18: X books of genre “juvenile”                         |                  |                                                                  |        |           |
+| Recommending Lendings: 18=<age: X books of the most lent genre of the reader           |                  |                                                                  |        |           |
+| Recommending Lendings: NB: preferably, 10 and 18 would be configurable.                |                  |                                                                  |        |           |
+|                                                                                        | Write report     |                                                                  |        |           |
 
 
 
