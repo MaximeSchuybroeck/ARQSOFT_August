@@ -1,0 +1,42 @@
+@startuml
+actor User
+participant "Spring Security" as Security
+participant "OAuthHandlerConfig" as Config
+participant "OAuthAuthenticationSuccessHandler" as Handler
+participant "UserRepository" as Repo
+participant "JwtEncoder" as Jwt
+participant "UserViewMapper" as Mapper
+participant "HttpServletResponse" as Response
+
+== Initialization ==
+Security -> Config : get OAuthAuthenticationSuccessHandler()
+Config -> Handler : constructor(userRepository, jwtEncoder, userViewMapper)
+
+== OAuth2 Login Flow ==
+User -> Security : OAuth2 login (Google/Facebook)
+Security -> Handler : onAuthenticationSuccess(authentication)
+
+Handler -> Handler : extract email, name
+alt Missing info
+    Handler -> Response : sendError(400, "Missing user attributes")
+else User info present
+    Handler -> Repo : existsByUsername(email)
+    Repo --> Handler : true/false
+
+    Handler -> Repo : findByUsername(email)
+    alt User not found
+        Handler -> Repo : save(new User)
+    end
+    Repo --> Handler : User
+
+    Handler -> Handler : getAuthorities()
+    Handler -> Jwt : encode(claims)
+    Jwt --> Handler : JWT token
+
+    Handler -> Mapper : toUserView(user)
+    Mapper --> Handler : UserView
+
+    Handler -> Handler : create JSON response
+    Handler -> Response : write(json)
+end
+@enduml

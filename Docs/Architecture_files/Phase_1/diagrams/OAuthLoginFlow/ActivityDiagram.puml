@@ -1,0 +1,29 @@
+@startuml
+start
+
+:User logs in via Google/Facebook;
+
+:Spring Security triggers onAuthenticationSuccess;
+
+:Extract email and name from OAuth token;
+
+
+if (email or name missing?) then (yes)
+  :Send 400 Bad Request;
+  stop
+else (no)
+  :Check if user exists by email;
+
+  if (User exists?) then (no)
+    :Create and save new user;
+  endif
+
+  :Get user roles;
+  :Generate JWT token;
+  :Map user to UserView;
+  :Serialize response to JSON;
+  :Send response to frontend;
+endif
+
+stop
+@enduml

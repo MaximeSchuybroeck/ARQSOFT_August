@@ -1,0 +1,30 @@
+@startuml
+package "Frontend" {
+  [React App] as FE
+}
+
+package "Backend (Spring Boot)" {
+  [OAuthAuthenticationSuccessHandler] as Handler
+  [UserRepository] as Repo
+  [JwtEncoder] as JWT
+  [UserViewMapper] as Mapper
+  [UserController]
+}
+
+package "External Systems" {
+  [Google OAuth] as Google
+  [Facebook OAuth] as Facebook
+}
+
+FE --> Google : OAuth2 login request
+FE --> Facebook : OAuth2 login request
+
+Google --> Handler : OAuth2 token (email, name, etc.)
+Facebook --> Handler : OAuth2 token (email, name, etc.)
+
+Handler --> Repo : Check or create user
+Handler --> JWT : Encode user info into token
+Handler --> Mapper : Convert User to DTO
+Handler --> FE : Return JSON with token and user info
+@enduml
+

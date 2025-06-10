@@ -1,0 +1,30 @@
+@startuml
+package pt.psoft.g1.psoftg1.configuration {
+  class OAuthAuthenticationSuccessHandler
+  class OAuthHandlerConfig
+  class UserRepository
+}
+
+package pt.psoft.g1.psoftg1.usermanagement.api {
+  class UserView
+  class UserViewMapper
+}
+
+package pt.psoft.g1.psoftg1.usermanagement.model {
+  class User
+}
+
+package org.springframework.security.oauth2.jwt {
+  class JwtEncoder
+}
+
+OAuthHandlerConfig --> OAuthAuthenticationSuccessHandler : creates
+OAuthAuthenticationSuccessHandler --> UserRepository : uses
+OAuthAuthenticationSuccessHandler --> JwtEncoder : uses
+OAuthAuthenticationSuccessHandler --> UserViewMapper : uses
+OAuthAuthenticationSuccessHandler --> User : reads/writes
+OAuthAuthenticationSuccessHandler --> UserView : returns
+UserViewMapper --> UserView : creates
+OAuthAuthenticationSuccessHandler --> JwtEncoder : encodes JWT
+
+@enduml
