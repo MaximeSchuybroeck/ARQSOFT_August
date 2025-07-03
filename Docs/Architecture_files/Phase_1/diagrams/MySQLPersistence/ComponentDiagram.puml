@@ -1,0 +1,37 @@
+@startuml MySQL_Component_Diagram
+
+package "Database Layer" {
+    [BookRepository]
+    [ReaderRepository]
+    [LendingRepository]
+    [AuthorRepository]
+    [GenreRepository]
+    [FineRepository]
+    [UserRepository]
+}
+
+package "Service Layer" {
+    [BookService]
+    [ReaderService]
+    [LendingService]
+    [UserService]
+}
+
+package "Controller Layer" {
+    [BookController]
+    [ReaderController]
+    [LendingController]
+    [UserController]
+}
+
+[BookController] --> [BookService]
+[ReaderController] --> [ReaderService]
+[LendingController] --> [LendingService]
+[UserController] --> [UserService]
+
+[BookService] --> [BookRepository]
+[ReaderService] --> [ReaderRepository]
+[LendingService] --> [LendingRepository]
+[UserService] --> [UserRepository]
+
+@enduml

@@ -1,0 +1,15 @@
+
+@startuml
+package "Application Layer" {
+    [LendingServiceImpl]
+    [AuthorServiceImpl]
+}
+
+package "Utilities" {
+    [LendingNumber]
+    [AuthorIdGenerator]
+}
+
+[LendingServiceImpl] --> [LendingNumber] : generates ID
+[AuthorServiceImpl] --> [AuthorIdGenerator] : generates ID
+@enduml

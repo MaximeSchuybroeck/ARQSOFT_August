@@ -1,0 +1,10 @@
+
+@startuml
+start
+:Receive CreateAuthorRequest;
+:Extract name;
+:Generate Author ID using AuthorIdGenerator;
+:Create Author object;
+:Persist to DB;
+stop
+@enduml

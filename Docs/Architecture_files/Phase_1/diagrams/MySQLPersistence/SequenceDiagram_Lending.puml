@@ -1,0 +1,17 @@
+@startuml Lending_Sequence_Diagram
+
+actor Reader
+participant LendingController
+participant LendingService
+participant LendingRepository
+participant BookRepository
+participant ReaderRepository
+
+Reader -> LendingController : POST /lendings
+LendingController -> LendingService : lendBook(bookId, readerId)
+LendingService -> BookRepository : findById(bookId)
+LendingService -> ReaderRepository : findById(readerId)
+LendingService -> LendingRepository : save(lending)
+LendingController --> Reader : HTTP 200 OK
+
+@enduml

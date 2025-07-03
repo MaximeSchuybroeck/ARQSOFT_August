@@ -1,0 +1,13 @@
+
+@startuml
+actor Admin
+participant AuthorController
+participant AuthorServiceImpl
+participant AuthorIdGenerator
+
+Admin -> AuthorController : createAuthor(request)
+AuthorController -> AuthorServiceImpl : createAuthor()
+AuthorServiceImpl -> AuthorIdGenerator : generate(name)
+AuthorIdGenerator --> AuthorServiceImpl : id
+AuthorServiceImpl --> AuthorController : AuthorView
+@enduml

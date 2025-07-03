@@ -1,0 +1,33 @@
+@startuml MySQL_Package_Diagram
+
+package "pt.psoft.g1" {
+    package "controller" {
+        [BookController]
+        [ReaderController]
+        [LendingController]
+        [UserController]
+    }
+
+    package "service" {
+        [BookService]
+        [ReaderService]
+        [LendingService]
+        [UserService]
+    }
+
+    package "repository" {
+        [BookRepository]
+        [ReaderRepository]
+        [LendingRepository]
+        [UserRepository]
+    }
+
+    package "model" {
+        [Book]
+        [Reader]
+        [Lending]
+        [User]
+    }
+}
+
+@enduml

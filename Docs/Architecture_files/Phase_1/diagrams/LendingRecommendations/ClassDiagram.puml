@@ -1,0 +1,16 @@
+
+@startuml
+package "Services" {
+    class LendingServiceImpl {
+        + recommendLendings(Long readerId) : List<Lending>
+    }
+}
+
+package "Entities" {
+    class Lending
+    class Reader
+}
+
+LendingServiceImpl --> Reader : reads >
+LendingServiceImpl --> Lending : returns >
+@enduml

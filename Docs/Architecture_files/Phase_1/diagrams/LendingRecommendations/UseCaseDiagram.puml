@@ -1,0 +1,6 @@
+
+@startuml
+actor Reader
+usecase "Get Lending Recommendations" as UC1
+Reader --> UC1
+@enduml

@@ -1,0 +1,30 @@
+
+@startuml
+package "ID Generators" {
+    class LendingNumber {
+        - prefix : String
+        - year : int
+        - counter : int
+        + toString() : String
+    }
+
+    class AuthorIdGenerator {
+        + generate(String name) : String
+    }
+}
+
+package "Entities" {
+    class Lending {
+        - id : LendingNumber
+        - ...
+    }
+
+    class Author {
+        - id : String
+        - ...
+    }
+
+    Lending --> LendingNumber : uses >
+    Author --> AuthorIdGenerator : uses >
+}
+@enduml

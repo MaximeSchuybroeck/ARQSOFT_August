@@ -1,0 +1,15 @@
+@startuml Lending_Activity_Diagram
+
+start
+:Reader submits lending request;
+:Validate Book ID and Reader ID;
+if (Book and Reader exist?) then (yes)
+  :Create Lending object;
+  :Save to database;
+  :Return success message;
+else (no)
+  :Return error response;
+endif
+stop
+
+@enduml

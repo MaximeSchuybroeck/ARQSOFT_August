@@ -1,0 +1,10 @@
+
+@startuml
+start
+:Receive reader ID;
+:Fetch reader profile;
+:Fetch relevant lendings;
+:Filter or rank lendings;
+:Return recommendations;
+stop
+@enduml

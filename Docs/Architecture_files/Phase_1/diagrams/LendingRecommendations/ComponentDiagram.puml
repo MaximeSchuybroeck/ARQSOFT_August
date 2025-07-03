@@ -1,0 +1,19 @@
+
+@startuml
+package "Controller" {
+    [LendingController]
+}
+
+package "Service" {
+    [LendingServiceImpl]
+}
+
+package "Repository" {
+    [LendingRepository]
+    [ReaderRepository]
+}
+
+[LendingController] --> [LendingServiceImpl] : recommendLendings()
+[LendingServiceImpl] --> [ReaderRepository] : findById()
+[LendingServiceImpl] --> [LendingRepository] : findRecommendations()
+@enduml

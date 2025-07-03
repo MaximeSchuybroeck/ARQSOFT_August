@@ -1,0 +1,54 @@
+@startuml MySQL_Class_Diagram
+
+package "Entities (JPA)" {
+    class Book {
+        - id : Long
+        - title : String
+        - isbn : String
+        - publicationDate : Date
+    }
+
+    class Genre {
+        - id : Long
+        - name : String
+    }
+
+    class Author {
+        - id : Long
+        - name : String
+        - bio : String
+    }
+
+    class Reader {
+        - id : Long
+        - name : String
+        - email : String
+    }
+
+    class Lending {
+        - id : Long
+        - lendingDate : Date
+        - returnDate : Date
+    }
+
+    class Fine {
+        - id : Long
+        - amount : BigDecimal
+        - issuedDate : Date
+    }
+
+    class User {
+        - id : Long
+        - username : String
+        - password : String
+        - role : String
+    }
+
+    Book --> Genre : belongsTo
+    Book --> Author : writtenBy
+    Lending --> Book : lends
+    Lending --> Reader : borrowedBy
+    Fine --> Reader : imposedOn
+}
+
+@enduml

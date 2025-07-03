@@ -1,0 +1,15 @@
+
+@startuml
+actor Reader
+participant LendingController
+participant LendingServiceImpl
+participant ReaderRepository
+participant LendingRepository
+
+Reader -> LendingController : GET /recommendations
+LendingController -> LendingServiceImpl : recommendLendings(readerId)
+LendingServiceImpl -> ReaderRepository : findById(readerId)
+LendingServiceImpl -> LendingRepository : findRecommendedLendings()
+LendingServiceImpl --> LendingController : List<Lending>
+LendingController --> Reader : Response
+@enduml
