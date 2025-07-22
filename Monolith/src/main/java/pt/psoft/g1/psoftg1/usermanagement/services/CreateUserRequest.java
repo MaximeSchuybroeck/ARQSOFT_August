@@ -56,6 +56,10 @@ public class CreateUserRequest {
 	@Setter
 	private String role;
 
+	@Getter
+	@Setter
+	private Integer age;
+
 	private Set<String> authorities = new HashSet<>();
 
 	public CreateUserRequest(final String username, final String fullName, final String password) {

@@ -105,16 +105,26 @@ public class User implements UserDetails {
 	@NotBlank
 	private String password;
 
+	@Column(nullable = false)
+	@Getter
+	@Setter
+	@NotNull
+	private Integer age;
+
 	@Getter
 //	@Setter
 	@Embedded
 	private Name name;
 
+	@Getter
+	@Setter
+	private String iamProvider = "CUSTOM";
+
 	@ElementCollection
 	@Getter
 	private final Set<Role> authorities = new HashSet<>();
 
-	protected User() {
+	public User() {
 		// for ORM only
 	}
 

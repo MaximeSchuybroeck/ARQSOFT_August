@@ -89,6 +89,7 @@ public class UserService implements UserDetailsService {
 				return null;
 			}
 		}
+		user.setAge(request.getAge());
 
 		//final User user = userEditMapper.create(request);
 		user.setPassword(passwordEncoder.encode(request.getPassword()));
