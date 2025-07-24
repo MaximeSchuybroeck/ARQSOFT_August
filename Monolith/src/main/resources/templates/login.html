@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html xmlns:th="http://www.thymeleaf.org">
+<head>
+    <title>Login</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            text-align: center;
+            padding: 2rem;
+        }
+        .login-box {
+            max-width: 400px;
+            margin: auto;
+            padding: 2rem;
+            border: 1px solid #ccc;
+            border-radius: 12px;
+        }
+        .oauth-btn {
+            display: block;
+            width: 100%;
+            margin: 10px 0;
+            padding: 12px;
+            border: none;
+            color: white;
+            font-size: 16px;
+            border-radius: 6px;
+            cursor: pointer;
+        }
+        .google {
+            background-color: #db4437;
+        }
+        .facebook {
+            background-color: #3b5998;
+        }
+    </style>
+</head>
+<body>
+<div class="login-box">
+    <h2>Login</h2>
+
+    <form method="post" th:action="@{/login}">
+        <input type="text" name="username" placeholder="Username" required/><br/><br/>
+        <input type="password" name="password" placeholder="Password" required/><br/><br/>
+        <button type="submit">Login</button>
+    </form>
+
+    <hr/>
+    <a class="oauth-btn google" th:href="@{/oauth2/authorization/google}">Login with Google</a>
+    <a class="oauth-btn facebook" th:href="@{/oauth2/authorization/facebook}">Login with Facebook</a>
+</div>
+</body>
+</html>
