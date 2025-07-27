@@ -4,45 +4,31 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Designed a login page called login.html">
-      <change afterPath="$PROJECT_DIR$/Monolith/src/main/main.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/test.iml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/.idea/compiler.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/.idea/encodings.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/.idea/jarRepositories.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/.idea/misc.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/.idea/vcs.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/Application.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/configuration/AppConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/configuration/AppUserDetails.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/configuration/SecurityConfiguration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/controller/AuthController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/controller/RegistrationController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/entity/Role.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/model/JwtRequest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/model/JwtResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/model/UserRegistrationModel.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/repository/UserRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/security/JwtAuthenticationEntryPoint.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/security/JwtAuthenticationFilter.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/security/JwtHelper.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/service/CustomUserDetailService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/service/UserRegisterService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/resources/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/test/java/com/example/Jwt30/ApplicationTests.java" afterDir="false" />
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Auth service implementation">
+      <change afterPath="$PROJECT_DIR$/Services/Eureka-Server/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Eureka-Server/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Eureka-Server/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Eureka-Server/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Eureka-Server/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Eureka-Server/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Eureka-Server/src/main/java/com/example/Eureka_Server/EurekaServerApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Eureka-Server/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/Eureka-Server/src/test/java/com/example/Eureka_Server/EurekaServerApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/.gitattributes" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/.gitignore" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/Dockerfile" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/mvnw" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/mvnw.cmd" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/src/main/java/com/example/gateway_service/GatewayServiceApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/src/main/java/com/example/gateway_service/configuration/AuthenticationFilter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/src/main/java/com/example/gateway_service/configuration/GatewayConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/src/main/java/com/example/gateway_service/configuration/JwtConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/src/main/java/com/example/gateway_service/configuration/JwtTokenValidator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/gateway-service/src/test/java/com/example/gateway_service/GatewayServiceApplicationTests.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/resources/application-integrationtest.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/resources/application-integrationtest.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,7 +65,7 @@
     "WebServerToolWindowFactoryState": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "D:/Documenten/KUL_5.2/ARQSOFT/phase 2 delivery/library-management-system/library-management-system/auth-service",
+    "last_opened_file_path": "D:/Documenten/KUL_5.2/ARQSOFT/ARQSOFT_August/Services",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -112,7 +98,7 @@
       <workItem from="1751381119381" duration="2172000" />
       <workItem from="1751531187488" duration="3343000" />
       <workItem from="1753186380214" duration="20820000" />
-      <workItem from="1753630200702" duration="879000" />
+      <workItem from="1753630200702" duration="1690000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented code for requirement 1 and 2: MySQL and IAM providers Google and Facebook">
       <created>1753202182025</created>
@@ -135,7 +121,14 @@
       <option name="project" value="LOCAL" />
       <updated>1753203058170</updated>
     </task>
-    <option name="localTasksCounter" value="4" />
+    <task id="LOCAL-00004" summary="Auth service implementation">
+      <created>1753631531210</created>
+      <option name="number" value="00004" />
+      <option name="presentableId" value="LOCAL-00004" />
+      <option name="project" value="LOCAL" />
+      <updated>1753631531210</updated>
+    </task>
+    <option name="localTasksCounter" value="5" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -155,7 +148,8 @@
   <component name="VcsManagerConfiguration">
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="Implemented code for requirement 1 and 2: MySQL and IAM providers Google and Facebook" />
-    <option name="LAST_COMMIT_MESSAGE" value="Implemented code for requirement 1 and 2: MySQL and IAM providers Google and Facebook" />
+    <MESSAGE value="Auth service implementation" />
+    <option name="LAST_COMMIT_MESSAGE" value="Auth service implementation" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

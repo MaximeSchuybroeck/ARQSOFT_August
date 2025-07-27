@@ -1,0 +1,117 @@
+server:
+  port: 8080
+
+spring:
+  application:
+    name: gateway-service
+  cloud:
+    gateway:
+      server:
+        webflux:
+          discovery:
+            locator:
+              enabled: true
+              lower-case-service-id: true
+routes:
+  - id: auth-service
+    uri: http://localhost:8081
+    predicates:
+      - Path=/auth/**
+
+  - id: author-service
+    uri: http://localhost:8082
+    predicates:
+      - Path=/api/authors/**
+    filters:
+      - JwtAuthFilter
+
+  - id: book-service
+    uri: http://localhost:8083
+    predicates:
+      - Path=/api/books/**
+    filters:
+      - JwtAuthFilter
+
+  - id: lending-service
+    uri: http://localhost:8084
+    predicates:
+      - Path=/api/lending/**
+    filters:
+      - JwtAuthFilter
+
+  - id: reader-service
+    uri: http://localhost:8085
+    predicates:
+      - Path=/api/readers/**
+    filters:
+      - JwtAuthFilter
+
+  - id: reporting-service
+    uri: http://localhost:8086
+    predicates:
+      - Path=/api/reports/**
+    filters:
+      - JwtAuthFilter
+secret: JwtTokenKeyjkhkhdgfsjfsxjesjrdgfgjghfgghdkdgjdgcgfsdehjghj
+expiration: 3600000
+eureka:
+  client:
+    service-url:
+      defaultZone: http://localhost:8761/eureka/
+
+#
+
+#server:
+#  port: 8080
+#
+#spring:
+#  application:
+#    name: gateway-service
+#  cloud:
+#    gateway:
+#      server:
+#        webflux:
+#          discovery:
+#            locator:
+#              enabled: true
+#              lower-case-service-id: true
+#      routes:
+#        - id: auth-service
+#          uri: lb://auth-service
+#          predicates:
+#            - Path=/auth/**
+#
+#        - id: author-service
+#          uri: lb://author-service
+#          predicates:
+#            - Path=/api/authors/**
+#
+#        - id: book-service
+#          uri: lb://book-service
+#          predicates:
+#            - Path=/api/books/**
+#
+#        - id: lending-service
+#          uri: lb://lending-service
+#          predicates:
+#            - Path=/api/lending/**
+#
+#        - id: reader-service
+#          uri: lb://reader-service
+#          predicates:
+#            - Path=/api/readers/**
+#
+#        - id: reporting-service
+#          uri: lb://reporting-service
+#          predicates:
+#            - Path=/api/reports/**
+#jwt:
+#  secret: JwtTokenKeyjkhkhdgfsjfsxjesjrdgfgjghfgghdkdgjdgcgfsdehjghj
+#  expiration: 3600000
+#
+#eureka:
+#  client:
+#    register-with-eureka: true
+#    fetch-registry: true
+#    service-url:
+#      defaultZone: http://localhost:8761/eureka/
