@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="Eureka-Server" />
+        <module name="Jwt-3.0" />
+        <module name="gateway-service" />
+      </profile>
+      <profile name="Annotation profile for lending-service" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <processorPath useClasspath="false">
+          <entry name="$MAVEN_REPOSITORY$/org/projectlombok/lombok/unknown/lombok-unknown.jar" />
+        </processorPath>
+        <module name="reporting-service" />
+        <module name="lending-service" />
+        <module name="book-service" />
+        <module name="reader-service" />
+        <module name="author-service" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="shared-lib" target="17" />
+    </bytecodeTargetLevel>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="Eureka-Server" options="-parameters" />
+      <module name="Jwt-3.0" options="-parameters" />
+      <module name="author-service" options="-parameters" />
+      <module name="book-service" options="-parameters" />
+      <module name="gateway-service" options="-parameters" />
+      <module name="lending-service" options="-parameters" />
+      <module name="reader-service" options="-parameters" />
+      <module name="reporting-service" options="-parameters" />
+      <module name="shared-lib" options="-parameters" />
+    </option>
+  </component>
+</project>
