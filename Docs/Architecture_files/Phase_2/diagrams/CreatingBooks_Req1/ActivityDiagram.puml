@@ -1,0 +1,16 @@
+@startuml
+start
+:Receive request from librarian;
+:Extract book, author and genre info;
+
+:Send author info to Author Service;
+:Create author;
+
+:Send genre info to Genre Service;
+:Create genre;
+
+:Create book entity with linked author/genre;
+:Save book to database;
+
+stop
+@enduml

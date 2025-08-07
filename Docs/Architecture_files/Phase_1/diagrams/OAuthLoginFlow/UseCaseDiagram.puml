@@ -3,19 +3,16 @@ actor User
 
 rectangle "Authentication System" {
   usecase "Login via Google" as UC1
+  usecase "Login via email & password" as UC7
   usecase "Login via Facebook" as UC2
-  usecase "Create New User from IAM" as UC3
-  usecase "Issue JWT Token" as UC4
-  usecase "Return User Info to Frontend" as UC5
-  usecase "User is logged in and can access the app" as UC6
+  usecase "Enter LMS" as UC3
+
 }
 
 User --> UC1
 User --> UC2
+User --> UC7
+UC7 --> UC3
 UC1 --> UC3
 UC2 --> UC3
-UC3 --> UC4
-UC4 --> UC5
-UC5 --> UC6
-UC6 --> User
 @enduml

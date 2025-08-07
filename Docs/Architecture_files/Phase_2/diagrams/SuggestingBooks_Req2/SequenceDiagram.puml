@@ -1,0 +1,18 @@
+@startuml
+actor Reader
+
+participant "API Gateway" as Gateway
+participant "ReaderController" as ReaderCtrl
+participant "ReaderService" as ReaderService
+participant "SuggestionRepository" as SuggestionRepo
+database "ReaderDB" as DB
+
+Reader -> Gateway : POST /suggestions
+Gateway -> ReaderCtrl : suggestBook(dto)
+ReaderCtrl -> ReaderService : handleSuggestion(dto)
+ReaderService -> SuggestionRepo : save(suggestion)
+SuggestionRepo -> DB : INSERT suggestion
+SuggestionRepo --> ReaderService : Suggestion
+ReaderService --> ReaderCtrl : 201 Created
+ReaderCtrl --> Gateway : Response
+@enduml

@@ -1,0 +1,12 @@
+@startuml
+start
+:Reader submits suggestion request;
+:Validate suggestion data;
+
+:Create suggestion entity;
+:Save suggestion to database;
+
+:Return confirmation to user;
+
+stop
+@enduml

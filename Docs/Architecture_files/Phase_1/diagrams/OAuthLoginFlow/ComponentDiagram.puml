@@ -14,13 +14,16 @@ package "Backend (Spring Boot)" {
 package "External Systems" {
   [Google OAuth] as Google
   [Facebook OAuth] as Facebook
+  [Normal Login] as NormalLogin
 }
 
 FE --> Google : OAuth2 login request
 FE --> Facebook : OAuth2 login request
+FE --> NormalLogin : OAuth2 login request
 
 Google --> Handler : OAuth2 token (email, name, etc.)
 Facebook --> Handler : OAuth2 token (email, name, etc.)
+NormalLogin --> Handler : OAuth2 token (email, name, etc.)
 
 Handler --> Repo : Check or create user
 Handler --> JWT : Encode user info into token

@@ -1,0 +1,29 @@
+@startuml
+actor Librarian
+
+participant "API Gateway" as Gateway
+participant "BookController" as BookCtrl
+participant "BookService" as BookService
+participant "BookRepository" as BookRepo
+database "BookDB" as DB
+
+Librarian -> Gateway : POST /api/books
+Gateway -> BookCtrl : addBook(dto)
+BookCtrl -> BookService : add(dto)
+
+BookService -> BookRepo : existsByTitle(dto.title)
+BookRepo --> BookService : boolean
+
+alt book exists
+    BookService --> BookCtrl : throw IllegalArgumentException
+else
+    BookService -> Book : new Book from dto
+    BookService -> BookRepo : save(book)
+    BookRepo -> DB : INSERT book
+    BookRepo --> BookService : Book
+    BookService -> BookService : toDTO(book)
+    BookService --> BookCtrl : BookDTO
+end
+
+BookCtrl --> Gateway : Response 201 Created (BookDTO)
+@enduml

@@ -1,0 +1,20 @@
+@startuml
+actor Reader
+
+participant "API Gateway" as Gateway
+participant "LendingController" as LendingCtrl
+participant "LendingService" as LendingService
+participant "LendingRepository" as LendingRepo
+participant "RecommendationService" as RecommendationMS
+database "LendingDB" as DB
+
+Reader -> Gateway : PATCH /lendings/{id}/recommend
+Gateway -> LendingCtrl : recommend(id, recommendation)
+LendingCtrl -> LendingService : processRecommendation(id, data)
+LendingService -> LendingRepo : findById(id)
+LendingRepo -> DB : SELECT * FROM lending
+LendingRepo --> LendingService : Lending
+LendingService -> RecommendationMS : saveRecommendation(bookId, recommendation)
+LendingService --> LendingCtrl : OK
+LendingCtrl --> Gateway : 200 OK
+@enduml

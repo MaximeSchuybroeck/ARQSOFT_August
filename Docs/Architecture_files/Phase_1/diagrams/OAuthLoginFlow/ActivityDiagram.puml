@@ -1,7 +1,7 @@
 @startuml
 start
 
-:User logs in via Google/Facebook;
+:User logs in via Google, Facebook or normal;
 
 :Spring Security triggers onAuthenticationSuccess;
 

@@ -1,0 +1,15 @@
+@startuml
+actor Librarian
+actor Reader
+
+rectangle "LMS Microservice System" {
+  usecase "Create Book, Author, Genre in one operation" as UC1
+  usecase "Suggest a new Book" as UC2
+  usecase "Recommend returned Book" as UC3
+}
+
+Librarian --> UC1
+Reader --> UC2
+Reader --> UC3
+@enduml
+

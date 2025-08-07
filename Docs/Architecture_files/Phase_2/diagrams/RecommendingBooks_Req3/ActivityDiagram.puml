@@ -1,0 +1,15 @@
+@startuml
+start
+:Reader returns a book;
+:Submit recommendation (positive/negative);
+
+:Fetch lending record by ID;
+:Extract book ID from lending;
+
+:Send recommendation to Recommendation Service;
+:Store recommendation;
+
+:Confirm recommendation received;
+
+stop
+@enduml
