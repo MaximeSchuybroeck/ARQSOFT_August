@@ -5,6 +5,7 @@ import jakarta.validation.constraints.NotBlank;
 import jakarta.validation.constraints.NotNull;
 import jakarta.validation.constraints.Size;
 import lombok.Getter;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.StaleObjectStateException;
 import pt.psoft.g1.psoftg1.bookmanagement.model.Book;
 import pt.psoft.g1.psoftg1.readermanagement.model.ReaderDetails;
@@ -13,6 +14,8 @@ import java.time.LocalDate;
 import java.time.temporal.ChronoUnit;
 import java.util.Objects;
 import java.util.Optional;
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicLong;
 
 /**
  * The {@code Lending} class associates a {@code Reader} and a {@code Book}.
@@ -117,6 +120,14 @@ public class Lending {
     @Getter
     private int fineValuePerDayInCents;
 
+    @Column(unique = true, nullable = false, length = 24)
+    private String hexId;
+
+    @Column(unique = true, nullable = false, length = 20)
+    private String businessId;
+
+    @Column(unique = true, nullable = false)
+    private Long customIncrementalId;
 
     /**
      * Constructs a new {@code Lending} object to be persisted in the database.
@@ -141,6 +152,9 @@ public class Lending {
         this.limitDate = LocalDate.now().plusDays(lendingDuration);
         this.returnedDate = null;
         this.fineValuePerDayInCents = fineValuePerDayInCents;
+        this.hexId = generateHexId();
+        this.businessId = generateBusinessId(this.hexId);
+        this.customIncrementalId = generateCustomIncrementalId();
         setDaysUntilReturn();
         setDaysOverdue();
     }
@@ -231,7 +245,9 @@ public class Lending {
 
 
     /**Protected empty constructor for ORM only.*/
-    protected Lending() {}
+    protected Lending() {      this.hexId = generateHexId();
+        this.businessId = generateBusinessId(this.hexId);
+        this.customIncrementalId = generateCustomIncrementalId();}
 
     /**Factory method meant to be only used in bootstrapping.*/
     public static Lending newBootstrappingLending(Book book,
@@ -257,5 +273,20 @@ public class Lending {
         lending.returnedDate = returnedDate;
         return lending;
 
+    }
+
+    private final AtomicLong incrementalCounter = new AtomicLong(1); // Replace with DB or Redis in production
+
+    public String generateHexId() {
+        return UUID.randomUUID().toString().replaceAll("-", "").substring(0, 24);
+    }
+
+    public String generateBusinessId(String input) {
+        String hash = DigestUtils.sha256Hex(input);
+        return hash.replaceAll("[^a-zA-Z0-9]", "").substring(0, 20);
+    }
+
+    public Long generateCustomIncrementalId() {
+        return incrementalCounter.getAndIncrement();
     }
 }

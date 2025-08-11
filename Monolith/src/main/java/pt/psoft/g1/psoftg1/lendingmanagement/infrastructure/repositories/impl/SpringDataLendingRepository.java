@@ -58,9 +58,9 @@ public interface SpringDataLendingRepository extends LendingRepository, LendingR
 
     @Override
     @Query(value =
-            "SELECT AVG(DATEDIFF(day, l.start_date, l.returned_date)) " +
-            "FROM Lending l"
-            , nativeQuery = true)
+            "SELECT AVG(DATEDIFF(l.returned_date, l.start_date)) " +
+                    "FROM lending l",
+            nativeQuery = true)
     Double getAverageDuration();
 
     @Override
