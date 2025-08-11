@@ -4,6 +4,7 @@ import jakarta.validation.constraints.NotNull;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.repository.query.Param;
+import org.springframework.stereotype.Repository;
 import pt.psoft.g1.psoftg1.readermanagement.services.SearchReadersQuery;
 import pt.psoft.g1.psoftg1.readermanagement.model.ReaderDetails;
 import pt.psoft.g1.psoftg1.readermanagement.services.ReaderBookCountDTO;
@@ -15,6 +16,7 @@ import java.util.Optional;
 /**
  *
  */
+@Repository
 public interface ReaderRepository {
     Optional<ReaderDetails> findByReaderNumber(@Param("readerNumber") @NotNull String readerNumber);
     List<ReaderDetails> findByPhoneNumber(@Param("phoneNumber") @NotNull String phoneNumber);
@@ -27,4 +29,7 @@ public interface ReaderRepository {
     Page<ReaderBookCountDTO> findTopByGenre(Pageable pageable, String genre, LocalDate startDate, LocalDate endDate);
     void delete(ReaderDetails readerDetails);
     List<ReaderDetails> searchReaderDetails(pt.psoft.g1.psoftg1.shared.services.Page page, SearchReadersQuery query);
+    Optional<ReaderDetails> findByReader_Username(String username); // ← Add this
+
+    void deleteAll();
 }

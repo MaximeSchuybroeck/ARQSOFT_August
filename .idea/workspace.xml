@@ -4,10 +4,7 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Generating lending id">
-      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/bookmanagement/repositories/BookRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/bookmanagement/repositories/BookRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/bookmanagement/services/BookServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/bookmanagement/services/BookServiceImpl.java" afterDir="false" />
-    </list>
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Recommendations based on age" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -53,7 +50,7 @@
     "WebServerToolWindowFactoryState": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/maxim/IdeaProjects/psoft-project-2024-g1/src/main/java/pt/psoft/g1/psoftg1/bookmanagement",
+    "last_opened_file_path": "C:/Users/maxim/IdeaProjects/psoft-project-2024-g1/src/main/java/pt/psoft/g1/psoftg1/usermanagement",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -65,7 +62,7 @@
     "settings.editor.selected.configurable": "preferences.sourceCode.MS SQL Server, MS Azure",
     "spring.configuration.checksum": "94f84331fdb15d56e28a82bc331f2f4b",
     "two.files.diff.last.used.file": "D:/Documenten/KUL_5.2/ARQSOFT/phase 2 delivery/psoft-project-2024-g1 2/psoft-project-2024-g1/DEEL_1_finale_oplevering/src/main/java/pt/psoft/g1/psoftg1/lendingmanagement/services/SetLendingReturnedRequest.java",
-    "two.files.diff.last.used.folder": "C:/Users/maxim/IdeaProjects/psoft-project-2024-g1/src/main/java/pt/psoft/g1/psoftg1/bookmanagement",
+    "two.files.diff.last.used.folder": "C:/Users/maxim/IdeaProjects/psoft-project-2024-g1/src/main/java/pt/psoft/g1/psoftg1/usermanagement",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -99,7 +96,7 @@
       <workItem from="1753972486769" duration="359000" />
       <workItem from="1754581063165" duration="703000" />
       <workItem from="1754752755643" duration="2436000" />
-      <workItem from="1754821702391" duration="5967000" />
+      <workItem from="1754821702391" duration="6407000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented code for requirement 1 and 2: MySQL and IAM providers Google and Facebook">
       <created>1753202182025</created>
@@ -160,7 +157,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754930008902</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="Recommendations based on age">
+      <option name="closed" value="true" />
+      <created>1754930442146</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1754930442146</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -198,7 +203,8 @@
     <MESSAGE value="." />
     <MESSAGE value="Generating authors id" />
     <MESSAGE value="Generating lending id" />
-    <option name="LAST_COMMIT_MESSAGE" value="Generating lending id" />
+    <MESSAGE value="Recommendations based on age" />
+    <option name="LAST_COMMIT_MESSAGE" value="Recommendations based on age" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
