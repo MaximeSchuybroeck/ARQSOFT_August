@@ -2,11 +2,15 @@ package pt.psoft.g1.psoftg1.authormanagement.model;
 
 import jakarta.persistence.*;
 import lombok.Getter;
+import org.apache.commons.codec.digest.DigestUtils;
 import org.hibernate.StaleObjectStateException;
 import pt.psoft.g1.psoftg1.authormanagement.services.UpdateAuthorRequest;
 import pt.psoft.g1.psoftg1.exceptions.ConflictException;
 import pt.psoft.g1.psoftg1.shared.model.EntityWithPhoto;
 import pt.psoft.g1.psoftg1.shared.model.Name;
+
+import java.util.UUID;
+import java.util.concurrent.atomic.AtomicLong;
 
 @Entity
 public class Author extends EntityWithPhoto {
@@ -24,6 +28,15 @@ public class Author extends EntityWithPhoto {
 
     @Embedded
     private Bio bio;
+
+    @Column(unique = true, nullable = false, length = 24)
+    private String hexId;
+
+    @Column(unique = true, nullable = false, length = 20)
+    private String businessId;
+
+    @Column(unique = true, nullable = false)
+    private Long customIncrementalId;
 
     public void setName(String name) {
         this.name = new Name(name);
@@ -45,10 +58,29 @@ public class Author extends EntityWithPhoto {
         setName(name);
         setBio(bio);
         setPhotoInternal(photoURI);
+        this.hexId = generateHexId();
+        this.businessId = generateBusinessId(this.hexId);
+        this.customIncrementalId = generateCustomIncrementalId();
+    }
+    private final AtomicLong incrementalCounter = new AtomicLong(1); // Replace with DB or Redis in production
+
+    public String generateHexId() {
+        return UUID.randomUUID().toString().replaceAll("-", "").substring(0, 24);
+    }
+
+    public String generateBusinessId(String input) {
+        String hash = DigestUtils.sha256Hex(input);
+        return hash.replaceAll("[^a-zA-Z0-9]", "").substring(0, 20);
+    }
+
+    public Long generateCustomIncrementalId() {
+        return incrementalCounter.getAndIncrement();
     }
 
     protected Author() {
-        // got ORM only
+        this.hexId = generateHexId();
+        this.businessId = generateBusinessId(this.hexId);
+        this.customIncrementalId = generateCustomIncrementalId();
     }
 
 
@@ -76,6 +108,50 @@ public class Author extends EntityWithPhoto {
 
     public String getBio() {
         return this.bio.toString();
+    }
+
+    public Long getAuthorNumber() {
+        return authorNumber;
+    }
+
+    public void setAuthorNumber(Long authorNumber) {
+        this.authorNumber = authorNumber;
+    }
+
+    public void setVersion(long version) {
+        this.version = version;
+    }
+
+    public void setName(Name name) {
+        this.name = name;
+    }
+
+    public void setBio(Bio bio) {
+        this.bio = bio;
+    }
+
+    public String getHexId() {
+        return hexId;
+    }
+
+    public void setHexId(String hexId) {
+        this.hexId = hexId;
+    }
+
+    public String getBusinessId() {
+        return businessId;
+    }
+
+    public void setBusinessId(String businessId) {
+        this.businessId = businessId;
+    }
+
+    public Long getCustomIncrementalId() {
+        return customIncrementalId;
+    }
+
+    public void setCustomIncrementalId(Long customIncrementalId) {
+        this.customIncrementalId = customIncrementalId;
     }
 }
 

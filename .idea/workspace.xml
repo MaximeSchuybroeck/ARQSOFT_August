@@ -4,47 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Software Architecture update for Phase #2. Wrote first version of ADD, and added some UML diagrams">
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/Database/COPY_RestMapping.svg" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/CreatingBooks_Req1/ActivityDiagram.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/CreatingBooks_Req1/SequenceDiagram.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/GeneralUseCaseDiagram.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/RecommendingBooks_Req3/ActivityDiagram.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/RecommendingBooks_Req3/SequenceDiagram.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/SuggestingBooks_Req2/ActivityDiagram.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/SuggestingBooks_Req2/SequenceDiagram.puml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/TestSecurityBeansConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/auth/api/AuthApiTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/services/TestSecurityConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/resources/templates/login.html" afterDir="false" />
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment=".">
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/Database/COPY_RestMapping.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingRecommendations/ActivityDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingRecommendations/ActivityDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingRecommendations/ClassDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingRecommendations/ClassDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingRecommendations/ComponentDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingRecommendations/ComponentDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingRecommendations/SequenceDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingRecommendations/SequenceDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingRecommendations/UseCaseDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingRecommendations/UseCaseDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingsAndAuthorsId/ActivityDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingsAndAuthorsId/ActivityDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingsAndAuthorsId/ClassDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingsAndAuthorsId/ClassDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingsAndAuthorsId/ComponentDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingsAndAuthorsId/ComponentDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingsAndAuthorsId/SequenceDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingsAndAuthorsId/SequenceDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingsAndAuthorsId/UseCaseDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingsAndAuthorsId/UseCaseDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/ActivityDiagram_Lending.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/ActivityDiagram_Lending.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/ClassDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/ClassDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/ComponentDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/ComponentDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/PackageDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/PackageDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/SequenceDiagram_Lending.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/SequenceDiagram_Lending.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/UseCaseDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/UseCaseDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/ActivityDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/ActivityDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/ComponentDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/ComponentDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/UseCaseDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/UseCaseDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/ActivityDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/ActivityDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/ComponentDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/ComponentDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/UseCaseDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/UseCaseDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/PsoftG1ApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/PsoftG1ApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/authormanagement/model/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/authormanagement/model/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/authormanagement/repositories/AuthorRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/authormanagement/repositories/AuthorRepository.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,6 +19,16 @@
     <execution />
   </component>
   <component name="Git.Settings">
+    <option name="PREVIOUS_COMMIT_AUTHORS">
+      <list>
+        <option value="MaximeSchuybroeck &lt;maxime.schuybroeck@student.kuleuven.be&gt;" />
+      </list>
+    </option>
+    <option name="RECENT_BRANCH_BY_REPOSITORY">
+      <map>
+        <entry key="$PROJECT_DIR$" value="main" />
+      </map>
+    </option>
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
     <option name="RESET_MODE" value="HARD" />
   </component>
@@ -73,30 +47,30 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;D:/Documenten/KUL_5.2/ARQSOFT/ARQSOFT_August/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.36875&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;AndroidSdkUpdater&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;94f84331fdb15d56e28a82bc331f2f4b&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;D:/Documenten/KUL_5.2/ARQSOFT/phase 2 delivery/psoft-project-2024-g1 2/psoft-project-2024-g1/DEEL_1_finale_oplevering/src/main/java/pt/psoft/g1/psoftg1/lendingmanagement/services/SetLendingReturnedRequest.java&quot;,
-    &quot;two.files.diff.last.used.folder&quot;: &quot;D:/Documenten/KUL_5.2/ARQSOFT/phase_1/psoft-project-2024-g1/src/test&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "WebServerToolWindowFactoryState": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/maxim/IdeaProjects/psoft-project-2024-g1/src/main/java/pt/psoft/g1/psoftg1/authormanagement",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.36875",
+    "settings.editor.selected.configurable": "preferences.sourceCode.MS SQL Server, MS Azure",
+    "spring.configuration.checksum": "94f84331fdb15d56e28a82bc331f2f4b",
+    "two.files.diff.last.used.file": "D:/Documenten/KUL_5.2/ARQSOFT/phase 2 delivery/psoft-project-2024-g1 2/psoft-project-2024-g1/DEEL_1_finale_oplevering/src/main/java/pt/psoft/g1/psoftg1/lendingmanagement/services/SetLendingReturnedRequest.java",
+    "two.files.diff.last.used.folder": "C:/Users/maxim/IdeaProjects/psoft-project-2024-g1/src/main/java/pt/psoft/g1/psoftg1/authormanagement",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="D:\Documenten\KUL_5.2\ARQSOFT\ARQSOFT_August\Docs\Architecture_files\Phase_2\diagrams\SuggestingBooks_Req2" />
@@ -126,6 +100,8 @@
       <workItem from="1753947075372" duration="5840000" />
       <workItem from="1753972486769" duration="359000" />
       <workItem from="1754581063165" duration="703000" />
+      <workItem from="1754752755643" duration="2436000" />
+      <workItem from="1754821702391" duration="5042000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented code for requirement 1 and 2: MySQL and IAM providers Google and Facebook">
       <created>1753202182025</created>
@@ -162,7 +138,15 @@
       <option name="project" value="LOCAL" />
       <updated>1753645667390</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary=".">
+      <option name="closed" value="true" />
+      <created>1754752651831</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1754752651831</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -173,7 +157,19 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="FILTERS">
+                <map>
+                  <entry key="branch">
+                    <value>
+                      <list>
+                        <option value="main" />
+                      </list>
+                    </value>
+                  </entry>
+                </map>
+              </option>
+            </State>
           </value>
         </entry>
       </map>
@@ -185,7 +181,8 @@
     <MESSAGE value="Auth service implementation" />
     <MESSAGE value="Eureka server and gateway service implementation" />
     <MESSAGE value="Software Architecture update for Phase #2. Wrote first version of ADD, and added some UML diagrams" />
-    <option name="LAST_COMMIT_MESSAGE" value="Software Architecture update for Phase #2. Wrote first version of ADD, and added some UML diagrams" />
+    <MESSAGE value="." />
+    <option name="LAST_COMMIT_MESSAGE" value="." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
