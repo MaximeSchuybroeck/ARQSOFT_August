@@ -2,6 +2,7 @@ package pt.psoft.g1.psoftg1.bookmanagement.repositories;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
+import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.repository.query.Param;
 import pt.psoft.g1.psoftg1.bookmanagement.model.Book;
 import pt.psoft.g1.psoftg1.bookmanagement.services.BookCountDTO;
@@ -15,7 +16,7 @@ import java.util.Optional;
 /**
  *
  */
-public interface BookRepository {
+public interface BookRepository{
 
 
     List<Book> findByGenre(@Param("genre") String genre);
@@ -29,4 +30,8 @@ public interface BookRepository {
 
     Book save(Book book);
     void delete(Book book);
+
+    List<Book> findByGenre_GenreIgnoreCase(String children);
+
+    void deleteAll();
 }
