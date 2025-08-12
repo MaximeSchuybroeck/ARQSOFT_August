@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="Encoding">
+    <file url="file://$PROJECT_DIR$/Monolith/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Services/Eureka-Server/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Services/auth-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Services/auth-service_old/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Services/author-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Services/book-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Services/gateway-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Services/gateway-service_old/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Services/lending-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Services/reader-service/src/main/java" charset="UTF-8" />
+    <file url="file://$PROJECT_DIR$/Services/reporting-service/src/main/java" charset="UTF-8" />
+  </component>
+</project>

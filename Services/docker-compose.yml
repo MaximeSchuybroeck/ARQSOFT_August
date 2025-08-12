@@ -1,0 +1,125 @@
+version: '3.9'
+
+services:
+  eureka-server:
+    build: ./Eureka-server
+    ports:
+      - "8761:8761"
+    networks:
+      - library-net
+
+  gateway-service:
+    build: ./gateway-service
+    ports:
+      - "8087:8087"
+    depends_on:
+      - auth-service
+      - author-service
+      - book-service
+      - lending-service
+      - reader-service
+      - reporting-service
+    networks:
+      - library-net
+
+  postgres:
+    image: postgres:15
+    container_name: postgres
+    ports:
+      - "5432:5432"
+    environment:
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: postgres
+      POSTGRES_DB: library_management
+    volumes:
+      - ./postgres-init:/docker-entrypoint-initdb.d
+    networks:
+      - library-net
+
+  mongodb:
+    image: mongo
+    container_name: mongodb-con
+    ports:
+      - "27017:27017"
+    environment:
+      MONGO_INITDB_ROOT_USERNAME: admin
+      MONGO_INITDB_ROOT_PASSWORD: admin123
+    networks:
+      - library-net
+
+  rabbitmq:
+    image: rabbitmq:3-management
+    container_name: rabbitmq-con
+    ports:
+      - "5672:5672"
+      - "15672:15672"
+    environment:
+      RABBITMQ_DEFAULT_USER: guest
+      RABBITMQ_DEFAULT_PASS: guest
+    networks:
+      - library-net
+
+  auth-service:
+    build: ./auth-service
+    container_name: auth_service-con
+    ports:
+      - "8081:8081"
+    depends_on:
+      - postgres
+    networks:
+      - library-net
+
+  author-service:
+    build: ./author-service
+    container_name: author_service-con
+    ports:
+      - "8082:8082"
+    depends_on:
+      - postgres
+    networks:
+      - library-net
+
+  book-service:
+    build: ./book-service
+    container_name: book_service-con
+    ports:
+      - "8083:8083"
+    depends_on:
+      - postgres
+    networks:
+      - library-net
+
+  lending-service:
+    build: ./lending-service
+    container_name: lending_service-con
+    ports:
+      - "8084:8084"
+    depends_on:
+      - postgres
+      - rabbitmq
+    networks:
+      - library-net
+
+  reader-service:
+    build: ./reader-service
+    container_name: reader_service-con
+    ports:
+      - "8085:8085"
+    depends_on:
+      - mongodb
+    networks:
+      - library-net
+
+  reporting-service:
+    build: ./reporting-service
+    container_name: reporting_service-con
+    ports:
+      - "8086:8086"
+    depends_on:
+      - postgres
+      - rabbitmq
+    networks:
+      - library-net
+
+networks:
+  library-net:

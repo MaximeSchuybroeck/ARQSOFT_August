@@ -16,7 +16,7 @@ COPY . .
 RUN chmod +x mvnw && ./mvnw clean package -DskipTests
 
 # Expose the application's port
-EXPOSE 8087
+EXPOSE 8082
 
 # Run the JAR (replace with actual JAR name if needed)
-ENTRYPOINT ["java", "-jar", "target/gateway-service-0.0.1-SNAPSHOT.jar"]
+ENTRYPOINT ["java", "-jar", "target/author-service-0.0.1-SNAPSHOT.jar"]

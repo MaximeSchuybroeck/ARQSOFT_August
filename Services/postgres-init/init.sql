@@ -1,0 +1,6 @@
+CREATE SCHEMA IF NOT EXISTS auth_service;
+CREATE SCHEMA IF NOT EXISTS author_service;
+CREATE SCHEMA IF NOT EXISTS book_service;
+CREATE SCHEMA IF NOT EXISTS lending_service;
+CREATE SCHEMA IF NOT EXISTS reporting_service;
+CREATE SCHEMA IF NOT EXISTS reader_service;
