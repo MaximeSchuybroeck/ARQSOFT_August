@@ -6,7 +6,7 @@ import java.time.LocalDate;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class LendingNumberTest {
+public class LendingNumberTest {
     @Test
     void ensureLendingNumberNotNull(){
         assertThrows(IllegalArgumentException.class, () -> new LendingNumber(null));

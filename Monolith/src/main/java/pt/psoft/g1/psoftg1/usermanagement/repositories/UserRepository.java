@@ -52,4 +52,6 @@ public interface UserRepository {
 	List<User> findByNameName(String name);
 	List<User> findByNameNameContains(String name);
 	void delete(User user);
+
+    void deleteAll();
 }

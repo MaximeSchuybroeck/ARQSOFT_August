@@ -9,7 +9,7 @@ import java.util.ArrayList;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class BookTest {
+public class BookTest {
     private final String validIsbn = "9782826012092";
     private final String validTitle = "Encantos de contar";
     private final Author validAuthor1 = new Author("João Alberto", "O João Alberto nasceu em Chaves e foi pedreiro a maior parte da sua vida.", null);

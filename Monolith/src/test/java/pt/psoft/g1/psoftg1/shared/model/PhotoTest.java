@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class PhotoTest {
+public class PhotoTest {
     @Test
     void ensurePathMustNotBeNull() {
         assertThrows(NullPointerException.class, () -> new Photo(null));

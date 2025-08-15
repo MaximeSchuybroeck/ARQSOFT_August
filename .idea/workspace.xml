@@ -4,106 +4,40 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Recommendations based on age">
-      <change afterPath="$PROJECT_DIR$/Services/Eureka-Server/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/src/main/java/com/example/author_service/AuthorServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/src/main/java/com/example/author_service/Entity/Author.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/src/main/java/com/example/author_service/controller/AuthorController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/src/main/java/com/example/author_service/dto/AuthorDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/src/main/java/com/example/author_service/repository/AuthorRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/src/main/java/com/example/author_service/service/AuthorService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/author-service/src/test/java/com/example/author_service/AuthorServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/src/main/java/com/example/book_service/BookServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/src/main/java/com/example/book_service/controller/BookController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/src/main/java/com/example/book_service/dto/BookDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/src/main/java/com/example/book_service/entity/Book.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/src/main/java/com/example/book_service/repository/BookRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/src/main/java/com/example/book_service/service/BookService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/src/main/resources/schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/book-service/src/test/java/com/example/book_service/BookServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/LendingServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/client/Client.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/configuration/JacksonConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/configuration/RabbitMQConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/controller/LendingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/dto/LendingDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/dto/LendingResponse.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/entity/Lending.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/repository/LendingRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/service/LendingEventConsumer.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/service/LendingService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/resources/schema.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/LendingServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/postgres-init/init.sql" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/java/com/example/reader_service/ReaderServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/java/com/example/reader_service/controller/AcqSugController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/java/com/example/reader_service/controller/ReaderController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/java/com/example/reader_service/dto/AcqSugRequestDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/java/com/example/reader_service/dto/AcqSugResponseDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/java/com/example/reader_service/dto/ReaderDTO.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/java/com/example/reader_service/entity/AcquisitionSuggestion.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/java/com/example/reader_service/entity/Reader.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/java/com/example/reader_service/repository/AcqSugRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/java/com/example/reader_service/repository/ReaderRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/java/com/example/reader_service/service/AcqSugService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/java/com/example/reader_service/service/ReaderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/main/resources/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/test/java/com/example/reader_service/ReaderServiceApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/.gitattributes" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/.gitignore" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/Dockerfile" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/mvnw" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/mvnw.cmd" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/src/main/java/com/example/reporting_service/ReportingServiceApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/src/main/java/com/example/reporting_service/configuration/BookLentListener.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/src/main/java/com/example/reporting_service/configuration/RabbitConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/src/main/java/com/example/reporting_service/controller/ReportingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/src/main/java/com/example/reporting_service/dto/BookLentEvent.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/src/main/java/com/example/reporting_service/entity/AuthorBorrowStats.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/src/main/java/com/example/reporting_service/entity/LendingStats.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/src/main/java/com/example/reporting_service/repository/AuthorBorrowStatsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/src/main/java/com/example/reporting_service/repository/LendingStatsRepository.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reporting-service/src/test/java/com/example/reporting_service/ReportingServiceApplicationTests.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/modules.xml" beforeDir="false" />
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="PHASE 2: reformed monolithic app to microservices. And added the second requirement about book suggestions">
+      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/test-code_summary.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/component/AuthorIdGenerator.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/AllTestsSuite.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/model/AuthorWhiteBoxTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/IsbnWhiteBoxTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/genremanagement/model/GenreWhiteBoxTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingWhiteBoxTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/readermanagement/model/PhoneNumberWhiteBoxTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Services/auth-service/src/main/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/gateway-service/Dockerfile" beforeDir="false" afterPath="$PROJECT_DIR$/Services/gateway-service/Dockerfile" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/gateway-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Services/gateway-service/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/genremanagement/repositories/GenreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/genremanagement/repositories/GenreRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/usermanagement/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/usermanagement/repositories/UserRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/TestSecurityBeansConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/TestSecurityBeansConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/auth/api/AuthApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/auth/api/AuthApiTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/model/AuthorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/model/AuthorTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/repository/AuthorRepositoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/repository/AuthorRepositoryIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/services/AuthorServiceImplIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/services/AuthorServiceImplIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/services/TestSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/services/TestSecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/BookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/BookTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/DescriptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/DescriptionTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/IsbnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/IsbnTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/TitleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/TitleTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/genremanagement/model/GenreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/genremanagement/model/GenreTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingNumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingNumberTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/repositories/LendingRepositoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/repositories/LendingRepositoryIntegrationTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/services/LendingServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/services/LendingServiceImplTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/shared/model/NameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/shared/model/NameTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/shared/model/PhotoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/shared/model/PhotoTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/resources/application-integrationtest.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/resources/application-integrationtest.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Services/docker-compose.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -112,6 +46,13 @@
   </component>
   <component name="ComposerSettings">
     <execution />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
   </component>
   <component name="Git.Settings">
     <option name="PREVIOUS_COMMIT_AUTHORS">
@@ -159,6 +100,7 @@
     "ASKED_ADD_EXTERNAL_FILES": "true",
     "Docker.Services: Compose Deployment.executor": "Run",
     "Docker.auth-service/Dockerfile.executor": "Run",
+    "JUnit.All in psoft-g1.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -178,8 +120,8 @@
     "project.structure.side.proportion": "0.36875",
     "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "94f84331fdb15d56e28a82bc331f2f4b",
-    "two.files.diff.last.used.file": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/ARQSOFT_August/Services/docker-compose.yml",
-    "two.files.diff.last.used.folder": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/ARQSOFT_August/Services/auth-service_old",
+    "two.files.diff.last.used.file": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/psoft-project-2024-g1/pom.xml",
+    "two.files.diff.last.used.folder": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/psoft-project-2024-g1/src/main/java",
     "vue.rearranger.settings.migration": "true"
   }
 }]]></component>
@@ -194,7 +136,30 @@
       <recent name="D:\Documenten\KUL_5.2\ARQSOFT\ARQSOFT_August\Docs\Architecture_files\Phase_1\assets\OAuthLoginFlow" />
     </key>
   </component>
-  <component name="RunManager" selected="Docker.Services: Compose Deployment">
+  <component name="RunManager" selected="JUnit.AllTestsSuite">
+    <configuration name="All in psoft-g1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="psoft-g1" />
+      <option name="PACKAGE_NAME" value="" />
+      <option name="TEST_OBJECT" value="package" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AllTestsSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="psoft-g1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pt.psoft.g1.psoftg1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1" />
+      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.AllTestsSuite" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="mvnw" type="ShConfigurationType" temporary="true">
       <option name="SCRIPT_TEXT" value="" />
       <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
@@ -240,6 +205,8 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AllTestsSuite" />
+        <item itemvalue="JUnit.All in psoft-g1" />
         <item itemvalue="Docker.Services: Compose Deployment" />
         <item itemvalue="Docker.auth-service/Dockerfile" />
         <item itemvalue="Shell Script.mvnw" />
@@ -343,7 +310,15 @@
       <option name="project" value="LOCAL" />
       <updated>1754930442146</updated>
     </task>
-    <option name="localTasksCounter" value="10" />
+    <task id="LOCAL-00010" summary="PHASE 2: reformed monolithic app to microservices. And added the second requirement about book suggestions">
+      <option name="closed" value="true" />
+      <created>1755015230670</created>
+      <option name="number" value="00010" />
+      <option name="presentableId" value="LOCAL-00010" />
+      <option name="project" value="LOCAL" />
+      <updated>1755015230670</updated>
+    </task>
+    <option name="localTasksCounter" value="11" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -382,7 +357,9 @@
     <MESSAGE value="Generating authors id" />
     <MESSAGE value="Generating lending id" />
     <MESSAGE value="Recommendations based on age" />
-    <option name="LAST_COMMIT_MESSAGE" value="Recommendations based on age" />
+    <MESSAGE value="PHASE 2: reformed monolithic app to microservices. And added the second requirment about book suggestions" />
+    <MESSAGE value="PHASE 2: reformed monolithic app to microservices. And added the second requirement about book suggestions" />
+    <option name="LAST_COMMIT_MESSAGE" value="PHASE 2: reformed monolithic app to microservices. And added the second requirement about book suggestions" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

@@ -4,7 +4,7 @@ import org.junit.jupiter.api.Test;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class NameTest {
+public class NameTest {
     @Test
     void ensureNameMustNotBeNull() {
         assertThrows(IllegalArgumentException.class, () -> new Name(null));

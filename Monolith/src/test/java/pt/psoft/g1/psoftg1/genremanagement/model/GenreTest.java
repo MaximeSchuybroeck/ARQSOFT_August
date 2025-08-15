@@ -5,7 +5,7 @@ import pt.psoft.g1.psoftg1.genremanagement.model.Genre;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class GenreTest {
+public class GenreTest {
 
     @Test
     void ensureGenreMustNotBeNull() {

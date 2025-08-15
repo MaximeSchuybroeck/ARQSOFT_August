@@ -11,7 +11,7 @@ import pt.psoft.g1.psoftg1.shared.model.Photo;
 
 import static org.junit.jupiter.api.Assertions.*;
 
-class AuthorTest {
+public class AuthorTest {
     private final String validName = "João Alberto";
     private final String validBio = "O João Alberto nasceu em Chaves e foi pedreiro a maior parte da sua vida.";
 

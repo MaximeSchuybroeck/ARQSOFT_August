@@ -14,11 +14,11 @@ services:
       - "8087:8087"
     depends_on:
       - auth-service
-      - author-service
-      - book-service
-      - lending-service
-      - reader-service
-      - reporting-service
+      #- author-service
+      #- book-service
+      #- lending-service
+      #- reader-service
+      #- reporting-service
     networks:
       - library-net
 
