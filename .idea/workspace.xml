@@ -4,20 +4,13 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="PHASE 1: Added test code and some missing files">
-      <change afterPath="$PROJECT_DIR$/Monolith/src/main/resources/templates/landing.html" afterDir="false" />
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="PHASE 2: added frond-end login &amp; logout logic.">
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/AllTestsSuite.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/model/AuthorWhiteBoxTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/IsbnWhiteBoxTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/genremanagement/model/GenreWhiteBoxTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingWhiteBoxTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/readermanagement/model/PhoneNumberWhiteBoxTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/auth/api/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/auth/api/AuthController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -95,7 +88,7 @@
     "WebServerToolWindowFactoryState": "true",
     "git-widget-placeholder": "main",
     "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/ARQSOFT_August/Services",
+    "last_opened_file_path": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/ARQSOFT_August/Services/auth-service/src/main/resources/templates",
     "node.js.detected.package.eslint": "true",
     "node.js.detected.package.tslint": "true",
     "node.js.selected.package.eslint": "(autodetect)",
@@ -113,6 +106,7 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\Maxim\Documents\Maxime_PORTO_ARQSOFT\ARQSOFT_August\Services\auth-service\src\main\resources\templates" />
       <recent name="C:\Users\Maxim\Documents\Maxime_PORTO_ARQSOFT\ARQSOFT_August\Services" />
       <recent name="C:\Users\Maxim\Documents\Maxime_PORTO_ARQSOFT\ARQSOFT_August\Services\Eureka-Server" />
       <recent name="D:\Documenten\KUL_5.2\ARQSOFT\ARQSOFT_August\Docs\Architecture_files\Phase_2\diagrams\SuggestingBooks_Req2" />
@@ -136,14 +130,6 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="All in psoft-g1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="psoft-g1" />
-      <option name="PACKAGE_NAME" value="" />
-      <option name="TEST_OBJECT" value="package" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
     <configuration name="AllTestsSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="psoft-g1" />
       <extension name="coverage">
@@ -159,21 +145,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="IsbnWhiteBoxTest.constructor_storesDigitsOnly_andSetsChecksumFlag" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="psoft-g1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pt.psoft.g1.psoftg1.bookmanagement.model.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1.bookmanagement.model" />
-      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.bookmanagement.model.IsbnWhiteBoxTest" />
-      <option name="METHOD_NAME" value="constructor_storesDigitsOnly_andSetsChecksumFlag" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
+    <configuration name="Services: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker_ARQSOFT">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="Services/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
@@ -190,9 +168,8 @@
     <recent_temporary>
       <list>
         <item itemvalue="Application.PsoftG1Application" />
-        <item itemvalue="JUnit.IsbnWhiteBoxTest.constructor_storesDigitsOnly_andSetsChecksumFlag" />
+        <item itemvalue="Docker.Services: Compose Deployment" />
         <item itemvalue="JUnit.AllTestsSuite" />
-        <item itemvalue="JUnit.All in psoft-g1" />
       </list>
     </recent_temporary>
   </component>
@@ -309,7 +286,23 @@
       <option name="project" value="LOCAL" />
       <updated>1755272774539</updated>
     </task>
-    <option name="localTasksCounter" value="12" />
+    <task id="LOCAL-00012" summary="PHASE 1: Added landing page. Facebook IAM works., the rest not yet. Made some adjustments to the report.md">
+      <option name="closed" value="true" />
+      <created>1755541390517</created>
+      <option name="number" value="00012" />
+      <option name="presentableId" value="LOCAL-00012" />
+      <option name="project" value="LOCAL" />
+      <updated>1755541390517</updated>
+    </task>
+    <task id="LOCAL-00013" summary="PHASE 2: added frond-end login &amp; logout logic.">
+      <option name="closed" value="true" />
+      <created>1755549897272</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1755549897272</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -352,7 +345,9 @@
     <MESSAGE value="PHASE 2: reformed monolithic app to microservices. And added the second requirement about book suggestions" />
     <MESSAGE value="Added test code and some missing files" />
     <MESSAGE value="PHASE 1: Added test code and some missing files" />
-    <option name="LAST_COMMIT_MESSAGE" value="PHASE 1: Added test code and some missing files" />
+    <MESSAGE value="PHASE 1: Added landing page. Facebook IAM works., the rest not yet. Made some adjustments to the report.md" />
+    <MESSAGE value="PHASE 2: added frond-end login &amp; logout logic." />
+    <option name="LAST_COMMIT_MESSAGE" value="PHASE 2: added frond-end login &amp; logout logic." />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

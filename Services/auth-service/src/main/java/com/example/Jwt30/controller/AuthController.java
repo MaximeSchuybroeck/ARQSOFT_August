@@ -10,4 +10,9 @@ public class AuthController {
     public String login() {
         return "login";
     }
+
+    @GetMapping("/landing")
+    public String landingPage() {
+        return "landing"; // will resolve to landing.html
+    }
 }

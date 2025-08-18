@@ -2,16 +2,17 @@
 ## Implemented Requirements
 Since we are with only 2 students, we decided to implement around 2/3 of the requirements. Here is a list of the implemented requirements:
 1. Persisting data in different data models (e.g. relational, document) and SGBD:
-    - Relational data model: e.g. H2, MySQL, SQL Server
+    - Relational data model: MySQL Server
    
 2. Adopting different IAM (Identity and Access Management) providers:
     - Google
     - Facebook
+    - ~~azure~~ = impossible: requires paid subscription 
    
 3. Generating Lending and Authors ID in different formats according to the following specifications:
     - 24 hexadecimal characters
     - 20 alphanumeric characters as business entity business id hash
-    - Integer incremental (NB: it should be independent from the Ids of the database)
+    - Integer incremental (NB: it should be independent of the Ids of the database)
    
 4. Recommending Lendings according to following specifications:
     - X books most lent from the Y most lent genre
@@ -34,8 +35,8 @@ Since we are with only 2 students, we decided to implement around 2/3 of the req
 | Mongo DB setup                                     |                  |                                                                                        |                                                                  |
 | Mongo DB implementation                            |                  |                                                                                        |                                                                  |
 |                                                    |                  | Google IAM                                                                             |                                                                  |
-|                                                    |                  | Facebook IAM                                                                           |                                                                  |
-|                                                    |                  | Frontend login UI                                                                      |                                                                  |
+|                                                    |                  |                                                                                        | Facebook IAM                                                     |
+|                                                    |                  |                                                                                        | Frontend login UI                                                |
 |                                                    |                  | Lending and Authors ID: 24 hexadecimal characters                                      |                                                                  |
 |                                                    |                  | Lending and Authors ID: 20 alphanumeric characters as business entity business id hash |                                                                  |
 |                                                    |                  | Integer Incremental                                                                    |                                                                  |
@@ -110,6 +111,8 @@ The following quality attributes have guided the architecture of Phase 1:
 ### 5.2 IAM Provider Integration
 - Configure Google and Facebook login using Spring Security + OAuth2
 - Modular setup allows new providers to be added without rewriting auth logic, like GitHub, Azure, etc
+- Azure IAM requires a paid subscription, therefore this was not implemented
+- a landing page was not part of the requirements, but still a very basic landing page was made.
 
 ### 5.3 ID Generation Strategy
 - Strategy pattern implemented to support:
