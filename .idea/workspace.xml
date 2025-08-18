@@ -4,40 +4,20 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="PHASE 2: reformed monolithic app to microservices. And added the second requirement about book suggestions">
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/test-code_summary.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/component/AuthorIdGenerator.java" afterDir="false" />
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="PHASE 1: Added test code and some missing files">
+      <change afterPath="$PROJECT_DIR$/Monolith/src/main/resources/templates/landing.html" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/AllTestsSuite.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/model/AuthorWhiteBoxTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/IsbnWhiteBoxTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/genremanagement/model/GenreWhiteBoxTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingWhiteBoxTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/readermanagement/model/PhoneNumberWhiteBoxTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase_[Changes]/shelved.patch" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/shelf/Uncommitted_changes_before_rebase__Changes_.xml" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/genremanagement/repositories/GenreRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/genremanagement/repositories/GenreRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/usermanagement/repositories/UserRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/usermanagement/repositories/UserRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/TestSecurityBeansConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/TestSecurityBeansConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/auth/api/AuthApiTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/auth/api/AuthApiTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/model/AuthorTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/model/AuthorTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/repository/AuthorRepositoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/repository/AuthorRepositoryIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/services/AuthorServiceImplIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/services/AuthorServiceImplIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/services/TestSecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/services/TestSecurityConfig.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/BookTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/BookTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/DescriptionTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/DescriptionTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/IsbnTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/IsbnTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/TitleTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/TitleTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/genremanagement/model/GenreTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/genremanagement/model/GenreTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingNumberTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingNumberTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/repositories/LendingRepositoryIntegrationTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/repositories/LendingRepositoryIntegrationTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/services/LendingServiceImplTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/services/LendingServiceImplTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/shared/model/NameTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/shared/model/NameTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/shared/model/PhotoTest.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/shared/model/PhotoTest.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/resources/application-integrationtest.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/resources/application-integrationtest.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/resources/application.properties" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Services/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/auth/api/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/auth/api/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -51,6 +31,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="Class" />
+        <option value="HTML File" />
       </list>
     </option>
   </component>
@@ -98,9 +79,14 @@
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
     "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.PsoftG1Application.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
     "Docker.Services: Compose Deployment.executor": "Run",
     "Docker.auth-service/Dockerfile.executor": "Run",
     "JUnit.All in psoft-g1.executor": "Run",
+    "JUnit.AllTestsSuite.executor": "Run",
+    "JUnit.IsbnWhiteBoxTest.constructor_storesDigitsOnly_andSetsChecksumFlag.executor": "Run",
+    "JUnit.IsbnWhiteBoxTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
@@ -136,7 +122,20 @@
       <recent name="D:\Documenten\KUL_5.2\ARQSOFT\ARQSOFT_August\Docs\Architecture_files\Phase_1\assets\OAuthLoginFlow" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AllTestsSuite">
+  <component name="RunManager" selected="Application.PsoftG1Application">
+    <configuration name="PsoftG1Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.PsoftG1Application" />
+      <module name="psoft-g1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pt.psoft.g1.psoftg1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="All in psoft-g1" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="psoft-g1" />
       <option name="PACKAGE_NAME" value="" />
@@ -160,28 +159,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="mvnw" type="ShConfigurationType" temporary="true">
-      <option name="SCRIPT_TEXT" value="" />
-      <option name="INDEPENDENT_SCRIPT_PATH" value="true" />
-      <option name="SCRIPT_PATH" value="$PROJECT_DIR$/Services/auth-service/mvnw" />
-      <option name="SCRIPT_OPTIONS" value="" />
-      <option name="INDEPENDENT_SCRIPT_WORKING_DIRECTORY" value="true" />
-      <option name="SCRIPT_WORKING_DIRECTORY" value="$PROJECT_DIR$/Services/auth-service" />
-      <option name="INDEPENDENT_INTERPRETER_PATH" value="true" />
-      <option name="INTERPRETER_PATH" value="/bin/sh" />
-      <option name="INTERPRETER_OPTIONS" value="" />
-      <option name="EXECUTE_IN_TERMINAL" value="true" />
-      <option name="EXECUTE_SCRIPT_FILE" value="true" />
-      <envs />
-      <method v="2" />
-    </configuration>
-    <configuration name="Services: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker_ARQSOFT">
-      <deployment type="docker-compose.yml">
-        <settings>
-          <option name="sourceFilePath" value="Services/docker-compose.yml" />
-        </settings>
-      </deployment>
-      <method v="2" />
+    <configuration name="IsbnWhiteBoxTest.constructor_storesDigitsOnly_andSetsChecksumFlag" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="psoft-g1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pt.psoft.g1.psoftg1.bookmanagement.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1.bookmanagement.model" />
+      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.bookmanagement.model.IsbnWhiteBoxTest" />
+      <option name="METHOD_NAME" value="constructor_storesDigitsOnly_andSetsChecksumFlag" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
     </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
@@ -195,21 +187,12 @@
       </deployment>
       <method v="2" />
     </configuration>
-    <configuration name="auth-service/Dockerfile" type="docker-deploy" factoryName="dockerfile" temporary="true" server-name="Docker_ARQSOFT">
-      <deployment type="dockerfile">
-        <settings>
-          <option name="sourceFilePath" value="Services/auth-service/Dockerfile" />
-        </settings>
-      </deployment>
-      <method v="2" />
-    </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PsoftG1Application" />
+        <item itemvalue="JUnit.IsbnWhiteBoxTest.constructor_storesDigitsOnly_andSetsChecksumFlag" />
         <item itemvalue="JUnit.AllTestsSuite" />
         <item itemvalue="JUnit.All in psoft-g1" />
-        <item itemvalue="Docker.Services: Compose Deployment" />
-        <item itemvalue="Docker.auth-service/Dockerfile" />
-        <item itemvalue="Shell Script.mvnw" />
       </list>
     </recent_temporary>
   </component>
@@ -318,7 +301,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755015230670</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="PHASE 1: Added test code and some missing files">
+      <option name="closed" value="true" />
+      <created>1755272774539</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1755272774539</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -359,7 +350,9 @@
     <MESSAGE value="Recommendations based on age" />
     <MESSAGE value="PHASE 2: reformed monolithic app to microservices. And added the second requirment about book suggestions" />
     <MESSAGE value="PHASE 2: reformed monolithic app to microservices. And added the second requirement about book suggestions" />
-    <option name="LAST_COMMIT_MESSAGE" value="PHASE 2: reformed monolithic app to microservices. And added the second requirement about book suggestions" />
+    <MESSAGE value="Added test code and some missing files" />
+    <MESSAGE value="PHASE 1: Added test code and some missing files" />
+    <option name="LAST_COMMIT_MESSAGE" value="PHASE 1: Added test code and some missing files" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
