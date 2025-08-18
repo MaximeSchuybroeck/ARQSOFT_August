@@ -7,7 +7,7 @@ Since we are with only 2 students, we decided to implement around 2/3 of the req
 2. Adopting different IAM (Identity and Access Management) providers:
     - Google
     - Facebook
-    - ~~azure~~ = impossible: requires paid subscription 
+    - ~~azure~~ = impossible: requires paid subscription (Thus, GitHub IAM was implemented)
    
 3. Generating Lending and Authors ID in different formats according to the following specifications:
     - 24 hexadecimal characters
@@ -36,6 +36,7 @@ Since we are with only 2 students, we decided to implement around 2/3 of the req
 | Mongo DB implementation                            |                  |                                                                                        |                                                                  |
 |                                                    |                  | Google IAM                                                                             |                                                                  |
 |                                                    |                  |                                                                                        | Facebook IAM                                                     |
+|                                                    |                  |                                                                                        | GitHub IAM                                                       |
 |                                                    |                  |                                                                                        | Frontend login UI                                                |
 |                                                    |                  | Lending and Authors ID: 24 hexadecimal characters                                      |                                                                  |
 |                                                    |                  | Lending and Authors ID: 20 alphanumeric characters as business entity business id hash |                                                                  |
@@ -45,7 +46,7 @@ Since we are with only 2 students, we decided to implement around 2/3 of the req
 |                                                    |                  | Recommending Lendings: 10=<age<18: X books of genre “juvenile”                         |                                                                  |
 |                                                    |                  | Recommending Lendings: 18=<age: X books of the most lent genre of the reader           |                                                                  |
 |                                                    |                  | Recommending Lendings: NB: preferably, 10 and 18 would be configurable.                |                                                                  |
-|                                                    | Write report     |                                                                                        |                                                                  |
+|                                                    | Write report     |                                                                                        |                                                                  ||                                                    | Write report     |                                                                                        |                                                                  |
 
 ---------------------------------------------------------------
 
@@ -92,12 +93,12 @@ The following quality attributes have guided the architecture of Phase 1:
 
 ## 4. Implemented Requirements (ASRs)
 
-| Requirement                                            | QA Focus                       |
-|--------------------------------------------------------|--------------------------------|
-| Store data using relational models (e.g., MySQL, H2)   | Configurability                |
-| Authenticate using Google and Facebook SAML providers  | Extensibility, Reliability     |
-| Generate Lending and Author IDs using 3 formats        | Configurability                |
-| Recommend lendings based on reader age and genre stats | Configurability, Extensibility |
+| Requirement                                                   | QA Focus                       |
+|---------------------------------------------------------------|--------------------------------|
+| Store data using relational models (e.g., MySQL, H2)          | Configurability                |
+| Authenticate using Google, Facebook and GitHub SAML providers | Extensibility, Reliability     |
+| Generate Lending and Author IDs using 3 formats               | Configurability                |
+| Recommend lendings based on reader age and genre stats        | Configurability, Extensibility |
 
 ---------------------------------------------------------------
 
@@ -109,9 +110,10 @@ The following quality attributes have guided the architecture of Phase 1:
 - Future extension: document/NoSQL databases (MongoDB) (not implemented)
 
 ### 5.2 IAM Provider Integration
-- Configure Google and Facebook login using Spring Security + OAuth2
+- Configure Google, Facebook and GitHub login using Spring Security + OAuth2
 - Modular setup allows new providers to be added without rewriting auth logic, like GitHub, Azure, etc
 - Azure IAM requires a paid subscription, therefore this was not implemented
+- Thus, GitHub IAM was implemented instead
 - a landing page was not part of the requirements, but still a very basic landing page was made.
 
 ### 5.3 ID Generation Strategy
@@ -133,13 +135,13 @@ The following quality attributes have guided the architecture of Phase 1:
 ---------------------------------------------------------------
 
 ## 6. Tactics and Patterns
-| Tactic / Pattern           | Application Area                                      |
-|----------------------------|-------------------------------------------------------|
-| Strategy Pattern           | ID generation, lending recommendations                |
-| Dependency Injection       | Services, strategy selection                          |
-| Externalized Configuration | Age thresholds, DB settings                           |
-| OAuth2 + Spring Security   | SAML provider integration (Google, Facebook)          |
-| Modularity by Package      | `auth`, `persistence`, `idgeneration`, `lending`      |
+| Tactic / Pattern           | Application Area                                     |
+|----------------------------|------------------------------------------------------|
+| Strategy Pattern           | ID generation, lending recommendations               |
+| Dependency Injection       | Services, strategy selection                         |
+| Externalized Configuration | Age thresholds, DB settings                          |
+| OAuth2 + Spring Security   | SAML provider integration (Google, Facebook, GitHub) |
+| Modularity by Package      | `auth`, `persistence`, `idgeneration`, `lending`     |
 
 ---------------------------------------------------------------
 

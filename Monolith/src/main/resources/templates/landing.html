@@ -34,6 +34,8 @@
     </style>
 </head>
 <body>
+<div class="header-text">PHASE 1 Monolith </div>
+
 <h1>Welcome to the Online Library</h1>
 <button class="logout-btn" onclick="logout()">Logout</button>
 
@@ -43,7 +45,7 @@
         // localStorage.removeItem("jwtToken");
 
         // redirect naar login pagina
-        window.location.href = "/login.html";
+        window.location.href = "/login?logout";
     }
 </script>
 </body>

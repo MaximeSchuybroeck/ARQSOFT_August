@@ -11,6 +11,16 @@
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/genremanagement/model/GenreWhiteBoxTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingWhiteBoxTest.java" afterDir="false" />
       <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/readermanagement/model/PhoneNumberWhiteBoxTest.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/resources/templates/landing.html" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/resources/templates/landing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/auth-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Services/auth-service/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/auth-service/src/main/resources/templates/landing.html" beforeDir="false" afterPath="$PROJECT_DIR$/Services/auth-service/src/main/resources/templates/landing.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/auth-service/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Services/auth-service/src/main/resources/templates/login.html" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -302,7 +312,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755549897272</updated>
     </task>
-    <option name="localTasksCounter" value="14" />
+    <task id="LOCAL-00014" summary="PHASE 2: added frond-end login &amp; logout logic.">
+      <option name="closed" value="true" />
+      <created>1755550018253</created>
+      <option name="number" value="00014" />
+      <option name="presentableId" value="LOCAL-00014" />
+      <option name="project" value="LOCAL" />
+      <updated>1755550018253</updated>
+    </task>
+    <option name="localTasksCounter" value="15" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

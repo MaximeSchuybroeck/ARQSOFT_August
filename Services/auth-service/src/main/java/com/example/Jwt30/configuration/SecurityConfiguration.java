@@ -69,7 +69,7 @@ public class SecurityConfiguration {
                 // Form login via your login.html (GET /login). Form POST goes to /login (loginProcessingUrl)
                 .formLogin(form -> form
                         .loginPage("/login")
-                        .loginProcessingUrl("/login")   // <form method="post" action="/login">
+                        .loginProcessingUrl("/login")
                         .defaultSuccessUrl("/landing", true)
                         .failureUrl("/login?error=true")
                         .permitAll()

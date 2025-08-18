@@ -40,6 +40,9 @@
         .facebook {
             background-color: #3b5998;
         }
+        .github {
+            background-color: #24292e;
+        }
     </style>
 </head>
 <body>
@@ -60,6 +63,7 @@
     <!-- OAuth2 logins -->
     <a class="oauth-btn google" th:href="@{/oauth2/authorization/google}">Login with Google</a>
     <a class="oauth-btn facebook" th:href="@{/oauth2/authorization/facebook}">Login with Facebook</a>
+    <a class="oauth-btn github" th:href="@{/oauth2/authorization/github}">Login with GitHub</a>
 
     <!-- Optional: error/logout messages -->
     <div th:if="${param.error}" style="color:#b00020; margin-top:1rem;">Invalid credentials</div>
