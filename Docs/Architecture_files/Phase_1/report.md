@@ -188,20 +188,10 @@ The diagrams that were made with for the 4+1 model.
 
 ---------------------------------------------------------------
 
-## OAuth Login Flow 
-### Scenarios: Use Case Diagram
-![OAuth_UseCase](assets/OAuthLoginFlow/UseCaseDiagram.svg)
+## Access
 
-### Scenarios: Sequence Diagram
-![OAuth_Sequence](assets/OAuthLoginFlow/SequenceDiagram.svg)
-
-### Process: Activity Diagram
-![OAuth_Activity](assets/OAuthLoginFlow/ActivityDiagram.svg)
-
-### Logical: Component Diagram
-![OAuth_Component](assets/OAuthLoginFlow/ComponentDiagram.svg)
-
-### Development: Package Diagram
-![OAuth_Package](assets/OAuthLoginFlow/PackageDiagram.svg)
+1. Run PsoftG1Application.java
+2. Use POSTMAN or go to http://localhost:8081/login 
 
 ---------------------------------------------------------------
+

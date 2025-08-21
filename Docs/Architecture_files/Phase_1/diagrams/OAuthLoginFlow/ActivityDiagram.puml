@@ -1,29 +1,22 @@
 @startuml
 start
+:OAuth2 success event;
+:Read provider, email, profile;
 
-:User logs in via Google, Facebook or normal;
-
-:Spring Security triggers onAuthenticationSuccess;
-
-:Extract email and name from OAuth token;
-
-
-if (email or name missing?) then (yes)
-  :Send 400 Bad Request;
+if (email or profile missing?) then (yes)
+  :HTTP 400 Bad Request;
   stop
-else (no)
-  :Check if user exists by email;
-
-  if (User exists?) then (no)
-    :Create and save new user;
-  endif
-
-  :Get user roles;
-  :Generate JWT token;
-  :Map user to UserView;
-  :Serialize response to JSON;
-  :Send response to frontend;
 endif
 
+:existsByUsername(email)?;
+if (no) then (user not found)
+  :Create & save new User\n(username, name, iamProvider, default pwd);
+endif
+
+:Load user by email;
+:Get authorities -> roles;
+:Build JWT (issuer="example.io", subject="id,username", roles, exp=3600s);
+:Map User -> UserView;
+:Return JSON { token, id, userName, fullName };
 stop
 @enduml

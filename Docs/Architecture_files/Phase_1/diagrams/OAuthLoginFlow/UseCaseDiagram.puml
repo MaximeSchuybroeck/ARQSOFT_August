@@ -2,8 +2,7 @@
 actor User
 
 rectangle "Authentication System" {
-  usecase "Login via Google" as UC1
-  usecase "Login via email & password" as UC7
+  usecase "Login via GitHub" as UC1
   usecase "Login via Facebook" as UC2
   usecase "Enter LMS" as UC3
 
@@ -11,8 +10,6 @@ rectangle "Authentication System" {
 
 User --> UC1
 User --> UC2
-User --> UC7
-UC7 --> UC3
 UC1 --> UC3
 UC2 --> UC3
 @enduml

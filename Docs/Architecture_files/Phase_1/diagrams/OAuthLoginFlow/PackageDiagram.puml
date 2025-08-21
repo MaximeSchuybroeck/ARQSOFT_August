@@ -1,8 +1,10 @@
 @startuml
+title OAuth Login – Package Structure (Phase 1)
+
 package pt.psoft.g1.psoftg1.configuration {
-  class OAuthAuthenticationSuccessHandler
+  class SecurityConfig
   class OAuthHandlerConfig
-  class UserRepository
+  class OAuthAuthenticationSuccessHandler
 }
 
 package pt.psoft.g1.psoftg1.usermanagement.api {
@@ -14,17 +16,22 @@ package pt.psoft.g1.psoftg1.usermanagement.model {
   class User
 }
 
+package pt.psoft.g1.psoftg1.usermanagement.repositories {
+  class UserRepository
+}
+
 package org.springframework.security.oauth2.jwt {
   class JwtEncoder
 }
 
+' --- relationships ---
+SecurityConfig --> OAuthHandlerConfig : uses bean
 OAuthHandlerConfig --> OAuthAuthenticationSuccessHandler : creates
+
 OAuthAuthenticationSuccessHandler --> UserRepository : uses
 OAuthAuthenticationSuccessHandler --> JwtEncoder : uses
 OAuthAuthenticationSuccessHandler --> UserViewMapper : uses
 OAuthAuthenticationSuccessHandler --> User : reads/writes
-OAuthAuthenticationSuccessHandler --> UserView : returns
 UserViewMapper --> UserView : creates
-OAuthAuthenticationSuccessHandler --> JwtEncoder : encodes JWT
 
 @enduml

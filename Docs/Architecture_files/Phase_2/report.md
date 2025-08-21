@@ -112,3 +112,60 @@ Reengineer the LMS application using a **microservices-based distributed archite
 
 **“Create Book, Author, and Genre in one flow”**
 
+---------------------------------------------------------------
+
+## Access
+
+1. Run Docker Engine
+2. Run docker-compose.yml or if built, run the services
+3. Surf to:
+   - [Login/signup](http://localhost:8081/login)
+   - [Eureka server](http://localhost:8761/)
+4. Or use POSTMAN:
+- **Auth** service: port 8081
+  - Login: http://localhost:8081/login (POST)
+  - signup: http://localhost:8081/signup (POST)
+
+
+- **Author** service: port 8082
+  - Get all authors: http://localhost:8082/api/authors (GET)
+  - Create author: http://localhost:8082/api/authors (POST)
+
+
+- **Book** service: port 8083
+  - Create book: http://localhost:8083/api/books (POST)
+  - Get all books: http://localhost:8083/api/books/all (GET)
+  - Search by title: http://localhost:8083/api/books/search (GET)
+  - Get top books: http://localhost:8083/api/books/top (GET)
+  - Get top genres: http://localhost:8083/api/books/top-genres (GET)
+  - Delete book by id: http://localhost:8083/api/books/{id} (DELETE)
+  - Check if exists by id: http://localhost:8083/api/books/{id}/exist (GET) 
+
+    
+- **Lending** service: port 8084
+    - Create lending: http://localhost:8084/api/lendings/borrow (POST)
+    - Get all lendings: http://localhost:8084/api/lendings/all (GET)
+    - Return a book: http://localhost:8084/api/lendings/return/{id} (POST)
+    - Get overdue books: http://localhost:8084/api/lendings/overdue (GET)
+    - Get average lending duration: http://localhost:8084/api/lendings/average-duration (GET)
+  
+
+- **Reader** service: port 8085
+    - Book acquisition suggestion
+        - Get all suggestions: http://localhost:8085/api/suggestions/all (GET)
+        - Get all approved: http://localhost:8085/api/suggestions/approved (GET)
+        - Top 5 not yet approved suggestions: http://localhost:8085/api/suggestions/top5Suggestions (GET)
+        - Search by status: http://localhost:8085/api/suggestions/statusList/{status} (GET)
+    - Normal reader calls:
+      - Create Reader: http://localhost:8085/api/readers (POST)
+      - Get by email: http://localhost:8085/api/readers/email?email=... (GET)
+      - Get by phone: http://localhost:8085/api/readers/phone?phone=... (GET)
+      - Get by email: http://localhost:8085/api/readers/email (GET)
+      - Get preferred genres from reader: http://localhost:8087/api/readers/{email}/genres (GET)
+
+
+- **Reporting** service: port 8086
+  - Top genres: http://localhost:8086/api/reports/top-genres (GET)
+  - Top readers by genre: http://localhost:8086/api/reports/top-readers/{genre} (GET)
+  - Top 5 authors: http://localhost:8086/api/reports/top5 (GET)
+

@@ -1,33 +1,52 @@
 @startuml
+title OAuth Login – Components & Flow (Phase 1)
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+
 package "Frontend" {
   [React App] as FE
 }
 
-package "Backend (Spring Boot)" {
+package "Spring Security (App)" {
+  [Security Filter Chain] as SFC
+  [OAuth2 Client] as OAuthClient
   [OAuthAuthenticationSuccessHandler] as Handler
-  [UserRepository] as Repo
   [JwtEncoder] as JWT
   [UserViewMapper] as Mapper
-  [UserController]
+  [UserRepository] as Repo
 }
 
-package "External Systems" {
-  [Google OAuth] as Google
+package "External IAM Providers" {
+  [GitHub OAuth] as GitHub
   [Facebook OAuth] as Facebook
-  [Normal Login] as NormalLogin
 }
 
-FE --> Google : OAuth2 login request
-FE --> Facebook : OAuth2 login request
-FE --> NormalLogin : OAuth2 login request
+' --- Browser initiates OAuth2 flow ---
+FE --> SFC : /oauth2/authorization/GitHub|facebook
+SFC --> OAuthClient : start OAuth2 login
+OAuthClient --> GitHub : Auth request (redirect)
+OAuthClient --> Facebook : Auth request (redirect)
 
-Google --> Handler : OAuth2 token (email, name, etc.)
-Facebook --> Handler : OAuth2 token (email, name, etc.)
-NormalLogin --> Handler : OAuth2 token (email, name, etc.)
+' --- Callback with authorization code + token exchange ---
+GitHub --> OAuthClient : id token / user info (email, name)
+Facebook --> OAuthClient : id token / user info (email, name)
 
-Handler --> Repo : Check or create user
-Handler --> JWT : Encode user info into token
-Handler --> Mapper : Convert User to DTO
-Handler --> FE : Return JSON with token and user info
+' --- Success handling ---
+OAuthClient --> Handler : onAuthenticationSuccess(authentication)
+
+Handler --> Repo : exists/find & (optional) save user
+Handler --> JWT : encode(claims: issuer, subject=id,username, roles, exp)
+Handler --> Mapper : map User -> UserView
+
+' ====== Variant A (custom success handler wired) ======
+Handler --> FE : JSON { token, id, userName, fullName }
+
+' ====== Variant B (default success handler; if NOT wired) ======
+' note right of OAuthClient
+'   If no custom successHandler is configured in SecurityConfig,
+'   Spring uses default success behavior (redirect to a success URL).
+' end note
+' OAuthClient --> FE : 302 Redirect (default success URL)
+
 @enduml
-
