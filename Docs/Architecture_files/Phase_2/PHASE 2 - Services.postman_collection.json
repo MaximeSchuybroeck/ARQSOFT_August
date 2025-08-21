@@ -1,0 +1,1046 @@
+{
+	"info": {
+		"_postman_id": "ce8c0cc2-0456-4e3d-9ed8-3fa7729e8138",
+		"name": "PHASE 2 - Services",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "39421265",
+		"_collection_link": "https://arqsoft-august.postman.co/workspace/ARQSOFT-August-Workspace~f40eecc8-17b8-4dcd-8f41-91d3ae88aa59/collection/39421265-ce8c0cc2-0456-4e3d-9ed8-3fa7729e8138?action=share&source=collection_link&creator=39421265"
+	},
+	"item": [
+		{
+			"name": "Auth",
+			"item": [
+				{
+					"name": "signup",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\"firstName\":\"Alice\",\"email\":\"alice@example.com\",\"password\":\"secret\",\"role\":\"LIBRARIAN\"}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/auth/signup",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"auth",
+								"signup"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Login",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\": \"alice@example.com\",\r\n    \"password\": \"secret\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/auth/login",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"auth",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Logout",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8081/auth/logout",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8081",
+							"path": [
+								"auth",
+								"logout"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Author",
+			"item": [
+				{
+					"name": "Create Author",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"firstName\": \"Joanne \",\r\n  \"lastName\": \"Kathleen Rowling\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8082/api/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all authors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8082/api/authors",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8082",
+							"path": [
+								"api",
+								"authors"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Book",
+			"item": [
+				{
+					"name": "Create Book",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"title\": \"Harry Potter and the Sorcerer's Stone\",\r\n  \"isbn\": \"978-0747532699\",\r\n  \"authorId\": 3\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/books",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"books"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/books/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"books",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get book by Title",
+					"protocolProfileBehavior": {
+						"disableBodyPruning": true
+					},
+					"request": {
+						"method": "GET",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/books/search?title=Harry Potter and the Sorcerer's Stone",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"books",
+								"search"
+							],
+							"query": [
+								{
+									"key": "title",
+									"value": "Harry Potter and the Sorcerer's Stone"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Top books",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/books/top",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"books",
+								"top"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get Top Genres",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/books/top-genres",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"books",
+								"top-genres"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Delete book by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "DELETE",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8083/api/books/1",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"books",
+								"1"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check if book exists by Id",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8083/api/books/2/exist",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8083",
+							"path": [
+								"api",
+								"books",
+								"2",
+								"exist"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reader",
+			"item": [
+				{
+					"name": "Book acquisition suggestion",
+					"item": [
+						{
+							"name": "Suggest acquisition",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"title\": \"Test Driven Development: By Example\",\r\n  \"genre\": \"Software Testing\",\r\n  \"authorFirstName\": \"Kent\",\r\n  \"authorLastName\": \"Beck\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "http://localhost:8085/api/suggestions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"suggestions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All sugestions",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8085/api/suggestions/all",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"suggestions",
+										"all"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "All approved",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8085/api/suggestions/approved",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"suggestions",
+										"approved"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "Top 5 suggestions (not yet approved)",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8085/api/suggestions/top5Suggestions",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"suggestions",
+										"top5Suggestions"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "List with status",
+							"request": {
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "http://localhost:8085/api/suggestions/statusList/REJECTED",
+									"protocol": "http",
+									"host": [
+										"localhost"
+									],
+									"port": "8085",
+									"path": [
+										"api",
+										"suggestions",
+										"statusList",
+										"REJECTED"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Book Recommendation",
+					"item": [
+						{
+							"name": "Create Recommendation",
+							"request": {
+								"method": "GET",
+								"header": []
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Create Reader",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"name\": \"Bob\",\r\n  \"email\": \"bob@example.com\",\r\n  \"phone\": \"+32478273581\",\r\n  \"birthDate\": \"1995-04-23\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8085/api/readers",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"readers"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get reader by Email",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/readers/email?email=bob@example.com",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"readers",
+								"email"
+							],
+							"query": [
+								{
+									"key": "email",
+									"value": "bob@example.com"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get reader by phone",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8085/api/readers/phone?phone=+32478273581",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8085",
+							"path": [
+								"api",
+								"readers",
+								"phone"
+							],
+							"query": [
+								{
+									"key": "phone",
+									"value": "+32478273581"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get funny quote",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8087/api/readers/bob@example.com/quote\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"readers",
+								"bob@example.com",
+								"quote\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get preferred genres",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8087/api/readers/bob@example.com/genres\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"readers",
+								"bob@example.com",
+								"genres\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Check if reader exists by email",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8087/api/readers/email/exist?value=bob@example.com\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8087",
+							"path": [
+								"api",
+								"readers",
+								"email",
+								"exist"
+							],
+							"query": [
+								{
+									"key": "value",
+									"value": "bob@example.com\n"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Lending",
+			"item": [
+				{
+					"name": "Lend a book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"bookId\": 1,\r\n  \"readerId\": 2,\r\n  \"lendingDate\": \"2025-08-10\",\r\n  \"dueDate\": \"2025-09-01\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:8084/api/lendings/borrow",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"lendings",
+								"borrow"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get all lendings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/lendings/all",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"lendings",
+								"all"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Return book",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "POST",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/lendings/return/5",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"lendings",
+								"return",
+								"5"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get overdue lendings",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/lendings/overdue",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"lendings",
+								"overdue"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get average lending duration",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8084/api/lendings/average-duration",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8084",
+							"path": [
+								"api",
+								"lendings",
+								"average-duration"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		},
+		{
+			"name": "Reporting",
+			"item": [
+				{
+					"name": "Get top genres",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/reports/top-genres\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"reports",
+								"top-genres\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get top readers by genre",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/reports/top-readers/Fantasy\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"reports",
+								"top-readers",
+								"Fantasy\n"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Get top 5 authors",
+					"request": {
+						"auth": {
+							"type": "bearer",
+							"bearer": [
+								{
+									"key": "token",
+									"value": "eyJhbGciOiJIUzI1NiJ9.eyJzdWIiOiJhbGljZUBleGFtcGxlLmNvbSIsImlhdCI6MTc1NDg0OTExNywiZXhwIjoxNzU0ODg1MTE3fQ.CAT7JZK10Z5RJ6HC8j1xtweCDIN668vViAXw5hYDWFk",
+									"type": "string"
+								}
+							]
+						},
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:8086/api/reports/top5\n",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "8086",
+							"path": [
+								"api",
+								"reports",
+								"top5\n"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
