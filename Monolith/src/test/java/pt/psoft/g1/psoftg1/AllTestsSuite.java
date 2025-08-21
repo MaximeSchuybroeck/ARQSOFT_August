@@ -12,6 +12,7 @@ import pt.psoft.g1.psoftg1.authormanagement.services.AuthorServiceImplIntegratio
 import pt.psoft.g1.psoftg1.bookmanagement.model.*;
 import pt.psoft.g1.psoftg1.configuration.OAuthAuthenticationProvidersTest;
 import pt.psoft.g1.psoftg1.genremanagement.model.GenreTest;
+import pt.psoft.g1.psoftg1.lendingmanagement.model.AgeRecommendationMutationTest;
 import pt.psoft.g1.psoftg1.lendingmanagement.model.LendingIdGenerationTest;
 import pt.psoft.g1.psoftg1.lendingmanagement.model.LendingNumberTest;
 import pt.psoft.g1.psoftg1.lendingmanagement.model.LendingTest;
@@ -53,7 +54,8 @@ import pt.psoft.g1.psoftg1.testutils.UserTestDataFactory;
         TopBooksTest.class,
         //OAuthAuthenticationProvidersTest.class,
         AuthorIdGenerationFunctionsTest.class,
-        LendingIdGenerationTest.class
+        LendingIdGenerationTest.class,
+        AgeRecommendationMutationTest.class
 
 })
 public class AllTestsSuite {

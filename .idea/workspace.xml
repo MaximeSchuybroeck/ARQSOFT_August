@@ -4,16 +4,11 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Deleted an unnecessary file">
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/AllTestsSuite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/model/AuthorIdGenerationFunctionsTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/BookRecommendationTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/TopBooksTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/configuration/OAuthAuthenticationProvidersTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingIdGenerationTest.java" afterDir="false" />
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="PHASE 1: Added the last test code files and markdown description files">
+      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/configuration/OAuthAuthenticationAcceptanceTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/AgeRecommendationMutationTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/test-code_summary.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/test-code_summary.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/lendingmanagement/model/LendingWhiteBoxTest.java" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/AllTestsSuite.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/AllTestsSuite.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,6 +74,7 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "Docker.Services: Compose Deployment.executor": "Run",
     "Docker.auth-service/Dockerfile.executor": "Run",
+    "JUnit.AgeRecommendationMutationTest.executor": "Run",
     "JUnit.All in psoft-g1.executor": "Run",
     "JUnit.AllTestsSuite.executor": "Run",
     "JUnit.AuthorIdGenerationFunctionsTest.executor": "Run",
@@ -86,6 +82,7 @@
     "JUnit.IsbnWhiteBoxTest.constructor_storesDigitsOnly_andSetsChecksumFlag.executor": "Run",
     "JUnit.IsbnWhiteBoxTest.executor": "Run",
     "JUnit.LendingIdGenerationTest.executor": "Run",
+    "JUnit.OAuthAuthenticationAcceptanceTest.executor": "Run",
     "JUnit.OAuthAuthenticationProvidersTest.executor": "Run",
     "JUnit.TopBooksTest.executor": "Run",
     "RunOnceActivity.OpenProjectViewOnStart": "true",
@@ -128,7 +125,22 @@
       <recent name="C:\Users\Maxim\Documents\Maxime_PORTO_ARQSOFT\ARQSOFT_August\Docs\Architecture_files\Phase_1\assets\Database" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.AllTestsSuite">
+  <component name="RunManager" selected="JUnit.OAuthMissingEmailMutationTest">
+    <configuration name="AgeRecommendationMutationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="psoft-g1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pt.psoft.g1.psoftg1.lendingmanagement.model.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1.lendingmanagement.model" />
+      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.lendingmanagement.model.AgeRecommendationMutationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AllTestsSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="psoft-g1" />
       <extension name="coverage">
@@ -139,6 +151,21 @@
       </extension>
       <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1" />
       <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.AllTestsSuite" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OAuthAuthenticationAcceptanceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="psoft-g1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pt.psoft.g1.psoftg1.configuration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1.configuration" />
+      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.configuration.OAuthAuthenticationAcceptanceTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -159,6 +186,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="OAuthMissingEmailMutationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="psoft-g1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pt.psoft.g1.psoftg1.configuration.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1.configuration" />
+      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.configuration.OAuthMissingEmailMutationTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -173,6 +215,9 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.OAuthMissingEmailMutationTest" />
+        <item itemvalue="JUnit.AgeRecommendationMutationTest" />
+        <item itemvalue="JUnit.OAuthAuthenticationAcceptanceTest" />
         <item itemvalue="JUnit.AllTestsSuite" />
         <item itemvalue="JUnit.OAuthAuthenticationProvidersTest" />
       </list>
@@ -347,7 +392,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755768436287</updated>
     </task>
-    <option name="localTasksCounter" value="19" />
+    <task id="LOCAL-00019" summary="PHASE 1: Added the last test code files and markdown description files">
+      <option name="closed" value="true" />
+      <created>1755811288746</created>
+      <option name="number" value="00019" />
+      <option name="presentableId" value="LOCAL-00019" />
+      <option name="project" value="LOCAL" />
+      <updated>1755811288746</updated>
+    </task>
+    <option name="localTasksCounter" value="20" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -396,7 +449,8 @@
     <MESSAGE value="Updated software-architecture files for both phases. PHASE 1: added UML-diagram description .md documents, added design-alternatives.md file, updated OAuthLoginFlow UML-diagrams with the current logic, added access instructions. PHASE 2: added access instructions" />
     <MESSAGE value="Added POSTMAN json collections" />
     <MESSAGE value="Deleted an unnecessary file" />
-    <option name="LAST_COMMIT_MESSAGE" value="Deleted an unnecessary file" />
+    <MESSAGE value="PHASE 1: Added the last test code files and markdown description files" />
+    <option name="LAST_COMMIT_MESSAGE" value="PHASE 1: Added the last test code files and markdown description files" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
