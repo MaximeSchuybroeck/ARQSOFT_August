@@ -5,30 +5,20 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Added GitHub to both phases. And updated PHASE 1 with auth logic">
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/Database/Database.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingRecommendations/LendingRecommendations.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingsAndAuthorsId/LendingsAndAuthorId.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/MySQLPersistence.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/OAuthLoginFlow.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/design-alternatives.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/AllTestsSuite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/model/AuthorWhiteBoxTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/IsbnWhiteBoxTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/genremanagement/model/GenreWhiteBoxTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/readermanagement/model/PhoneNumberWhiteBoxTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/configuration/UrlLog.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/dto/RecommendationRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/dto/RecommendationResponse.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/dto/RecommendationSummary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/dto/ReturnRequest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/entity/Recommendation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/repository/RecommendationRepository.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/ActivityDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/ActivityDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/ComponentDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/ComponentDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/PackageDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/PackageDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/SequenceDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/SequenceDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/UseCaseDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/UseCaseDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/ActivityDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/ActivityDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/ComponentDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/ComponentDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/PackageDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/PackageDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/SequenceDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/SequenceDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/UseCaseDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/UseCaseDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/docker-compose.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Services/docker-compose.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/client/Client.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/client/Client.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/controller/LendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/controller/LendingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/repository/LendingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/repository/LendingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/service/LendingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/service/LendingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/main/resources/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -41,8 +31,8 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="Class" />
         <option value="HTML File" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -72,6 +62,9 @@
     &quot;accountId&quot;: &quot;a93d1c1f-c27e-4b96-b99c-6dd570f3a811&quot;
   }
 }</component>
+  <component name="KubernetesApiProvider">{
+  &quot;isMigrated&quot;: true
+}</component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
   </component>
@@ -80,7 +73,7 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2zHFsVsOtHxgab30N5fbEEKTEBZ" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -195,13 +188,6 @@
       </list>
     </recent_temporary>
   </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
-      </set>
-    </attachedChunks>
-  </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
     <task active="true" id="Default" summary="Default task">
@@ -224,6 +210,9 @@
       <workItem from="1754581063165" duration="703000" />
       <workItem from="1754752755643" duration="2436000" />
       <workItem from="1754821702391" duration="6407000" />
+      <workItem from="1755808222369" duration="4928000" />
+      <workItem from="1755854844548" duration="4607000" />
+      <workItem from="1755940717279" duration="15701000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented code for requirement 1 and 2: MySQL and IAM providers Google and Facebook">
       <created>1753202182025</created>

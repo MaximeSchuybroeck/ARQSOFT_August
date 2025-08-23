@@ -1,5 +1,9 @@
 server:
   port: 8084
+  error:
+    include-message: always
+    include-binding-errors: always
+    include-stacktrace: always
 
 spring:
   application:
@@ -24,9 +28,22 @@ spring:
     username: guest
     password: guest
 
+reader:
+  service:
+    url: http://reader-service:8085
+
+book:
+  service:
+    url: http://book-service:8083
+
+
 eureka:
   client:
-    register-with-eureka: true
-    fetch-registry: true
-    service-url:
-      defaultZone: http://eureka-server:8761/eureka/
+    register-with-eureka: false
+    fetch-registry: false
+
+logging:
+  level:
+    org.springframework.cloud.openfeign: DEBUG
+    feign: DEBUG
+
