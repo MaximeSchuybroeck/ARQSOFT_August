@@ -23,7 +23,7 @@
         <module name="Jwt-3.0" />
         <module name="gateway-service" />
       </profile>
-      <profile name="Annotation profile for author-service" enabled="true">
+      <profile name="Annotation profile for reporting-service" enabled="true">
         <sourceOutputDir name="target/generated-sources/annotations" />
         <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
         <outputRelativeToContentRoot value="true" />

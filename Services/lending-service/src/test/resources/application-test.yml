@@ -1,0 +1,27 @@
+spring:
+  datasource:
+    url: jdbc:h2:mem:lendingtest;MODE=PostgreSQL;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=FALSE
+    driver-class-name: org.h2.Driver
+    username: sa
+    password: ""
+  jpa:
+    hibernate:
+      ddl-auto: create-drop
+    properties:
+      hibernate:
+        format_sql: false
+        jdbc:
+          time_zone: UTC
+  main:
+    allow-bean-definition-overriding: true
+
+book:
+  service:
+    url: http://book-service:8083
+
+reader:
+  service:
+    url: http://reader-service:8085
+# Don't attempt to actually connect to Rabbit / external services in tests
+spring.rabbitmq:
+  host: 127.0.0.1

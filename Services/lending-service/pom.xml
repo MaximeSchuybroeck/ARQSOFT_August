@@ -77,6 +77,11 @@
 			<groupId>org.springframework.boot</groupId>
 			<artifactId>spring-boot-starter-amqp</artifactId>
 		</dependency>
+		<dependency>
+			<groupId>com.h2database</groupId>
+			<artifactId>h2</artifactId>
+			<scope>test</scope>
+		</dependency>
 		<!-- JUnit 5 (already included in spring-boot-starter-test, but for clarity) -->
 		<dependency>
 			<groupId>org.junit.jupiter</groupId>
@@ -130,6 +135,30 @@
 							<artifactId>lombok</artifactId>
 						</exclude>
 					</excludes>
+				</configuration>
+			</plugin>
+			<plugin>
+				<groupId>org.pitest</groupId>
+				<artifactId>pitest-maven</artifactId>
+				<version>1.15.8</version>
+				<configuration>
+					<targetClasses>
+						<param>com.example.lending_service.service.*</param>
+						<param>com.example.lending_service.entity.*</param>
+					</targetClasses>
+					<targetTests>
+						<param>com.example.lending_service.*</param>
+					</targetTests>
+					<mutators>
+						<mutator>STRONGER</mutator>
+					</mutators>
+					<threads>4</threads>
+					<outputFormats>
+						<param>HTML</param>
+						<param>XML</param>
+					</outputFormats>
+					<timestampedReports>false</timestampedReports>
+					<failWhenNoMutations>false</failWhenNoMutations>
 				</configuration>
 			</plugin>
 		</plugins>

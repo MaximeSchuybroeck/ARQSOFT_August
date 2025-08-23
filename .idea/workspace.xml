@@ -4,11 +4,17 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Added GitHub to both phases. And updated PHASE 1 with auth logic">
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Requirement 3 small additions">
+      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/acceptance/ReturnRecommendation.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/integration/LendingController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/mutation/RecommendationSummary.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/opaque/LendingServiceReturn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/transparent/LendingServiceReturn.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/resources/application-test.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/controller/LendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/controller/LendingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/repository/LendingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/repository/LendingRepository.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/service/LendingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/service/LendingService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/pom.xml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -67,48 +73,55 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent">{
-  &quot;keyToString&quot;: {
-    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
-    &quot;Application.PsoftG1Application.executor&quot;: &quot;Run&quot;,
-    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
-    &quot;Docker.Services: Compose Deployment.executor&quot;: &quot;Run&quot;,
-    &quot;Docker.auth-service/Dockerfile.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AgeRecommendationMutationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.All in psoft-g1.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AllTestsSuite.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.AuthorIdGenerationFunctionsTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.BookRecommendationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.IsbnWhiteBoxTest.constructor_storesDigitsOnly_andSetsChecksumFlag.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.IsbnWhiteBoxTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.LendingIdGenerationTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OAuthAuthenticationAcceptanceTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.OAuthAuthenticationProvidersTest.executor&quot;: &quot;Run&quot;,
-    &quot;JUnit.TopBooksTest.executor&quot;: &quot;Run&quot;,
-    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
-    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
-    &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\Maxim\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.2\\plugins\\Shell Script\\shellcheck.exe&quot;,
-    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
-    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
-    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
-    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/ARQSOFT_August/Services/auth-service/src/main/resources/templates&quot;,
-    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
-    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
-    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
-    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
-    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
-    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
-    &quot;project.structure.side.proportion&quot;: &quot;0.36875&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;Settings.Markdown&quot;,
-    &quot;spring.configuration.checksum&quot;: &quot;94f84331fdb15d56e28a82bc331f2f4b&quot;,
-    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/psoft-project-2024-g1/pom.xml&quot;,
-    &quot;two.files.diff.last.used.folder&quot;: &quot;C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/psoft-project-2024-g1/src/main/java&quot;,
-    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
+  <component name="PropertiesComponent"><![CDATA[{
+  "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
+    "Application.PsoftG1Application.executor": "Run",
+    "DefaultHtmlFileTemplate": "HTML File",
+    "Docker.Services: Compose Deployment.executor": "Run",
+    "Docker.auth-service/Dockerfile.executor": "Run",
+    "JUnit.AgeRecommendationMutationTest.executor": "Run",
+    "JUnit.All in psoft-g1.executor": "Run",
+    "JUnit.AllTestsSuite.executor": "Run",
+    "JUnit.AuthorIdGenerationFunctionsTest.executor": "Run",
+    "JUnit.BookRecommendationTest.executor": "Run",
+    "JUnit.IsbnWhiteBoxTest.constructor_storesDigitsOnly_andSetsChecksumFlag.executor": "Run",
+    "JUnit.IsbnWhiteBoxTest.executor": "Run",
+    "JUnit.LendingController.executor": "Run",
+    "JUnit.LendingIdGenerationTest.executor": "Run",
+    "JUnit.LendingServiceReturn (1).executor": "Run",
+    "JUnit.LendingServiceReturn.executor": "Run",
+    "JUnit.OAuthAuthenticationAcceptanceTest.executor": "Run",
+    "JUnit.OAuthAuthenticationProvidersTest.executor": "Run",
+    "JUnit.RecommendationSummary.executor": "Run",
+    "JUnit.ReturnRecommendation.executor": "Run",
+    "JUnit.TopBooksTest.executor": "Run",
+    "RunOnceActivity.OpenProjectViewOnStart": "true",
+    "RunOnceActivity.ShowReadmeOnStart": "true",
+    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
+    "RunOnceActivity.git.unshallow": "true",
+    "SHARE_PROJECT_CONFIGURATION_FILES": "true",
+    "SHELLCHECK.PATH": "C:\\Users\\Maxim\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.2\\plugins\\Shell Script\\shellcheck.exe",
+    "WebServerToolWindowFactoryState": "true",
+    "git-widget-placeholder": "main",
+    "kotlin-language-version-configured": "true",
+    "last_opened_file_path": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/ARQSOFT_August/Services/auth-service/src/main/resources/templates",
+    "node.js.detected.package.eslint": "true",
+    "node.js.detected.package.tslint": "true",
+    "node.js.selected.package.eslint": "(autodetect)",
+    "node.js.selected.package.tslint": "(autodetect)",
+    "nodejs_package_manager_path": "npm",
+    "project.structure.last.edited": "Project",
+    "project.structure.proportion": "0.15",
+    "project.structure.side.proportion": "0.36875",
+    "run.configurations.included.in.services": "true",
+    "settings.editor.selected.configurable": "Settings.Markdown",
+    "spring.configuration.checksum": "94f84331fdb15d56e28a82bc331f2f4b",
+    "two.files.diff.last.used.file": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/psoft-project-2024-g1/pom.xml",
+    "two.files.diff.last.used.folder": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/psoft-project-2024-g1/src/main/java",
+    "vue.rearranger.settings.migration": "true"
   }
-}</component>
+}]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Maxim\Documents\Maxime_PORTO_ARQSOFT\ARQSOFT_August\Services\auth-service\src\main\resources\templates" />
@@ -125,78 +138,150 @@
       <recent name="C:\Users\Maxim\Documents\Maxime_PORTO_ARQSOFT\ARQSOFT_August\Docs\Architecture_files\Phase_1\assets\Database" />
     </key>
   </component>
-  <component name="RunManager" selected="JUnit.OAuthMissingEmailMutationTest">
-    <configuration name="AgeRecommendationMutationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="psoft-g1" />
+  <component name="RunDashboard">
+    <option name="configurationTypes">
+      <set>
+        <option value="MicronautRunConfigurationType" />
+        <option value="QuarkusRunConfigurationType" />
+        <option value="SpringBootApplicationConfigurationType" />
+      </set>
+    </option>
+  </component>
+  <component name="RunManager" selected="JUnit.LendingServiceReturn (1)">
+    <configuration name="LendingController" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lending-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="pt.psoft.g1.psoftg1.lendingmanagement.model.*" />
+          <option name="PATTERN" value="com.example.lending_service.integration.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1.lendingmanagement.model" />
-      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.lendingmanagement.model.AgeRecommendationMutationTest" />
+      <option name="PACKAGE_NAME" value="com.example.lending_service.integration" />
+      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.integration.LendingController" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AllTestsSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="psoft-g1" />
+    <configuration name="LendingServiceReturn (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lending-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="pt.psoft.g1.psoftg1.*" />
+          <option name="PATTERN" value="com.example.lending_service.transparent.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1" />
-      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.AllTestsSuite" />
+      <option name="PACKAGE_NAME" value="com.example.lending_service.transparent" />
+      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.transparent.LendingServiceReturn" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OAuthAuthenticationAcceptanceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="psoft-g1" />
+    <configuration name="LendingServiceReturn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lending-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="pt.psoft.g1.psoftg1.configuration.*" />
+          <option name="PATTERN" value="com.example.lending_service.opaque.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1.configuration" />
-      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.configuration.OAuthAuthenticationAcceptanceTest" />
+      <option name="PACKAGE_NAME" value="com.example.lending_service.opaque" />
+      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.opaque.LendingServiceReturn" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OAuthAuthenticationProvidersTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="psoft-g1" />
+    <configuration name="RecommendationSummary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lending-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="pt.psoft.g1.psoftg1.configuration.*" />
+          <option name="PATTERN" value="com.example.lending_service.mutation.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1.configuration" />
-      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.configuration.OAuthAuthenticationProvidersTest" />
+      <option name="PACKAGE_NAME" value="com.example.lending_service.mutation" />
+      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.mutation.RecommendationSummary" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="OAuthMissingEmailMutationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="psoft-g1" />
+    <configuration name="ReturnRecommendation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lending-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="pt.psoft.g1.psoftg1.configuration.*" />
+          <option name="PATTERN" value="com.example.lending_service.acceptance.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1.configuration" />
-      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.configuration.OAuthMissingEmailMutationTest" />
+      <option name="PACKAGE_NAME" value="com.example.lending_service.acceptance" />
+      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.acceptance.ReturnRecommendation" />
       <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Jwt-3.0" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Jwt30.Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AuthorServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="author-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.author_service.AuthorServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="BookServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="book-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.book_service.BookServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="EurekaServerApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="Eureka-Server" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.Eureka_Server.EurekaServerApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="GatewayServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="gateway-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.gateway_service.GatewayServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="LendingServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="lending-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.lending_service.LendingServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="PsoftG1Application" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="psoft-g1" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="pt.psoft.g1.psoftg1.PsoftG1Application" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReaderServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="reader-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.reader_service.ReaderServiceApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="ReportingServiceApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot" nameIsGenerated="true">
+      <module name="reporting-service" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.reporting_service.ReportingServiceApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -215,11 +300,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.OAuthMissingEmailMutationTest" />
-        <item itemvalue="JUnit.AgeRecommendationMutationTest" />
-        <item itemvalue="JUnit.OAuthAuthenticationAcceptanceTest" />
-        <item itemvalue="JUnit.AllTestsSuite" />
-        <item itemvalue="JUnit.OAuthAuthenticationProvidersTest" />
+        <item itemvalue="JUnit.LendingServiceReturn (1)" />
+        <item itemvalue="JUnit.LendingServiceReturn" />
+        <item itemvalue="JUnit.RecommendationSummary" />
+        <item itemvalue="JUnit.LendingController" />
+        <item itemvalue="JUnit.ReturnRecommendation" />
       </list>
     </recent_temporary>
   </component>
@@ -400,7 +485,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755811288746</updated>
     </task>
-    <option name="localTasksCounter" value="20" />
+    <task id="LOCAL-00020" summary="Requirement 3 small additions">
+      <option name="closed" value="true" />
+      <created>1755980583710</created>
+      <option name="number" value="00020" />
+      <option name="presentableId" value="LOCAL-00020" />
+      <option name="project" value="LOCAL" />
+      <updated>1755980583711</updated>
+    </task>
+    <option name="localTasksCounter" value="21" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -450,7 +543,8 @@
     <MESSAGE value="Added POSTMAN json collections" />
     <MESSAGE value="Deleted an unnecessary file" />
     <MESSAGE value="PHASE 1: Added the last test code files and markdown description files" />
-    <option name="LAST_COMMIT_MESSAGE" value="PHASE 1: Added the last test code files and markdown description files" />
+    <MESSAGE value="Requirement 3 small additions" />
+    <option name="LAST_COMMIT_MESSAGE" value="Requirement 3 small additions" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
