@@ -70,7 +70,8 @@ public class LendingController {
     }
 
     // ---------- Queries ----------
-    @GetMapping
+    // add an alias for /all
+    @GetMapping({""})
     public List<LendingDTO> getAll() {
         return service.getAllLendings();
     }
@@ -106,6 +107,17 @@ public class LendingController {
     @GetMapping("/books/{bookId}/recommendations/summary")
     public RecommendationSummaryDTO getRecommendationSummary(@PathVariable Long bookId) {
         return service.getRecommendationSummary(bookId);
+    }
+
+    @GetMapping("/active")
+    public List<LendingDTO> getActive() {
+        return service.getActiveLendings();
+    }
+
+    // (optional) GET /api/lendings/active/by-reader?email=alice@example.com
+    @GetMapping("/active/by-reader")
+    public List<LendingDTO> getActiveByReader(@RequestParam("email") String readerEmail) {
+        return service.getActiveLendingsByReader(readerEmail);
     }
 
     @GetMapping("/health")

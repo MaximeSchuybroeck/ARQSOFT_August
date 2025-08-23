@@ -11,6 +11,16 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import com.fasterxml.jackson.databind.JsonNode;
+import com.fasterxml.jackson.databind.ObjectMapper;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+import java.net.URI;
+import java.net.URLEncoder;
+import java.net.http.HttpClient;
+import java.net.http.HttpRequest;
+import java.net.http.HttpResponse;
+import java.nio.charset.StandardCharsets;
 
 import java.time.LocalDate;
 import java.util.List;
@@ -169,6 +179,13 @@ public class LendingService {
     public List<LendingDTO> getOverdueLendings() {
         return repo.findOverdueLendings().stream().map(this::toDTO).toList();
     }
+    public List<LendingDTO> getActiveLendings() {
+        return repo.findByReturnedDateIsNull().stream().map(this::toDTO).toList();
+    }
+
+    public List<LendingDTO> getActiveLendingsByReader(String readerEmail) {
+        return repo.findByReaderEmailAndReturnedDateIsNull(readerEmail).stream().map(this::toDTO).toList();
+    }
 
     public Double getAverageLendingDuration() {
         Double avg = repo.averageLendingDuration();
@@ -210,34 +227,83 @@ public class LendingService {
         } catch (Exception ignored) { }
     }
 
+    private static final Logger log = LoggerFactory.getLogger(LendingService.class);
+
+    /**
+     * Resolve a book id by title using book-service. Tries several common endpoints and
+     * finally GETs /api/books and filters locally (case-insensitive exact match).
+     * Returns null if not found. Logs details to help you diagnose connectivity/mapping.
+     *
+     * Make sure the property 'book.service.url' points to a reachable base URL from this service,
+     * e.g.:
+     *   book.service.url=http://book-service:8083          (compose service name)
+     *   book.service.url=http://host.docker.internal:8083  (book-service on host, lending in Docker)
+     *   book.service.url=http://localhost:8083             (both running on host, not in Docker)
+     */
     private Long resolveBookIdByTitle(String title) {
-        try {
-            java.net.URI uri = new java.net.URI(
-                    bookServiceBaseUrl + "/api/books/by-title?title=" +
-                            java.net.URLEncoder.encode(title, java.nio.charset.StandardCharsets.UTF_8)
-            );
-            java.net.http.HttpClient http = java.net.http.HttpClient.newHttpClient();
-            java.net.http.HttpRequest req = java.net.http.HttpRequest.newBuilder(uri).GET().build();
-            java.net.http.HttpResponse<String> resp = http.send(req, java.net.http.HttpResponse.BodyHandlers.ofString());
-            if (resp.statusCode() >= 200 && resp.statusCode() < 300) {
+        String enc = URLEncoder.encode(title, StandardCharsets.UTF_8);
+        String base = bookServiceBaseUrl.endsWith("/") ? bookServiceBaseUrl.substring(0, bookServiceBaseUrl.length() - 1)
+                : bookServiceBaseUrl;
+
+        String[] paths = new String[] {
+                "/api/books/by-title?title=" + enc,  // if you later add it
+                "/api/books/search?title=" + enc,    // if you expose a search endpoint
+                "/api/books?title=" + enc,           // some services support filtering
+                "/api/books"                          // fallback: list then filter here
+        };
+
+        HttpClient http = HttpClient.newHttpClient();
+        ObjectMapper om = new ObjectMapper();
+
+        for (String p : paths) {
+            String url = base + p;
+            try {
+                HttpRequest req = HttpRequest.newBuilder(URI.create(url)).GET().build();
+                HttpResponse<String> resp = http.send(req, HttpResponse.BodyHandlers.ofString());
+
+                if (resp.statusCode() < 200 || resp.statusCode() >= 300) {
+                    log.warn("Title resolve: {} -> HTTP {}", url, resp.statusCode());
+                    continue;
+                }
+
                 String body = resp.body();
-                int idx = body.indexOf("\"id\"");
-                if (idx >= 0) {
-                    int colon = body.indexOf(':', idx);
-                    if (colon > 0) {
-                        int end = colon + 1;
-                        while (end < body.length() && Character.isWhitespace(body.charAt(end))) end++;
-                        StringBuilder num = new StringBuilder();
-                        while (end < body.length() && Character.isDigit(body.charAt(end))) {
-                            num.append(body.charAt(end++));
-                        }
-                        if (!num.isEmpty()) {
-                            return Long.parseLong(num.toString());
+                JsonNode root = om.readTree(body);
+
+                // Single object with id
+                if (root.isObject()) {
+                    // { "id": 123, "title":"..." } or { "book": { "id":... } }
+                    JsonNode idNode = root.path("id");
+                    if (idNode.isNumber()) return idNode.asLong();
+                    JsonNode bookNode = root.path("book");
+                    if (bookNode.isObject() && bookNode.has("id")) return bookNode.get("id").asLong();
+                }
+
+                // Array of books
+                if (root.isArray()) {
+                    Long found = null;
+                    int matches = 0;
+                    for (JsonNode n : root) {
+                        String t = n.path("title").asText(null);
+                        if (t != null && t.equalsIgnoreCase(title)) {
+                            JsonNode idNode = n.get("id");
+                            if (idNode != null && idNode.isNumber()) {
+                                found = idNode.asLong();
+                                matches++;
+                            }
                         }
                     }
+                    if (matches == 1) return found;
+                    if (matches > 1) {
+                        throw new IllegalArgumentException("Book title '" + title + "' is ambiguous (" + matches + " matches).");
+                    }
+                    // else: no match in this array; try next path
                 }
+            } catch (Exception e) {
+                log.warn("Title resolve failed for {} ({}): {}", url, e.getClass().getSimpleName(), e.getMessage());
             }
-        } catch (Exception ignored) { }
+        }
+
+        log.warn("Could not resolve title '{}' using base '{}'", title, base);
         return null;
     }
 

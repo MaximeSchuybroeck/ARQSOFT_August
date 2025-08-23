@@ -19,6 +19,8 @@ public interface LendingRepository extends JpaRepository<Lending, Long> {
     @Lock(LockModeType.PESSIMISTIC_WRITE)
     Optional<Lending> findByIdAndReturnedDateIsNull(Long id);
 
+    List<Lending> findByReturnedDateIsNull();
+    List<Lending> findByReaderEmailAndReturnedDateIsNull(String readerEmail);
     Optional<Lending> findByBookIdAndReaderEmailAndReturnedDateIsNull(Long bookId, String readerEmail);
     Optional<Lending> findByBookIdAndReturnedDateIsNull(Long bookId);
 

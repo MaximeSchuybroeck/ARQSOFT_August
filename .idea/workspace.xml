@@ -5,30 +5,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Added GitHub to both phases. And updated PHASE 1 with auth logic">
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/Database/Database.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingRecommendations/LendingRecommendations.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/LendingsAndAuthorsId/LendingsAndAuthorId.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/MySQLPersistence/MySQLPersistence.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/OAuthLoginFlow.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/design-alternatives.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/AllTestsSuite.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/authormanagement/model/AuthorWhiteBoxTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/bookmanagement/model/IsbnWhiteBoxTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/genremanagement/model/GenreWhiteBoxTest.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Monolith/src/test/java/pt/psoft/g1/psoftg1/readermanagement/model/PhoneNumberWhiteBoxTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/ActivityDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/ActivityDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/ComponentDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/ComponentDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/PackageDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/PackageDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/SequenceDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/SequenceDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/UseCaseDiagram.svg" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/assets/OAuthLoginFlow/UseCaseDiagram.svg" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/ActivityDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/ActivityDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/ComponentDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/ComponentDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/PackageDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/PackageDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/SequenceDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/SequenceDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/UseCaseDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/diagrams/OAuthLoginFlow/UseCaseDiagram.puml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/controller/LendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/controller/LendingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/repository/LendingRepository.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/repository/LendingRepository.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/service/LendingService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/main/java/com/example/lending_service/service/LendingService.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -80,55 +60,55 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2zHFsVsOtHxgab30N5fbEEKTEBZ" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.PsoftG1Application.executor": "Run",
-    "DefaultHtmlFileTemplate": "HTML File",
-    "Docker.Services: Compose Deployment.executor": "Run",
-    "Docker.auth-service/Dockerfile.executor": "Run",
-    "JUnit.AgeRecommendationMutationTest.executor": "Run",
-    "JUnit.All in psoft-g1.executor": "Run",
-    "JUnit.AllTestsSuite.executor": "Run",
-    "JUnit.AuthorIdGenerationFunctionsTest.executor": "Run",
-    "JUnit.BookRecommendationTest.executor": "Run",
-    "JUnit.IsbnWhiteBoxTest.constructor_storesDigitsOnly_andSetsChecksumFlag.executor": "Run",
-    "JUnit.IsbnWhiteBoxTest.executor": "Run",
-    "JUnit.LendingIdGenerationTest.executor": "Run",
-    "JUnit.OAuthAuthenticationAcceptanceTest.executor": "Run",
-    "JUnit.OAuthAuthenticationProvidersTest.executor": "Run",
-    "JUnit.TopBooksTest.executor": "Run",
-    "RunOnceActivity.OpenProjectViewOnStart": "true",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252": "true",
-    "RunOnceActivity.git.unshallow": "true",
-    "SHELLCHECK.PATH": "C:\\Users\\Maxim\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.2\\plugins\\Shell Script\\shellcheck.exe",
-    "WebServerToolWindowFactoryState": "true",
-    "git-widget-placeholder": "main",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/ARQSOFT_August/Services/auth-service/src/main/resources/templates",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "project.structure.last.edited": "Project",
-    "project.structure.proportion": "0.15",
-    "project.structure.side.proportion": "0.36875",
-    "settings.editor.selected.configurable": "Settings.Markdown",
-    "spring.configuration.checksum": "94f84331fdb15d56e28a82bc331f2f4b",
-    "two.files.diff.last.used.file": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/psoft-project-2024-g1/pom.xml",
-    "two.files.diff.last.used.folder": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/psoft-project-2024-g1/src/main/java",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.PsoftG1Application.executor&quot;: &quot;Run&quot;,
+    &quot;DefaultHtmlFileTemplate&quot;: &quot;HTML File&quot;,
+    &quot;Docker.Services: Compose Deployment.executor&quot;: &quot;Run&quot;,
+    &quot;Docker.auth-service/Dockerfile.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AgeRecommendationMutationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.All in psoft-g1.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AllTestsSuite.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.AuthorIdGenerationFunctionsTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.BookRecommendationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IsbnWhiteBoxTest.constructor_storesDigitsOnly_andSetsChecksumFlag.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.IsbnWhiteBoxTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.LendingIdGenerationTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OAuthAuthenticationAcceptanceTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.OAuthAuthenticationProvidersTest.executor&quot;: &quot;Run&quot;,
+    &quot;JUnit.TopBooksTest.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.OpenProjectViewOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.TerminalTabsStorage.copyFrom.TerminalArrangementManager.252&quot;: &quot;true&quot;,
+    &quot;RunOnceActivity.git.unshallow&quot;: &quot;true&quot;,
+    &quot;SHELLCHECK.PATH&quot;: &quot;C:\\Users\\Maxim\\AppData\\Roaming\\JetBrains\\IntelliJIdea2025.2\\plugins\\Shell Script\\shellcheck.exe&quot;,
+    &quot;WebServerToolWindowFactoryState&quot;: &quot;true&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/ARQSOFT_August/Services/auth-service/src/main/resources/templates&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;project.structure.last.edited&quot;: &quot;Project&quot;,
+    &quot;project.structure.proportion&quot;: &quot;0.15&quot;,
+    &quot;project.structure.side.proportion&quot;: &quot;0.36875&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;Settings.Markdown&quot;,
+    &quot;spring.configuration.checksum&quot;: &quot;94f84331fdb15d56e28a82bc331f2f4b&quot;,
+    &quot;two.files.diff.last.used.file&quot;: &quot;C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/psoft-project-2024-g1/pom.xml&quot;,
+    &quot;two.files.diff.last.used.folder&quot;: &quot;C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/psoft-project-2024-g1/src/main/java&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\Maxim\Documents\Maxime_PORTO_ARQSOFT\ARQSOFT_August\Services\auth-service\src\main\resources\templates" />
