@@ -6,6 +6,7 @@
 |----------------------------------|----------------------------------------------------|
 | AllTestsSuite                    | Test suite (aggregator)                            |
 | AuthApiTest                      | Unit test — API/controller (Mockito)               |
+| OAuthAuthenticationProvidersTest | Unit test — auth handler/config (Mockito)          |
 | AuthorControllerIntegrationTest  | Integration test — controller slice                |
 | AuthorRepositoryIntegrationTest  | Integration test — repository slice                |
 | AuthorServiceImplIntegrationTest | Integration test — service (SpringBootTest, DB)    |
@@ -30,3 +31,4 @@
 | TestSecurityConfig               | Test support (config/util)                         |
 | TitleTest                        | Unit test — opaque-box (domain)                    |
 | UserTestDataFactory              | Test support (config/util)                         |
+| AgeRecommendationMutationTest    | Mutation test                                      |
