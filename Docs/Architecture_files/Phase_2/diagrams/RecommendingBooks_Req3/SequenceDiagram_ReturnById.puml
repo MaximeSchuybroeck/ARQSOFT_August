@@ -1,0 +1,31 @@
+@startuml
+actor Reader
+participant "LendingController" as C
+participant "LendingService" as S
+database "LendingRepository" as LR
+database "RecommendationRepository" as RR
+
+Reader -> C : POST /api/lendings/return/{id}\n?recommended=true/false&comment=...
+C -> S : returnById(id, recommended, comment)
+S -> LR : findByIdAndReturnedDateIsNull(id)  <<for update>>
+alt active lending found
+  S -> LR : save(returnedDate = now)
+  alt recommended != null
+    S -> RR : existsByLendingId(id)?
+    alt already recommended
+      S -> C : throws IllegalStateException
+      C --> Reader : 409 Conflict\n"recommendation already exists"
+    else not yet recommended
+      S -> RR : save(new Recommendation(...))
+      S --> C : LendingDTO
+      C --> Reader : 200 OK + LendingDTO
+    end
+  else no recommendation
+    S --> C : LendingDTO
+    C --> Reader : 200 OK + LendingDTO
+  end
+else not found (already returned or invalid id)
+  S -> C : throws IllegalArgumentException
+  C --> Reader : 400 Bad Request
+end
+@enduml

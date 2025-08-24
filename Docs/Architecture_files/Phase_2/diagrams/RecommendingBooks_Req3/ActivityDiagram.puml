@@ -1,15 +1,36 @@
 @startuml
 start
-:Reader returns a book;
-:Submit recommendation (positive/negative);
+:POST /api/lendings/return\n(by id OR reader+book OR reader+title);
+if (Identify active lending) then (by id)
+  :repo.findByIdAndReturnedDateIsNull(id);
+else (by reader+book)
+  :repo.findFirstByReaderEmailAndBookIdAndReturnedDateIsNull(email, bookId);
+endif
 
-:Fetch lending record by ID;
-:Extract book ID from lending;
+if (Not found?) then (yes)
+  :throw IllegalArgumentException\n("Lending X not found / already returned");
+  stop
+endif
 
-:Send recommendation to Recommendation Service;
-:Store recommendation;
+:mark returnedDate = now;\nrepo.save(lending);
 
-:Confirm recommendation received;
+if (recommended param present?) then (yes)
+  if (recRepo.existsByLendingId(lending.id)?) then (yes)
+    :throw IllegalStateException\n("recommendation already exists");
+    stop
+  else (no)
+    :Build Recommendation\n(sentiment=POSITIVE/NEGATIVE,\ncomment?, bookId, readerEmail, lendingId);\nrecRepo.save(...);
+  endif
+else (no)
+  :skip recommendation;
+endif
 
+:Return 200 OK + LendingDTO;
+
+note right
+Controller maps errors:
+- IllegalArgumentException -> 400
+- IllegalStateException  -> 409
+end note
 stop
 @enduml

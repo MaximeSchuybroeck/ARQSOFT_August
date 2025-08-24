@@ -1,0 +1,80 @@
+@startuml
+skinparam classAttributeIconSize 0
+
+class Lending {
+  +Long id
+  +Long bookId
+  +String readerEmail
+  +java.time.LocalDate startDate
+  +java.time.LocalDate dueDate
+  +java.time.LocalDate returnedDate
+}
+
+enum Sentiment {
+  POSITIVE
+  NEGATIVE
+}
+
+class Recommendation {
+  +Long id
+  +Long lendingId
+  +Long bookId
+  +String readerEmail
+  +Sentiment sentiment
+  +String comment
+  +java.time.LocalDateTime createdAt
+}
+
+class LendingService {
+  +LendingDTO borrow(Long, String, Integer)
+  +LendingDTO returnById(Long, Boolean, String)
+  +LendingDTO returnByReaderAndBook(ReturnRequest, Boolean, String)
+  +LendingDTO returnByReaderAndBookTitle(String, String, Boolean, String)
+  +RecommendationSummaryDTO getRecommendationSummary(Long)
+}
+
+interface LendingRepository {
+  +java.util.Optional<Lending> findByIdAndReturnedDateIsNull(Long)
+  +java.util.Optional<Lending> findFirstByReaderEmailAndBookIdAndReturnedDateIsNull(String, Long)
+  +java.util.List<Lending> findByReturnedDateIsNull()
+  +Lending save(Lending)
+}
+
+interface RecommendationRepository {
+  +boolean existsByLendingId(Long)
+  +long countByBookIdAndSentiment(Long, Sentiment)
+  +Recommendation save(Recommendation)
+  +java.util.List<Recommendation> findAll()
+}
+
+class LendingController {
+  +ResponseEntity<LendingDTO> borrow(...)
+  +ResponseEntity<LendingDTO> returnById(...)
+  +ResponseEntity<LendingDTO> returnByReaderAndBook(...)
+  +ResponseEntity<LendingDTO> returnByReaderAndBookTitle(...)
+  +RecommendationSummaryDTO getRecommendationSummary(Long)
+  +ResponseEntity<String> handleAlreadyReturned(IllegalStateException)
+  +ResponseEntity<String> handleBadRequest(IllegalArgumentException)
+}
+
+package Client {
+  interface BookClient {
+    +boolean bookExists(Long)
+    +Long resolveBookIdByTitle(String)
+  }
+  interface ReaderClient {
+    +boolean readerExists(String)
+  }
+}
+
+class LendingDTO
+class ReturnRequest
+class RecommendationSummaryDTO
+
+LendingService ..> LendingRepository
+LendingService ..> RecommendationRepository
+LendingService ..> Client.BookClient
+LendingService ..> Client.ReaderClient
+LendingController ..> LendingService
+Recommendation "0..*" --> "1" Lending : lendingId
+@enduml

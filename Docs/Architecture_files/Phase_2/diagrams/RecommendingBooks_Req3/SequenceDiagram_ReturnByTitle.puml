@@ -1,0 +1,34 @@
+@startuml
+actor Reader
+participant "LendingController" as C
+participant "LendingService" as S
+participant "BookClient" as BC
+database "LendingRepository" as LR
+database "RecommendationRepository" as RR
+
+Reader -> C : POST /api/lendings/return/by-title\n?readerEmail=e&bookTitle=t&recommended=...
+C -> S : returnByReaderAndBookTitle(e, t, recommended, comment)
+S -> BC : resolveBookIdByTitle(t)
+BC --> S : bookId
+S -> LR : findFirstByReaderEmailAndBookIdAndReturnedDateIsNull(e, bookId) <<for update>>
+alt active lending found
+  S -> LR : save(returnedDate = now)
+  alt recommended present
+    S -> RR : existsByLendingId(lending.id)?
+    alt duplicate rec
+      S -> C : throws IllegalStateException
+      C --> Reader : 409 Conflict
+    else ok
+      S -> RR : save(Recommendation)
+      S --> C : LendingDTO
+      C --> Reader : 200 OK
+    end
+  else not present
+    S --> C : LendingDTO
+    C --> Reader : 200 OK
+  end
+else not found
+  S -> C : throws IllegalArgumentException
+  C --> Reader : 400 Bad Request\n"Could not resolve lending"
+end
+@enduml

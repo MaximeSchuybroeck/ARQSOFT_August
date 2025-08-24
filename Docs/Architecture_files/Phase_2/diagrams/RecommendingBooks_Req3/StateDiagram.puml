@@ -1,0 +1,16 @@
+@startuml
+[*] --> Active : borrow()
+Active --> Returned : return()\nset returnedDate
+Returned --> [*]
+
+state Active {
+  [*] --> WithinDue
+  WithinDue --> Overdue : now > dueDate
+}
+
+note right of Returned
+Subsequent returns rejected:
+- 400 Bad Request (not active)
+or 409 if duplicate recommendation attempt on the same lending
+end note
+@enduml

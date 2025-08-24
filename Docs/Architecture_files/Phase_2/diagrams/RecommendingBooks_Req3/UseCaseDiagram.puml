@@ -1,0 +1,27 @@
+@startuml
+left to right direction
+actor Reader
+
+rectangle "Lending Service" {
+  usecase "Borrow Book" as UC_B
+  usecase "Return Book" as UC_R
+  usecase "Recommend Book\n(Positive or Negative)" as UC_REC
+  usecase "View Recommendation Summary" as UC_SUM
+}
+
+Reader --> UC_B
+Reader --> UC_R
+Reader --> UC_SUM
+
+UC_R .> UC_REC : <<optional>>\npart of return
+
+' (External checks commonly involved)
+rectangle "Book Service" as BS
+rectangle "Reader Service" as RS
+
+UC_B .> RS : <<uses>>\nvalidate reader
+UC_B .> BS : <<uses>>\nvalidate book
+UC_R .> RS : <<uses>>\nvalidate reader (if needed)
+UC_R .> BS : <<uses>>\nresolve title / validate book
+
+@enduml

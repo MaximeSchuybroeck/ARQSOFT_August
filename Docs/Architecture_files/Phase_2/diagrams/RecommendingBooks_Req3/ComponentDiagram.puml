@@ -1,0 +1,24 @@
+@startuml
+skinparam componentStyle rectangle
+
+actor Reader
+
+component "Lending Service (8084)" as LendingSvc {
+  [LendingController]
+  [LendingService]
+  [LendingRepository]
+  [RecommendationRepository]
+}
+
+database "PostgreSQL\n(schema: lending_service)" as DB
+component "Book Service (8083)" as BookSvc
+component "Reader Service (8085)" as ReaderSvc
+queue "RabbitMQ (optional events)" as MQ
+
+Reader --> LendingSvc : HTTP\n/borrow, /return\n(+ recommended?)
+LendingSvc --> DB : JPA/Hibernate
+LendingSvc --> BookSvc : Feign HTTP\n(validate/resolve title)
+LendingSvc --> ReaderSvc : Feign HTTP\n(validate reader)
+LendingSvc ..> MQ : publish LendingReturned\n(optional)
+
+@enduml

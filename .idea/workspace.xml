@@ -4,12 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Requirement 3: two tests for each type of test (opaque, transparant, mutation, integration and acceptance)">
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/acceptance/RecommendationSummary.java" afterDir="false" />
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Requirement 3: some extra tests">
+      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/RecommendingBooks_Req3/ClassDiagram.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/RecommendingBooks_Req3/ComponentDiagram.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/RecommendingBooks_Req3/SequenceDiagram_ReturnById.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/RecommendingBooks_Req3/SequenceDiagram_ReturnByTitle.puml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/RecommendingBooks_Req3/UseCaseDiagram.puml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/acceptance/ReturnRecommendation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/acceptance/ReturnRecommendation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/integration/LendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/integration/LendingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/transparent/LendingServiceReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/transparent/LendingServiceReturn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/RecommendingBooks_Req3/ActivityDiagram.puml" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/RecommendingBooks_Req3/ActivityDiagram.puml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/diagrams/RecommendingBooks_Req3/SequenceDiagram.puml" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -326,7 +329,7 @@
       <workItem from="1754581063165" duration="703000" />
       <workItem from="1754752755643" duration="2436000" />
       <workItem from="1754821702391" duration="6407000" />
-      <workItem from="1756025159253" duration="4876000" />
+      <workItem from="1756025159253" duration="7073000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented code for requirement 1 and 2: MySQL and IAM providers Google and Facebook">
       <created>1753202182025</created>
@@ -491,7 +494,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755984419594</updated>
     </task>
-    <option name="localTasksCounter" value="22" />
+    <task id="LOCAL-00022" summary="Requirement 3: some extra tests">
+      <option name="closed" value="true" />
+      <created>1756031785010</created>
+      <option name="number" value="00022" />
+      <option name="presentableId" value="LOCAL-00022" />
+      <option name="project" value="LOCAL" />
+      <updated>1756031785010</updated>
+    </task>
+    <option name="localTasksCounter" value="23" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -543,7 +554,8 @@
     <MESSAGE value="PHASE 1: Added the last test code files and markdown description files" />
     <MESSAGE value="Requirement 3 small additions" />
     <MESSAGE value="Requirement 3: two tests for each type of test (opaque, transparant, mutation, integration and acceptance)" />
-    <option name="LAST_COMMIT_MESSAGE" value="Requirement 3: two tests for each type of test (opaque, transparant, mutation, integration and acceptance)" />
+    <MESSAGE value="Requirement 3: some extra tests" />
+    <option name="LAST_COMMIT_MESSAGE" value="Requirement 3: some extra tests" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
