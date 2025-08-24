@@ -85,4 +85,5 @@ class ReturnRecommendation {
         assertThat(s.get("positives").asInt()).isEqualTo(0);
         assertThat(s.get("negatives").asInt()).isEqualTo(0);
     }
+
 }

@@ -4,17 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Requirement 3 small additions">
-      <change afterPath="$PROJECT_DIR$/.idea/uiDesigner.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/acceptance/ReturnRecommendation.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/integration/LendingController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/mutation/RecommendationSummary.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/opaque/LendingServiceReturn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/transparent/LendingServiceReturn.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/resources/application-test.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Requirement 3: two tests for each type of test (opaque, transparant, mutation, integration and acceptance)">
+      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/acceptance/RecommendationSummary.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/acceptance/ReturnRecommendation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/acceptance/ReturnRecommendation.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/integration/LendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/integration/LendingController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/transparent/LendingServiceReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/transparent/LendingServiceReturn.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -93,6 +88,7 @@
     "JUnit.LendingServiceReturn.executor": "Run",
     "JUnit.OAuthAuthenticationAcceptanceTest.executor": "Run",
     "JUnit.OAuthAuthenticationProvidersTest.executor": "Run",
+    "JUnit.RecommendationSummary (1).executor": "Run",
     "JUnit.RecommendationSummary.executor": "Run",
     "JUnit.ReturnRecommendation.executor": "Run",
     "JUnit.TopBooksTest.executor": "Run",
@@ -193,6 +189,21 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="RecommendationSummary (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lending-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.lending_service.acceptance.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.lending_service.acceptance" />
+      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.acceptance.RecommendationSummary" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="RecommendationSummary" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="lending-service" />
       <extension name="coverage">
@@ -203,21 +214,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.lending_service.mutation" />
       <option name="MAIN_CLASS_NAME" value="com.example.lending_service.mutation.RecommendationSummary" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="ReturnRecommendation" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lending-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.lending_service.acceptance.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.lending_service.acceptance" />
-      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.acceptance.ReturnRecommendation" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -301,19 +297,12 @@
     <recent_temporary>
       <list>
         <item itemvalue="JUnit.LendingServiceReturn (1)" />
+        <item itemvalue="JUnit.LendingController" />
+        <item itemvalue="JUnit.RecommendationSummary (1)" />
         <item itemvalue="JUnit.LendingServiceReturn" />
         <item itemvalue="JUnit.RecommendationSummary" />
-        <item itemvalue="JUnit.LendingController" />
-        <item itemvalue="JUnit.ReturnRecommendation" />
       </list>
     </recent_temporary>
-  </component>
-  <component name="SharedIndexes">
-    <attachedChunks>
-      <set>
-        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
-      </set>
-    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -337,6 +326,7 @@
       <workItem from="1754581063165" duration="703000" />
       <workItem from="1754752755643" duration="2436000" />
       <workItem from="1754821702391" duration="6407000" />
+      <workItem from="1756025159253" duration="4876000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented code for requirement 1 and 2: MySQL and IAM providers Google and Facebook">
       <created>1753202182025</created>
@@ -493,7 +483,15 @@
       <option name="project" value="LOCAL" />
       <updated>1755980583711</updated>
     </task>
-    <option name="localTasksCounter" value="21" />
+    <task id="LOCAL-00021" summary="Requirement 3: two tests for each type of test (opaque, transparant, mutation, integration and acceptance)">
+      <option name="closed" value="true" />
+      <created>1755984419594</created>
+      <option name="number" value="00021" />
+      <option name="presentableId" value="LOCAL-00021" />
+      <option name="project" value="LOCAL" />
+      <updated>1755984419594</updated>
+    </task>
+    <option name="localTasksCounter" value="22" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -544,7 +542,8 @@
     <MESSAGE value="Deleted an unnecessary file" />
     <MESSAGE value="PHASE 1: Added the last test code files and markdown description files" />
     <MESSAGE value="Requirement 3 small additions" />
-    <option name="LAST_COMMIT_MESSAGE" value="Requirement 3 small additions" />
+    <MESSAGE value="Requirement 3: two tests for each type of test (opaque, transparant, mutation, integration and acceptance)" />
+    <option name="LAST_COMMIT_MESSAGE" value="Requirement 3: two tests for each type of test (opaque, transparant, mutation, integration and acceptance)" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

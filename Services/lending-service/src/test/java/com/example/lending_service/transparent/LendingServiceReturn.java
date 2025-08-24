@@ -14,6 +14,7 @@ import org.springframework.amqp.rabbit.core.RabbitTemplate;
 import java.time.LocalDate;
 import java.util.Optional;
 
+import static org.assertj.core.api.Assertions.assertThat;
 import static org.assertj.core.api.Assertions.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
@@ -62,5 +63,41 @@ class LendingServiceReturn {
 
         // ensure we didn't save anything new
         verify(recRepo, never()).save(any(Recommendation.class));
+    }
+
+    // Transparent #3 (added): recommended=true creates POSITIVE recommendation and sets returnedDate
+    @Test
+    void recommended_true_creates_positive_recommendation_and_sets_returnedDate() {
+        Lending l = active(777L);
+        when(repo.findByIdAndReturnedDateIsNull(777L)).thenReturn(Optional.of(l));
+        when(recRepo.existsByLendingId(777L)).thenReturn(false);
+        when(repo.save(any(Lending.class))).thenAnswer(inv -> inv.getArgument(0));
+
+        service.returnById(777L, true, "nice");
+
+        // returned date set
+        assertThat(l.getReturnedDate()).isNotNull();
+
+        // recommendation saved once, with POSITIVE + comment
+        ArgumentCaptor<Recommendation> cap = ArgumentCaptor.forClass(Recommendation.class);
+        verify(recRepo, times(1)).save(cap.capture());
+        Recommendation r = cap.getValue();
+        assertThat(r.getBookId()).isEqualTo(1L);
+        assertThat(r.getLendingId()).isEqualTo(777L);
+        assertThat(r.getSentiment().name()).isEqualTo("POSITIVE");
+        assertThat(r.getComment()).isEqualTo("nice");
+    }
+
+    // Transparent #4 (added): no recommended param -> no recommendation persisted, but returnedDate set
+    @Test
+    void no_recommended_param_creates_no_recommendation() {
+        Lending l = active(888L);
+        when(repo.findByIdAndReturnedDateIsNull(888L)).thenReturn(Optional.of(l));
+        when(repo.save(any(Lending.class))).thenAnswer(inv -> inv.getArgument(0));
+
+        service.returnById(888L, null, null);
+
+        verify(recRepo, never()).save(any());
+        assertThat(l.getReturnedDate()).isNotNull();
     }
 }
