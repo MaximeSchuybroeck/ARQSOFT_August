@@ -143,11 +143,17 @@ Reengineer the LMS application using a **microservices-based distributed archite
 
     
 - **Lending** service: port 8084
-    - Create lending: http://localhost:8084/api/lendings/borrow (POST)
+    - Lend a book: http://localhost:8084/api/lendings/borrow (POST)
+    - Return book by id: http://localhost:8084/api/lendings/{id}/return (POST)
+    - Return book by title: http://localhost:8084/api/lendings/return/by-title/{readerEmail}/{bookTitle}/{recommended}/{comment} (POST)
+    - Return book with positive recommendation id: http://localhost:8084/api/lendings/return/{id}/{recommended}/{comment} (POST)
+    - Return book with negative recommendation id: http://localhost:8084/api/lendings/return/{id}/{recommended}/{comment} (POST)
     - Get all lendings: http://localhost:8084/api/lendings/all (GET)
-    - Return a book: http://localhost:8084/api/lendings/return/{id} (POST)
+    - Get all active lendings: http://localhost:8084/api/lendings/active (GET)
+    - Get all active lendings from reader: http://localhost:8084/api/lendings/all/{readerEmail} (GET)
     - Get overdue books: http://localhost:8084/api/lendings/overdue (GET)
     - Get average lending duration: http://localhost:8084/api/lendings/average-duration (GET)
+    - Get Recommendation summary: http://localhost:8084/api/lendings/books/1/recommendations/summary (GET)
   
 
 - **Reader** service: port 8085
