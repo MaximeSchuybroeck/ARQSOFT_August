@@ -44,6 +44,18 @@ In the previous phase, the LMS (Library Management System) was implemented using
 ### Goal
 Reengineer the LMS application using a **microservices-based distributed architecture**, aligned with SOA principles and API-led connectivity.
 
+### Migration Strategy – Strangler Fig
+
+We used the Strangler Fig pattern:
+
+1. Start with the monolith in production.
+2. Introduce a gateway to route calls.
+3. Gradually extract functionality (e.g. author, book, lending) into new services.
+4. Redirect traffic for each feature from monolith → microservice.
+5. Once fully migrated, the monolith becomes obsolete.
+
+This evolutionary approach reduced risk, avoided a “big bang” rewrite, and allowed parallel operation of old and new components
+
 ---
 
 ## 2. Functional Requirements
