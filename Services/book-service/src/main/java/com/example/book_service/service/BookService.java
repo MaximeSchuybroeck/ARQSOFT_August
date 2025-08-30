@@ -5,6 +5,7 @@ import com.example.book_service.dto.BookDTO;
 import com.example.book_service.entity.Book;
 import jakarta.persistence.EntityNotFoundException;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.data.domain.PageRequest;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
@@ -65,4 +66,5 @@ public class BookService {
     private BookDTO toDTO(Book b) {
         return new BookDTO(b.getId(), b.getTitle(), b.getGenre(), b.getCoverUrl(), b.getAuthorId());
     }
+
 }

@@ -9,6 +9,7 @@ import com.nimbusds.jose.proc.SecurityContext;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.core.annotation.Order;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.ProviderManager;
 import org.springframework.security.authentication.dao.DaoAuthenticationProvider;
@@ -112,6 +113,18 @@ public class SecurityConfig {
     }
 
     @Bean
+    @Order(0)
+    SecurityFilterChain actuator(HttpSecurity http) throws Exception {
+        http.securityMatcher("/actuator/**")
+                .authorizeHttpRequests(a -> a
+                        .requestMatchers("/actuator/health", "/actuator/health/**", "/actuator/info").permitAll()
+                        .anyRequest().authenticated())
+                .csrf(c -> c.disable());
+        return http.build();
+    }
+
+    @Bean
+    @Order(1)
     public SecurityFilterChain securityFilterChain(HttpSecurity http) throws Exception {
 
         http
@@ -124,7 +137,8 @@ public class SecurityConfig {
                                 "/api/login",
                                 "/oauth2/**",
                                 "/css/**", "/js/**", "/images/**", "/webjars/**",
-                                "/h2-console/**"
+                                "/h2-console/**",
+                                "/api/books", "/api/books/**"
                         ).permitAll()
                         .anyRequest().authenticated()
                 )

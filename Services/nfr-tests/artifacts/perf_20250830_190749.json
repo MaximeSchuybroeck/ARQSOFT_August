@@ -1,0 +1,12 @@
+﻿{
+    "p95ms":  0,
+    "avgms":  0,
+    "durationMinutes":  5,
+    "ratePerMin":  200,
+    "csv":  "C:\\Users\\maxim\\IdeaProjects\\ARQSOFT_August\\Services\\nfr-tests\\artifacts\\perf_20250830_190749.csv",
+    "count":  1000,
+    "target":  "http://localhost:8087/api/books/all?limit=20",
+    "timeoutSec":  2,
+    "successes":  0,
+    "failRatePercent":  100
+}

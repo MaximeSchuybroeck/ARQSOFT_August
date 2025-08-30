@@ -27,6 +27,7 @@ import pt.psoft.g1.psoftg1.readermanagement.services.ReaderService;
 import pt.psoft.g1.psoftg1.shared.api.ListResponse;
 import pt.psoft.g1.psoftg1.shared.services.ConcurrencyService;
 import pt.psoft.g1.psoftg1.shared.services.FileStorageService;
+import pt.psoft.g1.psoftg1.shared.services.Page;
 import pt.psoft.g1.psoftg1.shared.services.SearchRequest;
 import pt.psoft.g1.psoftg1.usermanagement.model.User;
 import pt.psoft.g1.psoftg1.usermanagement.services.UserService;
@@ -232,6 +233,27 @@ public class BookController {
 
         return ResponseEntity.ok().body(bookViewMapper.toBookAverageLendingDurationView(book, avgDuration));
     }
+
+
+    @Operation(summary = "Gets all books (paged). Use ?page=&size= or ?limit=")
+    @GetMapping("/all")
+    public ListResponse<BookView> getAllBooks(
+            @RequestParam(value = "page", defaultValue = "1") int page,
+            @RequestParam(value = "size", defaultValue = "20") int size,
+            @RequestParam(value = "limit", required = false) Integer limit
+    ) {
+        int pageSize = (limit != null && limit > 0) ? limit : size;
+        if (page < 1) page = 1;                // Page is 1-based in your codebase
+        if (pageSize < 1) pageSize = 20;
+
+        // Build an empty query so we list everything
+        final SearchBooksQuery query = new SearchBooksQuery(); // or SearchBooksQuery.builder().build()
+
+        var books = bookService.searchBooks(new Page(page, pageSize), query);
+        return new ListResponse<>(bookViewMapper.toBookView(books));
+    }
+
+
 
     @PostMapping("/search")
     public ListResponse<BookView> searchBooks(

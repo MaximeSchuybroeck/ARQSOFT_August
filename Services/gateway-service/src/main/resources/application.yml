@@ -1,17 +1,73 @@
 server:
   port: 8087
 
+security:
+  permitTestRoutes: true   # your AuthenticationFilter reads this
+
+logging:
+  level:
+    org.springframework.cloud.gateway: DEBUG
+    com.example.gateway_service: DEBUG
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: health,info,env,gateway
+  endpoint:
+    health:
+      probes:
+        enabled: true
+    gateway:
+      enabled: true         # ensure /actuator/gateway/** is on
+
 spring:
   application:
     name: gateway-service
+
   cloud:
     gateway:
-      server:
-        webflux:
-          discovery:
-            locator:
-              enabled: true
-              lower-case-service-id: true
+      discovery:
+        locator:
+          enabled: true
+          lower-case-service-id: true
+
+      routes:
+        - id: book-service-direct
+          uri: http://book-service:8083     # gateway container → book-service container
+          predicates:
+                - Path=/api/books/**
+              # keep the same /api/books path (no rewrite)
+          order: -10   # win over other book routes
+        - id: auth-service
+          uri: lb://auth-service
+          predicates:
+            - Path=/api/auth/**
+
+        - id: book-service
+          uri: lb://book-service
+          predicates:
+            - Path=/api/books/**
+
+        - id: author-service
+          uri: lb://author-service
+          predicates:
+            - Path=/api/authors/**
+
+        - id: lending-service
+          uri: lb://lending-service
+          predicates:
+            - Path=/api/lending/**
+
+        - id: reader-service
+          uri: lb://reader-service
+          predicates:
+            - Path=/api/readers/**
+
+        - id: reporting-service
+          uri: lb://reporting-service
+          predicates:
+            - Path=/api/reports/**
 
 eureka:
   client:
@@ -20,46 +76,7 @@ eureka:
     service-url:
       defaultZone: http://eureka-server:8761/eureka/
 
-routes:
-  - id: auth-service
-    uri: http://auth-service:8081
-    predicates:
-      - Path=/auth/**
-
-  - id: author-service
-    uri: http://author-service:8082
-    predicates:
-      - Path=/api/authors/**
-    filters:
-      - JwtAuthFilter
-
-  - id: book-service
-    uri: http://book-service:8083
-    predicates:
-      - Path=/api/books/**
-    filters:
-      - JwtAuthFilter
-
-  - id: lending-service
-    uri: http://lending-service:8084
-    predicates:
-      - Path=/api/lending/**
-    filters:
-      - JwtAuthFilter
-
-  - id: reader-service
-    uri: http://reader-service:8085
-    predicates:
-      - Path=/api/readers/**
-    filters:
-      - JwtAuthFilter
-
-  - id: reporting-service
-    uri: http://reporting-service:8086
-    predicates:
-      - Path=/api/reports/**
-    filters:
-      - JwtAuthFilter
+# keep if your JwtTokenValidator reads these here
 secret: JwtTokenKeyjkhkhdgfsjfsxjesjrdgfgjghfgghdkdgjdgcgfsdehjghj
 expiration: 3600000
 

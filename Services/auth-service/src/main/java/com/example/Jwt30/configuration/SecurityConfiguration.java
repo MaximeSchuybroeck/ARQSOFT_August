@@ -2,6 +2,7 @@ package com.example.Jwt30.configuration;
 
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
+import org.springframework.http.HttpMethod;
 import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
@@ -54,7 +55,8 @@ public class SecurityConfiguration {
                                 "/signup",           // signup page/endpoint if present
                                 "/api/login",        // your REST/JWT login endpoint
                                 "/css/**", "/js/**", "/images/**", "/webjars/**",
-                                "/h2-console/**"     // only for dev; remove in production
+                                "/h2-console/**",     // only for dev; remove in production
+                                "/api/books", "/api/books/**"
                         ).permitAll()
                         // everything else requires authentication
                         .anyRequest().authenticated()
