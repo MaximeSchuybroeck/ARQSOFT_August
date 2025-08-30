@@ -10,6 +10,15 @@
 - Reporting service
 
 ### Non-functional Requirements
+- The System must improve its availability --> tested
+- The system must increase the performance by 25% when in high demand (i.e. >Y
+requests/period) --> tested
+- The system must use hardware parsimoniously, according to the runtime demanding of
+the system. Demanding peeks of >Y requests/period occur seldom. --> not tested
+- The system must maintain (or improve) releasability. --> not tested
+- The software clients should not be affected by the changes (if any) in the API, except in
+extreme cases. --> not tested
+- The system must adhere to the company’s SOA strategy of API-led connectivity. --> not tested
 
 ### Functional Requirements
 - As a librarian, I want to create a Book, Author and Genre in the same process.
@@ -43,6 +52,18 @@ In the previous phase, the LMS (Library Management System) was implemented using
 
 ### Goal
 Reengineer the LMS application using a **microservices-based distributed architecture**, aligned with SOA principles and API-led connectivity.
+
+### Migration Strategy – Strangler Fig
+
+We used the Strangler Fig pattern:
+
+1. Start with the monolith in production.
+2. Introduce a gateway to route calls.
+3. Gradually extract functionality (e.g. author, book, lending) into new services.
+4. Redirect traffic for each feature from monolith → microservice.
+5. Once fully migrated, the monolith becomes obsolete.
+
+This evolutionary approach reduced risk, avoided a “big bang” rewrite, and allowed parallel operation of old and new components
 
 ---
 
@@ -95,7 +116,23 @@ Reengineer the LMS application using a **microservices-based distributed archite
 
 ---
 
-## 5. Component Structure
+## 5. Testing non-functional requirements
+### 5.1 The System must improve its availability --> tested
+To verify “the system must improve its availability,” we measured availability at the actual client entrypoints of both systems under the same conditions, including deliberate faults. For Project 2 (microservices) we probed the API gateway at http://localhost:8087/actuator/health; for Project 1 (monolith) we ran it on 8091 and probed http://localhost:8091/actuator/health. A check was counted successful if the response was 2xx/3xx within 2 s; failures were timeouts or any error status. We sampled every 5 s for 10 min per system and added a light background GET load so the apps weren’t idle.
+
+We injected faults on the same schedule: during the P2 window I restarted a random microservice at ~2, 4, 6, and 8 minutes; during the P1 window we restarted the whole monolith at the same times. This was automated with two PowerShell scripts: 01_availability.ps1 (periodic probe writing timestamp,latency_ms,status to CSV) and run_availability.ps1 (orchestrates P2 then P1, saves artifacts, and prints a summary).
+
+**Results: P2 achieved 100.00% availability; P1 achieved 91.60%** over the same 10 minutes. The gateway stayed up during internal service restarts (fault isolation), whereas restarting the monolith caused brief edge-level outages. **The improvement is +8.4 percentage points** in favor of Project 2. Evidence: P2_availability_…csv and P1_availability_…csv in Services\nfr-tests\artifacts\.
+
+### 5.2 The system must increase the performance by 25% when in high demand (i.e. > Y requests/period) --> tested
+### 5.3 The system must use hardware parsimoniously, according to the runtime demanding of the system. Demanding peeks of >Y requests/period occur seldom. --> not tested
+### 5.4 The system must maintain (or improve) releasability. --> not tested
+### 5.5 The software clients should not be affected by the changes (if any) in the API, except in extreme cases. --> not tested
+### 5.6 The system must adhere to the company’s SOA strategy of API-led connectivity. --> not tested
+
+---
+
+## 6. Component Structure
 
 - `book-service`: manages books and full creation flow
 - `author-service`: author creation, ID generation
@@ -108,7 +145,7 @@ Reengineer the LMS application using a **microservices-based distributed archite
 
 ---
 
-## 6. Example: Service Interaction for FR1
+## 7. Example: Service Interaction for FR1
 
 **“Create Book, Author, and Genre in one flow”**
 
@@ -143,11 +180,17 @@ Reengineer the LMS application using a **microservices-based distributed archite
 
     
 - **Lending** service: port 8084
-    - Create lending: http://localhost:8084/api/lendings/borrow (POST)
+    - Lend a book: http://localhost:8084/api/lendings/borrow (POST)
+    - Return book by id: http://localhost:8084/api/lendings/{id}/return (POST)
+    - Return book by title: http://localhost:8084/api/lendings/return/by-title/{readerEmail}/{bookTitle}/{recommended}/{comment} (POST)
+    - Return book with positive recommendation id: http://localhost:8084/api/lendings/return/{id}/{recommended}/{comment} (POST)
+    - Return book with negative recommendation id: http://localhost:8084/api/lendings/return/{id}/{recommended}/{comment} (POST)
     - Get all lendings: http://localhost:8084/api/lendings/all (GET)
-    - Return a book: http://localhost:8084/api/lendings/return/{id} (POST)
+    - Get all active lendings: http://localhost:8084/api/lendings/active (GET)
+    - Get all active lendings from reader: http://localhost:8084/api/lendings/all/{readerEmail} (GET)
     - Get overdue books: http://localhost:8084/api/lendings/overdue (GET)
     - Get average lending duration: http://localhost:8084/api/lendings/average-duration (GET)
+    - Get Recommendation summary: http://localhost:8084/api/lendings/books/1/recommendations/summary (GET)
   
 
 - **Reader** service: port 8085
