@@ -83,7 +83,8 @@ This evolutionary approach reduced risk, avoided a “big bang” rewrite, and a
 ## 3. Architectural Decisions
 
 ### Architecture Style
-- **Microservices** – Each bounded context is implemented as a separate Spring Boot service.
+The architecture is based on **microservices**, where each bounded context is implemented as a separate Spring Boot service.
+We also applied **Command-Query Responsibility Segregation (CQRS)**: command operations (borrow, return, acquisition suggestion, book creation) remain in their domain services, while queries are isolated into the reporting service. The reporting service maintains its own read-optimized schema, updated asynchronously through domain events. This ensures heavy read operations (such as “top 5 most lent books”) are fast and do not interfere with transactional workloads.
 
 ### Service Discovery & Routing
 - **Eureka Server** for dynamic service discovery
@@ -91,6 +92,21 @@ This evolutionary approach reduced risk, avoided a “big bang” rewrite, and a
 
 ### Database Strategy
 - Each service manages its own database (PostgreSQL, H2, etc.)
+- Polyglot persistence: PostgreSQL for books/lendings, H2 for lightweight services, and potential use of different DBMS as needed.
+
+### Messaging & Events
+For inter-service communication, we adopted **RabbitMQ (AMQP)** as our message broker. We defined a topic exchange lending.exchange and emit domain events whenever key actions occur in the lending domain.
+
+For example:
+- When a book is borrowed, the lending service publishes an event with routing key lending.book-lent.
+- When a book is returned (possibly with a positive or negative recommendation), an event with routing key lending.book-returned is sent.
+
+These **domain events** represent facts that have already occurred. Other services subscribe to them via RabbitMQ. The **reporting service**, for instance, listens for lending.book-lent events to update its projection tables. This decouples write-side logic from read-side analytics, and allows additional services to join the flow without impacting the core lending process.
+
+## Saga pattern 
+The system incorporates the **Saga pattern** in a lightweight, **choreography-based form**. Each local transaction (such as lending or returning a book) completes inside the lending service and then publishes an event. Other services react to these events, effectively participating in a distributed transaction through event choreography.
+
+At this stage, no central orchestrator is used (so this is not orchestration-based). Instead, the flow is driven by events: for example, the reporting service updates its read models whenever it receives a book-lent event, while future extensions (such as reader penalties or book availability checks) could be added as new subscribers. This design favors loose coupling and extensibility. Should stricter sequencing across multiple services be required in the future, the architecture can evolve toward orchestration.
 
 ### Authentication (IAM)
 - Dedicated **auth-service** using OAuth2 login via **Google** and **Facebook**
