@@ -12,13 +12,13 @@
 ### Non-functional Requirements
 - The System must improve its availability --> tested
 - The system must increase the performance by 25% when in high demand (i.e. >Y
-requests/period) --> tested
+requests/period) --> not tested yet
 - The system must use hardware parsimoniously, according to the runtime demanding of
-the system. Demanding peeks of >Y requests/period occur seldom. --> not tested
-- The system must maintain (or improve) releasability. --> not tested
+the system. Demanding peeks of >Y requests/period occur seldom. --> not tested yet
+- The system must maintain (or improve) releasability. --> not tested yet
 - The software clients should not be affected by the changes (if any) in the API, except in
-extreme cases. --> not tested
-- The system must adhere to the company’s SOA strategy of API-led connectivity. --> not tested
+extreme cases. --> not tested yet
+- The system must adhere to the company’s SOA strategy of API-led connectivity. --> not tested yet
 
 ### Functional Requirements
 - As a librarian, I want to create a Book, Author and Genre in the same process.
@@ -29,12 +29,12 @@ extreme cases. --> not tested
 | Not addressed               | Work-in-progress | Addressed                 | Tested | Completed |
 |-----------------------------|------------------|---------------------------|--------|-----------|
 |                             |                  | Implement Eureka server   |        |           |
-| Implement Author service    |                  |                           |        |           |
+|                             |                  | Implement Author service  |        |           |
 |                             |                  | Implement Auth service    |        |           |
-| Implement Book service      |                  |                           |        |           |
+|                             |                  | Implement Book service    |        |           |
 |                             |                  | Implement Gateway service |        |           |
-| Implement Lending service   |                  |                           |        |           |
-| Implement Reader service    |                  |                           |        |           |
+|                             |                  | Implement Lending service |        |           |
+|                             |                  | Implement Reader service  |        |           |
 | Implement Reporting service |                  |                           |        |           |
 
 ## Attribute-Driven Design (ADD)
@@ -140,11 +140,15 @@ We injected faults on the same schedule: during the P2 window I restarted a rand
 
 **Results: P2 achieved 100.00% availability; P1 achieved 91.60%** over the same 10 minutes. The gateway stayed up during internal service restarts (fault isolation), whereas restarting the monolith caused brief edge-level outages. **The improvement is +8.4 percentage points** in favor of Project 2. Evidence: P2_availability_…csv and P1_availability_…csv in Services\nfr-tests\artifacts\.
 
-### 5.2 The system must increase the performance by 25% when in high demand (i.e. > Y requests/period) --> tested
-### 5.3 The system must use hardware parsimoniously, according to the runtime demanding of the system. Demanding peeks of >Y requests/period occur seldom. --> not tested
-### 5.4 The system must maintain (or improve) releasability. --> not tested
-### 5.5 The software clients should not be affected by the changes (if any) in the API, except in extreme cases. --> not tested
-### 5.6 The system must adhere to the company’s SOA strategy of API-led connectivity. --> not tested
+### 5.2 The system must increase the performance by 25% when in high demand (i.e. > Y requests/period) --> not tested yet
+
+### 5.3 The system must use hardware parsimoniously, according to the runtime demanding of the system. Demanding peeks of >Y requests/period occur seldom. --> not tested yet 
+
+### 5.4 The system must maintain (or improve) releasability. --> not tested yet
+
+### 5.5 The software clients should not be affected by the changes (if any) in the API, except in extreme cases. --> not tested yet
+
+### 5.6 The system must adhere to the company’s SOA strategy of API-led connectivity. --> not tested yet
 
 ---
 
