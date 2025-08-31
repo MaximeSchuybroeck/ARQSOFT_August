@@ -5,8 +5,28 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="PHASE 2: Added AllTestsSuiteLending to the lending-service">
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/P1_20250830_200757.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/P1_20250830_214444_1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/P2_20250830_200757.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/P2_20250830_214444_1.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/P2_20250830_214444_1.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/P2_perf_20250831_173013.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/P2_perf_20250831_174111.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/P2_perf_20250831_174824.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/perf_20250830_194611.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/perf_20250830_194611.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/perf_20250830_195111.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/perf_20250830_195111.json" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/perf_20250830_200757.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/artifacts/perf_20250830_201526.csv" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/mint.js" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/nfr-tests/token.txt" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/mutation/RecommendationSummaryMut.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/mutation/RecommendationSummaryMut.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/opaque/LendingServiceReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/opaque/LendingServiceReturn.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/nfr-tests/run_performance.ps1" beforeDir="false" afterPath="$PROJECT_DIR$/Services/nfr-tests/run_performance.ps1" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -62,7 +82,7 @@
   &quot;associatedIndex&quot;: 1
 }</component>
   <component name="ProjectId" id="2zHFsVsOtHxgab30N5fbEEKTEBZ" />
-  <component name="ProjectLevelVcsManager">
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectViewState">
@@ -81,17 +101,23 @@
     "JUnit.AllTestsSuite.executor": "Run",
     "JUnit.AllTestsSuiteLending.executor": "Run",
     "JUnit.AuthorIdGenerationFunctionsTest.executor": "Run",
+    "JUnit.AuthorTest.executor": "Run",
+    "JUnit.BirthDateTest.executor": "Run",
     "JUnit.BookRecommendationTest.executor": "Run",
+    "JUnit.GenreTest.executor": "Run",
     "JUnit.IsbnWhiteBoxTest.constructor_storesDigitsOnly_andSetsChecksumFlag.executor": "Run",
     "JUnit.IsbnWhiteBoxTest.executor": "Run",
     "JUnit.LendingController.executor": "Run",
     "JUnit.LendingIdGenerationTest.executor": "Run",
+    "JUnit.LendingServiceApplicationTests.executor": "Run",
+    "JUnit.LendingServiceImplTest.executor": "Run",
     "JUnit.LendingServiceReturn (1).executor": "Run",
     "JUnit.LendingServiceReturn.executor": "Run",
     "JUnit.OAuthAuthenticationAcceptanceTest.executor": "Run",
     "JUnit.OAuthAuthenticationProvidersTest.executor": "Run",
     "JUnit.RecommendationSummary (1).executor": "Run",
     "JUnit.RecommendationSummary.executor": "Run",
+    "JUnit.RecommendationSummaryMut.executor": "Run",
     "JUnit.ReturnRecommendation.executor": "Run",
     "JUnit.TopBooksTest.executor": "Run",
     "Makefile Target.availability.executor": "Run",
@@ -160,20 +186,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.PsoftG1Application">
-    <configuration name="PsoftG1Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.PsoftG1Application" />
-      <module name="psoft-g1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pt.psoft.g1.psoftg1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
+  <component name="RunManager" selected="JUnit.LendingServiceReturn">
     <configuration name="AllTestsSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="psoft-g1" />
       <extension name="coverage">
@@ -189,46 +202,61 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="AllTestsSuiteLending" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lending-service" />
+    <configuration name="AuthorTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="psoft-g1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.lending_service.*" />
+          <option name="PATTERN" value="pt.psoft.g1.psoftg1.authormanagement.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.lending_service" />
-      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.AllTestsSuiteLending" />
+      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1.authormanagement.model" />
+      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.authormanagement.model.AuthorTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LendingController" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lending-service" />
+    <configuration name="LendingIdGenerationTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="psoft-g1" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.lending_service.integration.*" />
+          <option name="PATTERN" value="pt.psoft.g1.psoftg1.lendingmanagement.model.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.lending_service.integration" />
-      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.integration.LendingController" />
+      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1.lendingmanagement.model" />
+      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.lendingmanagement.model.LendingIdGenerationTest" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="LendingServiceReturnTrans" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="LendingServiceReturn" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="lending-service" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.lending_service.transparent.*" />
+          <option name="PATTERN" value="com.example.lending_service.opaque.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.lending_service.transparent" />
-      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.transparent.LendingServiceReturnTrans" />
+      <option name="PACKAGE_NAME" value="com.example.lending_service.opaque" />
+      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.opaque.LendingServiceReturn" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="RecommendationSummaryMut" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="lending-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.lending_service.mutation.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.lending_service.mutation" />
+      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.mutation.RecommendationSummaryMut" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -311,11 +339,11 @@
     </configuration>
     <recent_temporary>
       <list>
-        <item itemvalue="Application.PsoftG1Application" />
-        <item itemvalue="JUnit.AllTestsSuiteLending" />
+        <item itemvalue="JUnit.LendingServiceReturn" />
+        <item itemvalue="JUnit.RecommendationSummaryMut" />
         <item itemvalue="JUnit.AllTestsSuite" />
-        <item itemvalue="JUnit.LendingServiceReturnTrans" />
-        <item itemvalue="JUnit.LendingController" />
+        <item itemvalue="JUnit.AuthorTest" />
+        <item itemvalue="JUnit.LendingIdGenerationTest" />
       </list>
     </recent_temporary>
   </component>

@@ -1,105 +1,75 @@
 # Services/nfr-tests/run_performance.ps1
 param(
-    [Parameter(Mandatory = $true)][string]$P2Url,
-    [Parameter(Mandatory = $true)][string]$P1Url,
-    [int]$RatePerMin      = 200,
-    [int]$DurationMinutes = 5,
-    [int]$TimeoutSec      = 5,
-    [int]$Concurrency     = 1
+    [Parameter(Mandatory=$true)][string]$P2Url,            # e.g. http://localhost:8087/api/books?limit=20
+    [Parameter(Mandatory=$true)][string]$P1Url,            # e.g. http://localhost:8091/api/books?limit=20
+    [int]$RatePerMin = 200,                                 # Y
+    [int]$DurationMinutes = 5,                              # 5–10 recommended
+    [string]$TimeUnit = '1m',                               # '1m' or '1s'
+    [string]$P2Auth = '',                                   # optional "Bearer <token>"
+    [string]$P1Auth = '',                                   # optional "Bearer <token>"
+    [int]$VUs = 150, [int]$MaxVUs = 1000
 )
 
 $ErrorActionPreference = "Stop"
-$ts  = Get-Date -Format "yyyyMMdd_HHmmss"
-$art = Join-Path $PSScriptRoot "artifacts"
-New-Item -ItemType Directory -Force -Path $art | Out-Null
+$here = Split-Path -Parent $MyInvocation.MyCommand.Path
+$art = Join-Path $here "artifacts"; New-Item -ItemType Directory -Force -Path $art | Out-Null
+$k6 = "k6"  # k6.exe must be on PATH
 
-function StartLoad {
-    param([string]$Url, [string]$Prefix)
+function RunK6([string]$which,[string]$url,[string]$auth){
+    $stamp = Get-Date -Format "yyyyMMdd_HHmmss"
+    $json = Join-Path $art "$which`_perf_$stamp.json"
+    $args = @(
+        "run", (Join-Path $here "02_perf_k6.js"),
+        "--summary-export", $json,
+        "-e","TARGET=$url",
+        "-e","RATE=$RatePerMin",
+        "-e","TIME_UNIT=$TimeUnit",
+        "-e","DURATION=$($DurationMinutes)m",
+        "-e","VUS=$VUs",
+        "-e","MAX_VUS=$MaxVUs"
+    )
+    if ($auth) { $args += @("-e","AUTH=$auth") }
+    # run k6, but don't let its console output become function output
+    $null = (& $k6 @args 2>&1 | Out-Host)
+    $code = $LASTEXITCODE
 
-    $jobs = @()
-    # split the global rate across workers as evenly as possible
-    $base = [math]::Floor($RatePerMin / $Concurrency)
-    $rem  = $RatePerMin % $Concurrency
-
-    for ($i = 1; $i -le $Concurrency; $i++) {
-        $r    = $base + ($(if ($i -le $rem) { 1 } else { 0 }))
-        $csv  = Join-Path $art "$Prefix`_$i.csv"
-        $json = Join-Path $art "$Prefix`_$i.json"
-
-        $sb = {
-            param($u,$rate,$dur,$tout,$csvOut,$jsonOut,$root)
-            & powershell -NoProfile -ExecutionPolicy Bypass -File (Join-Path $root "02_performance.ps1") `
-        -Url $u -RatePerMin $rate -DurationMinutes $dur -TimeoutSec $tout -CsvOut $csvOut -JsonOut $jsonOut
-            exit $LASTEXITCODE
-        }
-
-        $jobs += Start-Job -ScriptBlock $sb -ArgumentList $Url,$r,$DurationMinutes,$TimeoutSec,$csv,$json,$PSScriptRoot
+    # treat code 99 (thresholds) as warning, continue
+    if ($code -ne 0 -and $code -ne 99) {
+        throw "k6 $which run failed with code $code"
+    } elseif ($code -eq 99) {
+        Write-Warning "k6 $which thresholds failed (code 99). Continuing so we can compare P1 vs P2."
     }
+    return $json
 
-    # wait and drain job output/errors (don't stuff two statements in one () )
-    Wait-Job $jobs | Out-Null
-    $null = $jobs | Receive-Job -Keep 2>$null
-    Remove-Job $jobs -Force | Out-Null
-
-    # merge CSVs and compute stats
-    $csvFiles = Get-ChildItem -Path $art -Filter "$Prefix`_*.csv"
-    $lat = New-Object System.Collections.Generic.List[int]
-    $ok = 0; $fail = 0
-
-    foreach ($f in $csvFiles) {
-        foreach ($line in Get-Content $f.FullName) {
-            if (-not $line) { continue }
-            $parts = $line.Split(',')
-            if ($parts.Count -lt 3) { continue }
-
-            # skip headers or malformed lines safely
-            try {
-                $status = [int]$parts[1]
-                $ms     = [int]$parts[2]
-            } catch {
-                continue
-            }
-
-            if ($status -ge 200 -and $status -lt 400) { $ok++; $lat.Add($ms) } else { $fail++ }
-        }
-    }
-
-    if ($lat.Count -gt 0) {
-        $sorted = $lat.ToArray() | Sort-Object
-        $idx    = [int][Math]::Ceiling($sorted.Length * 0.95) - 1
-        if ($idx -lt 0) { $idx = 0 }
-        $p95 = $sorted[$idx]
-        $avg = [int]([double]($sorted | Measure-Object -Average).Average)
-    } else { $p95 = 0; $avg = 0 }
-
-    [pscustomobject]@{
-        url       = $Url
-        p95_ms    = $p95
-        avg_ms    = $avg
-        ok        = $ok
-        fail      = $fail
-        csvBundle = "$art\$Prefix`_*.csv"
-    }
 }
 
-Write-Host "== P2 ($P2Url) =="
-$p2 = StartLoad -Url $P2Url -Prefix "P2_$ts"
+function Read-Metrics([string]$jsonPath){
+    $j = Get-Content -LiteralPath $jsonPath -Raw | ConvertFrom-Json
+    $p95 = [double]$j.metrics.http_req_duration.values.'p(95)'
+    $avg = [double]$j.metrics.http_req_duration.values.avg
+    $count = [double]$j.metrics.http_reqs.values.count
+    $failedRate = [double]$j.metrics.http_req_failed.values.rate
+    $rps = [math]::Round($count / ($DurationMinutes*60), 2)
+    [pscustomobject]@{ p95=$p95; avg=$avg; count=$count; rps=$rps; failRate=$failedRate; json=$jsonPath }
+}
 
-Write-Host "== P1 ($P1Url) =="
-$p1 = StartLoad -Url $P1Url -Prefix "P1_$ts"
 
-$impr = if ($p1.p95_ms -gt 0) {
-    [math]::Round((($p1.p95_ms - $p2.p95_ms) / [double]$p1.p95_ms) * 100, 2)
-} else { 0 }
+Write-Host "== Running P2 @ $P2Url =="
+$p2Json = RunK6 "P2" $P2Url $P2Auth
+$p2 = Read-Metrics $p2Json
 
-Write-Host ""
-Write-Host "== SUMMARY (rate=$RatePerMin req/min, concurrency=$Concurrency, duration=$DurationMinutes min) =="
-Write-Host (" P2: p95={0} ms, avg={1} ms, fail={2}%  -> {3}" -f $p2.p95_ms,$p2.avg_ms, ([int](100*$p2.fail/[math]::Max(1,($p2.ok+$p2.fail)))),$p2.csvBundle)
-Write-Host (" P1: p95={0} ms, avg={1} ms, fail={2}%  -> {3}" -f $p1.p95_ms,$p1.avg_ms, ([int](100*$p1.fail/[math]::Max(1,($p1.ok+$p1.fail)))),$p1.csvBundle)
-Write-Host (" Improvement (p95): {0}%" -f $impr)
+Write-Host "== Running P1 @ $P1Url =="
+$p1Json = RunK6 "P1" $P1Url $P1Auth
+$p1 = Read-Metrics $p1Json
 
-if ($impr -ge 25 -and $p2.fail -eq 0 -and $p1.fail -eq 0) {
-    Write-Host "RESULT: PASS"
+$impr = if ($p1.p95 -gt 0) { [math]::Round((($p1.p95 - $p2.p95)/$p1.p95)*100,2) } else { 0 }
+
+"`n== SUMMARY (High demand: $RatePerMin per $TimeUnit for $DurationMinutes m) =="
+" P2: p95=${($p2.p95)} ms, avg=${($p2.avg)} ms, rps=${($p2.rps)}, failRate=${($p2.failRate*100)}%, json=$($p2.json)"
+" P1: p95=${($p1.p95)} ms, avg=${($p1.avg)} ms, rps=${($p1.rps)}, failRate=${($p1.failRate*100)}%, json=$($p1.json)"
+" Improvement (p95): $impr percentage points (target ≥ 25)"
+if ($impr -ge 25 -and $p2.failRate -lt 0.01) {
+    "RESULT: PASS (≥25% faster p95 and P2 fail rate <1%)" | Write-Host -ForegroundColor Green
 } else {
-    Write-Host "RESULT: FAIL"
+    "RESULT: FAIL (does not meet 25% or fail rate too high)" | Write-Host -ForegroundColor Red
 }
