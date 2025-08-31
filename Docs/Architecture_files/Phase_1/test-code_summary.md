@@ -32,3 +32,20 @@
 | TitleTest                        | Unit test — opaque-box (domain)                    |
 | UserTestDataFactory              | Test support (config/util)                         |
 | AgeRecommendationMutationTest    | Mutation test                                      |
+
+
+## Number of tests per category
+
+| Test Category                                                    | Count |
+|------------------------------------------------------------------|------:|
+| Test suite (aggregator)                                          |     1 |
+| Unit test — black-box (opaque-box, domain + API/controller/auth) |    13 |
+| Unit test — white-box (transparent-box, domain)                  |     1 |
+| Integration test                                                 |     6 |
+| Mutation test                                                    |     1 |
+| Test support (config/util)                                       |     4 |
+
+**Total tests files:** 22
+
+**Total tests:** 111 (All passing successfully)
+
