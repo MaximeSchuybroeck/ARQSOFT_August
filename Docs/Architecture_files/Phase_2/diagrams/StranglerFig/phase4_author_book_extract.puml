@@ -1,0 +1,47 @@
+@startuml
+title Phase 4 — Extract Author & Book Services
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+cloud "Clients" as Clients
+rectangle "Edge" {
+  [API Gateway] as Gateway
+}
+node "Legacy" {
+  [Monolith] as Monolith
+  database "Monolith DB" as MonoDB
+}
+node "Microservices" {
+  [auth-service] as Auth
+  database "Auth DB" as AuthDB
+  [reader-service] as Reader
+  database "Reader DB" as ReaderDB
+  [author-service] as Author
+  database "Author DB" as AuthorDB
+  [book-service] as Book
+  database "Book DB" as BookDB
+}
+
+Clients --> Gateway
+Gateway --> Auth : /auth/**
+Gateway --> Reader : /readers/**
+Gateway --> Author : /authors/**
+Gateway --> Book : /books/**
+Gateway --> Monolith : /lending, /reports
+
+Author --> AuthorDB
+Book --> BookDB
+Reader --> ReaderDB
+Auth --> AuthDB
+Monolith --> MonoDB
+
+Reader -[dashed]-> Book : queries for holdings (read model)
+Author -[dashed]-> Book : author metadata
+
+note right of Book
+  Owns catalog, availability, search.
+  Integrates read-only with Author.
+end note
+
+@enduml

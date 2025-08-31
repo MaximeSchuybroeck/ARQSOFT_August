@@ -1,0 +1,37 @@
+@startuml
+title Phase 3 — Extract Reader Service (Profiles)
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+cloud "Clients" as Clients
+rectangle "Edge" {
+  [API Gateway] as Gateway
+}
+node "Legacy" {
+  [Monolith] as Monolith
+  database "Monolith DB" as MonoDB
+}
+node "Microservices" {
+  [auth-service] as Auth
+  database "Auth DB" as AuthDB
+  [reader-service] as Reader
+  database "Reader DB" as ReaderDB
+}
+
+Clients --> Gateway : HTTPS (Authorization: Bearer ...)
+Gateway --> Auth : /auth/**
+Gateway --> Reader : /readers/**
+Gateway --> Monolith : /books, /authors, /lending, /reports
+
+Auth --> AuthDB
+Reader --> ReaderDB
+Monolith --> MonoDB
+
+note right of Reader
+  Owns reader profiles & preferences.
+  Monolith read paths are redirected
+  to reader-service via gateway.
+end note
+
+@enduml

@@ -1,0 +1,75 @@
+@startuml
+title Phase 6 — Extract Reporting Service & Decommission Monolith
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+' Style for decommissioned components
+skinparam component<<decommissioned>> {
+  BackgroundColor #f9f2f2
+  BorderColor #d9534f
+  FontColor #d9534f
+}
+skinparam database<<decommissioned>> {
+  BackgroundColor #f9f2f2
+  BorderColor #d9534f
+  FontColor #d9534f
+}
+skinparam note {
+  BackgroundColor #fffbe6
+  BorderColor #f0ad4e
+}
+
+cloud "Clients" as Clients
+rectangle "Edge" {
+  [API Gateway] as Gateway
+}
+node "Microservices" {
+  [auth-service] as Auth
+  [reader-service] as Reader
+  [author-service] as Author
+  [book-service] as Book
+  [lending-service] as Lending
+  [reporting-service] as Reporting
+  queue "Event Bus" as Bus
+  database "Auth DB" as AuthDB
+  database "Reader DB" as ReaderDB
+  database "Author DB" as AuthorDB
+  database "Book DB" as BookDB
+  database "Lending DB" as LendingDB
+  database "Reporting Store" as ReportDB
+}
+
+' Keep legacy visible but marked decommissioned
+node "Legacy" {
+  [Monolith] <<decommissioned>> as Monolith
+  database "Monolith DB" <<decommissioned>> as MonoDB
+}
+
+Clients --> Gateway
+Gateway --> Auth : /auth/**
+Gateway --> Reader : /readers/**
+Gateway --> Author : /authors/**
+Gateway --> Book : /books/**
+Gateway --> Lending : /lendings/**
+Gateway --> Reporting : /reports/**
+
+Auth --> AuthDB
+Reader --> ReaderDB
+Author --> AuthorDB
+Book --> BookDB
+Lending --> LendingDB
+Reporting --> ReportDB
+
+Lending -[#green,bold]-> Bus
+Book -[#green,bold]-> Bus : BookCreated/Updated
+Reader -[#green,bold]-> Bus : ReaderCreated/Updated
+Reporting -[#green,bold]-> Bus : subscribe all
+
+note right of Monolith
+  Decommissioned in this phase.
+  All traffic is routed to microservices
+  via the API Gateway.
+end note
+
+@enduml

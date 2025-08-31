@@ -1,0 +1,26 @@
+@startuml
+title Phase 1 — Introduce API Gateway as Strangler Façade
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+cloud "Clients" as Clients
+rectangle "Edge" {
+  [API Gateway] as Gateway
+}
+node "Legacy" {
+  [Monolith] as Monolith
+  database "Monolith DB" as MonoDB
+}
+
+Clients --> Gateway : HTTPS
+Gateway --> Monolith : Proxy all paths
+Monolith --> MonoDB
+
+note right of Gateway
+  Strangler façade introduced.
+  All traffic still flows to the monolith,
+  but routing rules can carve out paths.
+end note
+
+@enduml
