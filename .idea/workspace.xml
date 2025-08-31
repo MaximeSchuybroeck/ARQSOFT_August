@@ -4,17 +4,9 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="Requirement 3: architecture plans: activity, use case, sequence, component, class diagrams">
-      <change afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/AllTestsSuiteLending.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="PHASE 2: Added AllTestsSuiteLending to the lending-service">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/acceptance/RecommendationSummary.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/acceptance/RecommendationSummary.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/acceptance/ReturnRecommendation.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/acceptance/ReturnRecommendation.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/integration/LendingController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/integration/LendingController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/mutation/RecommendationSummary.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/mutation/RecommendationSummaryMut.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/opaque/LendingServiceReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/opaque/LendingServiceReturn.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/transparent/LendingServiceReturn.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/lending-service/src/test/java/com/example/lending_service/transparent/LendingServiceReturnTrans.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -168,7 +160,20 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AllTestsSuiteLending">
+  <component name="RunManager" selected="Application.PsoftG1Application">
+    <configuration name="PsoftG1Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.PsoftG1Application" />
+      <module name="psoft-g1" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="pt.psoft.g1.psoftg1.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="AllTestsSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="psoft-g1" />
       <extension name="coverage">
@@ -224,21 +229,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.lending_service.transparent" />
       <option name="MAIN_CLASS_NAME" value="com.example.lending_service.transparent.LendingServiceReturnTrans" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="RecommendationSummary (1)" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lending-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.lending_service.acceptance.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.lending_service.acceptance" />
-      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.acceptance.RecommendationSummary" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -321,11 +311,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PsoftG1Application" />
         <item itemvalue="JUnit.AllTestsSuiteLending" />
         <item itemvalue="JUnit.AllTestsSuite" />
         <item itemvalue="JUnit.LendingServiceReturnTrans" />
         <item itemvalue="JUnit.LendingController" />
-        <item itemvalue="JUnit.RecommendationSummary (1)" />
       </list>
     </recent_temporary>
   </component>
@@ -530,7 +520,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756031785010</updated>
     </task>
-    <option name="localTasksCounter" value="23" />
+    <task id="LOCAL-00023" summary="PHASE 2: Added AllTestsSuiteLending to the lending-service">
+      <option name="closed" value="true" />
+      <created>1756658610708</created>
+      <option name="number" value="00023" />
+      <option name="presentableId" value="LOCAL-00023" />
+      <option name="project" value="LOCAL" />
+      <updated>1756658610708</updated>
+    </task>
+    <option name="localTasksCounter" value="24" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -583,7 +581,8 @@
     <MESSAGE value="Requirement 3 small additions" />
     <MESSAGE value="Requirement 3: two tests for each type of test (opaque, transparant, mutation, integration and acceptance)" />
     <MESSAGE value="Requirement 3: some extra tests" />
-    <option name="LAST_COMMIT_MESSAGE" value="Requirement 3: some extra tests" />
+    <MESSAGE value="PHASE 2: Added AllTestsSuiteLending to the lending-service" />
+    <option name="LAST_COMMIT_MESSAGE" value="PHASE 2: Added AllTestsSuiteLending to the lending-service" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
