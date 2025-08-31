@@ -4,9 +4,15 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="PHASE 2: Added AllTestsSuiteLending to the lending-service">
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="PHASE 1: Fixed IAM logins to be functional with port 8091 instead of 8081">
+      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/test-code_summary.md" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/test/java/com/example/reader_service/AcqSugControllerIntegration.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/test/java/com/example/reader_service/AcqSugServiceTest.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/test-code_summary.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/test-code_summary.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/report.md" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/reader-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Services/reader-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -20,8 +26,8 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="HTML File" />
-        <option value="Class" />
         <option value="JUnit5 Test Class" />
+        <option value="Class" />
       </list>
     </option>
   </component>
@@ -76,6 +82,8 @@
     "DefaultHtmlFileTemplate": "HTML File",
     "Docker.Services: Compose Deployment.executor": "Run",
     "Docker.auth-service/Dockerfile.executor": "Run",
+    "JUnit.AcqSugControllerIntegration.executor": "Run",
+    "JUnit.AcqSugServiceTest.executor": "Run",
     "JUnit.AgeRecommendationMutationTest.executor": "Run",
     "JUnit.All in psoft-g1.executor": "Run",
     "JUnit.AllTestsSuite.executor": "Run",
@@ -160,7 +168,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="Application.PsoftG1Application">
+  <component name="RunManager" selected="JUnit.AcqSugServiceTest">
     <configuration name="PsoftG1Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.PsoftG1Application" />
       <module name="psoft-g1" />
@@ -170,6 +178,36 @@
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AcqSugControllerIntegration" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="reader-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.reader_service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.reader_service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.reader_service.AcqSugControllerIntegration" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="AcqSugServiceTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="reader-service" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.reader_service.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.reader_service" />
+      <option name="MAIN_CLASS_NAME" value="com.example.reader_service.AcqSugServiceTest" />
+      <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -199,36 +237,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.lending_service" />
       <option name="MAIN_CLASS_NAME" value="com.example.lending_service.AllTestsSuiteLending" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LendingController" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lending-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.lending_service.integration.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.lending_service.integration" />
-      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.integration.LendingController" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="LendingServiceReturnTrans" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="lending-service" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.lending_service.transparent.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.lending_service.transparent" />
-      <option name="MAIN_CLASS_NAME" value="com.example.lending_service.transparent.LendingServiceReturnTrans" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -311,11 +319,11 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="JUnit.AcqSugServiceTest" />
+        <item itemvalue="JUnit.AcqSugControllerIntegration" />
         <item itemvalue="Application.PsoftG1Application" />
         <item itemvalue="JUnit.AllTestsSuiteLending" />
         <item itemvalue="JUnit.AllTestsSuite" />
-        <item itemvalue="JUnit.LendingServiceReturnTrans" />
-        <item itemvalue="JUnit.LendingController" />
       </list>
     </recent_temporary>
   </component>
@@ -528,7 +536,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756658610708</updated>
     </task>
-    <option name="localTasksCounter" value="24" />
+    <task id="LOCAL-00024" summary="PHASE 1: Fixed IAM logins to be functional with port 8091 instead of 8081">
+      <option name="closed" value="true" />
+      <created>1756659683899</created>
+      <option name="number" value="00024" />
+      <option name="presentableId" value="LOCAL-00024" />
+      <option name="project" value="LOCAL" />
+      <updated>1756659683899</updated>
+    </task>
+    <option name="localTasksCounter" value="25" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -582,7 +598,8 @@
     <MESSAGE value="Requirement 3: two tests for each type of test (opaque, transparant, mutation, integration and acceptance)" />
     <MESSAGE value="Requirement 3: some extra tests" />
     <MESSAGE value="PHASE 2: Added AllTestsSuiteLending to the lending-service" />
-    <option name="LAST_COMMIT_MESSAGE" value="PHASE 2: Added AllTestsSuiteLending to the lending-service" />
+    <MESSAGE value="PHASE 1: Fixed IAM logins to be functional with port 8091 instead of 8081" />
+    <option name="LAST_COMMIT_MESSAGE" value="PHASE 1: Fixed IAM logins to be functional with port 8091 instead of 8081" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>

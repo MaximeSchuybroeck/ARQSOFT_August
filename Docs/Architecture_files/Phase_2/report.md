@@ -21,21 +21,22 @@ extreme cases. --> not tested yet
 - The system must adhere to the company’s SOA strategy of API-led connectivity. --> not tested yet
 
 ### Functional Requirements
-- As a librarian, I want to create a Book, Author and Genre in the same process.
 - As a reader, I want to suggest the acquisition of a new book
 - As a reader, upon returning a book, I went to recommend it (positively or negatively).
 
 ## Kanban board
-| Not addressed               | Work-in-progress | Addressed                 | Tested | Completed |
-|-----------------------------|------------------|---------------------------|--------|-----------|
-|                             |                  | Implement Eureka server   |        |           |
-|                             |                  | Implement Author service  |        |           |
-|                             |                  | Implement Auth service    |        |           |
-|                             |                  | Implement Book service    |        |           |
-|                             |                  | Implement Gateway service |        |           |
-|                             |                  | Implement Lending service |        |           |
-|                             |                  | Implement Reader service  |        |           |
-| Implement Reporting service |                  |                           |        |           |
+| Not addressed | Work-in-progress | Addressed | Completed                                 |
+|---------------|------------------|-----------|-------------------------------------------|
+|               |                  |           | Implement Eureka server                   |
+|               |                  |           | Implement Author service                  |
+|               |                  |           | Implement Auth service                    |
+|               |                  |           | Implement Book service                    |
+|               |                  |           | Implement Gateway service                 |
+|               |                  |           | Implement Lending service                 |
+|               |                  |           | Implement Reader service                  |
+|               |                  |           | Implement Reporting service               |
+|               |                  |           | Implement book suggestion requirement     |
+|               |                  |           | Implement book recommendation requirement |
 
 ## Attribute-Driven Design (ADD)
 
