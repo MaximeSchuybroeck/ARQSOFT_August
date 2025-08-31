@@ -35,7 +35,7 @@ import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.
         // make UrlLog/book title resolver happy during tests
         "book.service.url=http://book-service:8083"
 })
-class RecommendationSummary {
+public class RecommendationSummary {
 
     @Autowired MockMvc mvc;
     @Autowired LendingRepository lendingRepo;
