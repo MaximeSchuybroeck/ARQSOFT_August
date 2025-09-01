@@ -47,18 +47,16 @@ public class SecurityConfiguration {
 
                 // Access rules
                 .authorizeHttpRequests(auth -> auth
-                        // Publicly accessible endpoints:
                         .requestMatchers(
-                                "/",                 // optional home
-                                "/login",            // login page (GET) + form processing (POST)
-                                "/oauth2/**",        // OAuth2 flows
-                                "/signup",           // signup page/endpoint if present
-                                "/api/login",        // your REST/JWT login endpoint
+                                "/", "/login", "/register",
+                                "/api/login",
+                                "/api/public/login",
+                                "/api/public/register",
+                                "/oauth2/**",
                                 "/css/**", "/js/**", "/images/**", "/webjars/**",
-                                "/h2-console/**",     // only for dev; remove in production
+                                "/h2-console/**",
                                 "/api/books", "/api/books/**"
                         ).permitAll()
-                        // everything else requires authentication
                         .anyRequest().authenticated()
                 )
 

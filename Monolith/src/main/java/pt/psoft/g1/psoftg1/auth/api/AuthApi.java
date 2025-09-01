@@ -70,6 +70,7 @@ public class AuthApi {
 	private final UserService userService;
 
 	@PostMapping("login")
+    @jakarta.annotation.security.PermitAll
 	public ResponseEntity<UserView> login(@RequestBody @Valid final AuthRequest request) {
 		try {
 			final Authentication authentication = authenticationManager.authenticate(
@@ -104,6 +105,7 @@ public class AuthApi {
 	 * @return
 	 */
 	@PostMapping("register")
+    @jakarta.annotation.security.PermitAll
 	public UserView register(@RequestBody @Valid final CreateUserRequest request) {
 		final var user = userService.create(request);
 		return userViewMapper.toUserView(user);

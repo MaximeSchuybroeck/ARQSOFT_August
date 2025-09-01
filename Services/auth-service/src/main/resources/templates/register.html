@@ -1,0 +1,106 @@
+<!DOCTYPE html>
+<html lang="nl" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Account Register</title>
+    <link rel="stylesheet" th:href="@{/css/styles.css}">
+    <style>
+        body{font-family:Arial,sans-serif;text-align:center;padding:2rem}
+        .box{max-width:420px;margin:auto;padding:2rem;border:1px solid #ccc;border-radius:8px;background:#fff}
+        input,select{width:100%;padding:.6rem;margin:.3rem 0;border:1px solid #bbb;border-radius:6px}
+        button{width:100%;padding:.7rem;border:none;border-radius:6px;background:#1976d2;color:#fff;cursor:pointer}
+        button:disabled{opacity:.6;cursor:not-allowed}
+        .error{color:#b00020;margin-top:.5rem;min-height:1.2rem}
+        .hint{font-size:.9rem;color:#555;margin-bottom:1rem}
+        a{color:#1976d2;text-decoration:none}
+    </style>
+</head>
+<body>
+<div class="box">
+    <h2>Make an account</h2>
+    <p class="hint">Use your email as username.</p>
+
+
+    <form id="registerForm">
+        <input id="name" name="name" type="text" placeholder="Full name" required />
+        <input id="username" name="username" type="email" placeholder="E‑mail" required />
+        <input id="password" name="password" type="password" placeholder="Password" required />
+        <input id="confirm" name="confirm" type="password" placeholder="confirm password" required />
+        <input id="age" name="age" type="number" min="0" placeholder="Age (Optional)" />
+        <input id="role" name="role" type="hidden" value="READER" />
+        <button id="submitBtn" type="submit">Register</button>
+        <div id="error" class="error"></div>
+    </form>
+
+
+    <div style="margin-top:1rem">
+        Already have an account? <a href="/login">Log in</a>
+    </div>
+</div>
+
+
+<script>
+    const form = document.getElementById('registerForm');
+    const errorEl = document.getElementById('error');
+    const btn = document.getElementById('submitBtn');
+
+
+    function showError(msg){ errorEl.textContent = msg || ''; }
+
+
+    form.addEventListener('submit', async (e) => {
+    e.preventDefault();
+    showError('');
+
+
+    const name = document.getElementById('name').value.trim();
+    const username = document.getElementById('username').value.trim();
+    const password = document.getElementById('password').value;
+    const confirm = document.getElementById('confirm').value;
+    const ageRaw = document.getElementById('age').value;
+    const role = document.getElementById('role').value || 'READER';
+
+
+    if (password !== confirm) { // why: fast UX‑validation
+    showError('Passwords do not match');
+    return;
+    }
+
+
+    const payload = {
+    username,
+    name,
+    password,
+    role,
+    // why: backend expects Integer of nothing
+    ...(ageRaw ? { age: parseInt(ageRaw, 10) } : {})
+    };
+
+
+    btn.disabled = true;
+    try {
+    const res = await fetch('/api/public/register', {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(payload)
+    });
+
+
+    if (!res.ok) {
+    // show backend error (bv. user already exists)
+    const text = await res.text();
+    showError(text || 'Registration failed');
+    } else {
+    // success: to login with hint
+    window.location.href = '/login?registered';
+    }
+    } catch (err) {
+    showError('Network error, try again later');
+    } finally {
+    btn.disabled = false;
+    }
+    });
+</script>
+</body>
+</html>

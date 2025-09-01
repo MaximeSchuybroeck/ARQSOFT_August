@@ -133,8 +133,9 @@ public class SecurityConfig {
                 .sessionManagement(sm -> sm.sessionCreationPolicy(SessionCreationPolicy.IF_REQUIRED))
                 .authorizeHttpRequests(auth -> auth
                         .requestMatchers(
-                                "/", "/login", "/signup",
-                                "/api/login",
+                                "/", "/login", "/register",
+                                "/api/public/login",
+                                "/api/public/register",
                                 "/oauth2/**",
                                 "/css/**", "/js/**", "/images/**", "/webjars/**",
                                 "/h2-console/**",
@@ -142,6 +143,7 @@ public class SecurityConfig {
                         ).permitAll()
                         .anyRequest().authenticated()
                 )
+
                 .formLogin(form -> form
                         .loginPage("/login")
                         .loginProcessingUrl("/login")

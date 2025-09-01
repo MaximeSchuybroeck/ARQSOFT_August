@@ -62,7 +62,7 @@ public class Author extends EntityWithPhoto {
         this.businessId = generateBusinessId(this.hexId);
         this.customIncrementalId = generateCustomIncrementalId();
     }
-    private final AtomicLong incrementalCounter = new AtomicLong(1); // Replace with DB or Redis in production
+    private static final AtomicLong incrementalCounter = new AtomicLong(1); // Replace with DB or Redis in production
 
     public String generateHexId() {
         return UUID.randomUUID().toString().replaceAll("-", "").substring(0, 24);

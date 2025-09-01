@@ -4,14 +4,24 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="PHASE 1: Fixed IAM logins to be functional with port 8091 instead of 8081">
-      <change afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/test-code_summary.md" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/test/java/com/example/reader_service/AcqSugControllerIntegration.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/Services/reader-service/src/test/java/com/example/reader_service/AcqSugServiceTest.java" afterDir="false" />
+    <list default="true" id="86668183-7da3-4b25-8ffa-cd5bf297ce1e" name="Changes" comment="PHASE 2: added test code for req 1 (suggestions) and updated the test-code summary.md file">
+      <change afterPath="$PROJECT_DIR$/.idea/IntelliLang.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Monolith/src/main/resources/templates/register.html" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/Services/auth-service/src/main/resources/templates/register.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/test-code_summary.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/test-code_summary.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_2/report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.jpb/jpb-settings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/jpa.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" beforeDir="false" afterPath="$PROJECT_DIR$/Docs/Architecture_files/Phase_1/report.md" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/auth/api/AuthApi.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/auth/api/AuthApi.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/auth/api/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/auth/api/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/authormanagement/model/Author.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/authormanagement/model/Author.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/configuration/SecurityConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/configuration/SecurityConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/usermanagement/services/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/java/pt/psoft/g1/psoftg1/usermanagement/services/UserService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/resources/application.properties" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Monolith/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Monolith/src/main/resources/templates/login.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/configuration/SecurityConfiguration.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/configuration/SecurityConfiguration.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/controller/AuthController.java" beforeDir="false" afterPath="$PROJECT_DIR$/Services/auth-service/src/main/java/com/example/Jwt30/controller/AuthController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Services/auth-service/src/main/resources/templates/login.html" beforeDir="false" afterPath="$PROJECT_DIR$/Services/auth-service/src/main/resources/templates/login.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Services/reader-service/src/main/resources/application.properties" beforeDir="false" afterPath="$PROJECT_DIR$/Services/reader-service/src/main/resources/application.properties" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -129,7 +139,7 @@
     "project.structure.proportion": "0.15",
     "project.structure.side.proportion": "0.36875",
     "run.configurations.included.in.services": "true",
-    "settings.editor.selected.configurable": "Settings.Markdown",
+    "settings.editor.selected.configurable": "preferences.pluginManager",
     "spring.configuration.checksum": "94f84331fdb15d56e28a82bc331f2f4b",
     "two.files.diff.last.used.file": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/psoft-project-2024-g1/pom.xml",
     "two.files.diff.last.used.folder": "C:/Users/Maxim/Documents/Maxime_PORTO_ARQSOFT/psoft-project-2024-g1/src/main/java",
@@ -159,6 +169,15 @@
       <recent name="com.example.lending_service" />
     </key>
   </component>
+  <component name="RunAnythingCache">
+    <myKeys>
+      <visibility group="Gradle Tasks" flag="true" />
+      <visibility group="HTTP Requests" flag="true" />
+      <visibility group="Maven Goals" flag="true" />
+      <visibility group="Recent projects" flag="true" />
+      <visibility group="Run configurations" flag="true" />
+    </myKeys>
+  </component>
   <component name="RunDashboard">
     <option name="configurationTypes">
       <set>
@@ -168,7 +187,7 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.AcqSugServiceTest">
+  <component name="RunManager" selected="Application.PsoftG1Application">
     <configuration name="PsoftG1Application" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
       <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.PsoftG1Application" />
       <module name="psoft-g1" />
@@ -207,21 +226,6 @@
       </extension>
       <option name="PACKAGE_NAME" value="com.example.reader_service" />
       <option name="MAIN_CLASS_NAME" value="com.example.reader_service.AcqSugServiceTest" />
-      <option name="TEST_OBJECT" value="class" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="AllTestsSuite" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="psoft-g1" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="pt.psoft.g1.psoftg1.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="pt.psoft.g1.psoftg1" />
-      <option name="MAIN_CLASS_NAME" value="pt.psoft.g1.psoftg1.AllTestsSuite" />
       <option name="TEST_OBJECT" value="class" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -305,6 +309,14 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="Services: Compose Deployment" type="docker-deploy" factoryName="docker-compose.yml" temporary="true" server-name="Docker_ARQSOFT">
+      <deployment type="docker-compose.yml">
+        <settings>
+          <option name="sourceFilePath" value="Services/docker-compose.yml" />
+        </settings>
+      </deployment>
+      <method v="2" />
+    </configuration>
     <configuration default="true" type="docker-deploy" factoryName="docker-compose.yml" temporary="true">
       <deployment type="docker-compose.yml">
         <settings />
@@ -319,13 +331,20 @@
     </configuration>
     <recent_temporary>
       <list>
+        <item itemvalue="Application.PsoftG1Application" />
+        <item itemvalue="Docker.Services: Compose Deployment" />
         <item itemvalue="JUnit.AcqSugServiceTest" />
         <item itemvalue="JUnit.AcqSugControllerIntegration" />
-        <item itemvalue="Application.PsoftG1Application" />
         <item itemvalue="JUnit.AllTestsSuiteLending" />
-        <item itemvalue="JUnit.AllTestsSuite" />
       </list>
     </recent_temporary>
+  </component>
+  <component name="SharedIndexes">
+    <attachedChunks>
+      <set>
+        <option value="bundled-jdk-9823dce3aa75-bf35d07a577b-intellij.indexing.shared.core-IU-252.23892.409" />
+      </set>
+    </attachedChunks>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -356,6 +375,7 @@
       <workItem from="1756556765914" duration="5620000" />
       <workItem from="1756563291053" duration="7049000" />
       <workItem from="1756570625802" duration="11617000" />
+      <workItem from="1756723780868" duration="15662000" />
     </task>
     <task id="LOCAL-00001" summary="Implemented code for requirement 1 and 2: MySQL and IAM providers Google and Facebook">
       <created>1753202182025</created>
@@ -544,7 +564,15 @@
       <option name="project" value="LOCAL" />
       <updated>1756659683899</updated>
     </task>
-    <option name="localTasksCounter" value="25" />
+    <task id="LOCAL-00025" summary="PHASE 2: added test code for req 1 (suggestions) and updated the test-code summary.md file">
+      <option name="closed" value="true" />
+      <created>1756670731198</created>
+      <option name="number" value="00025" />
+      <option name="presentableId" value="LOCAL-00025" />
+      <option name="project" value="LOCAL" />
+      <updated>1756670731198</updated>
+    </task>
+    <option name="localTasksCounter" value="26" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -599,7 +627,8 @@
     <MESSAGE value="Requirement 3: some extra tests" />
     <MESSAGE value="PHASE 2: Added AllTestsSuiteLending to the lending-service" />
     <MESSAGE value="PHASE 1: Fixed IAM logins to be functional with port 8091 instead of 8081" />
-    <option name="LAST_COMMIT_MESSAGE" value="PHASE 1: Fixed IAM logins to be functional with port 8091 instead of 8081" />
+    <MESSAGE value="PHASE 2: added test code for req 1 (suggestions) and updated the test-code summary.md file" />
+    <option name="LAST_COMMIT_MESSAGE" value="PHASE 2: added test code for req 1 (suggestions) and updated the test-code summary.md file" />
   </component>
   <component name="XDebuggerManager">
     <pin-to-top-manager>
@@ -608,5 +637,9 @@
         <PinnedItemInfo parentTag="pt.psoft.g1.psoftg1.shared.model.Photo" memberName="pk" />
       </pinned-members>
     </pin-to-top-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>

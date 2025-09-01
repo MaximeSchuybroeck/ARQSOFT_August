@@ -23,30 +23,30 @@ Since we are with only 2 students, we decided to implement around 2/3 of the req
       - NB: preferably, 10 and 18 would be configurable.
 
 ## Kanban board
-| Not addressed                                      | Work-in-progress | Addressed                                                                              | Completed                                                        |
-|----------------------------------------------------|------------------|----------------------------------------------------------------------------------------|------------------------------------------------------------------|
-|                                                    |                  |                                                                                        | Design UML diagrams for the MySQL server implementation          |
-| Design UML diagrams for the MongoDB implementation |                  |                                                                                        |                                                                  |
-|                                                    |                  |                                                                                        | Design UML diagrams for the IAM (Identity and Access Management) |
-|                                                    |                  |                                                                                        | Design UML diagrams for the Lending and Authors ID               |
-|                                                    |                  |                                                                                        | Design UML diagrams for recommending lendings                    |
-|                                                    |                  |                                                                                        | MySQL server setup                                               |
-|                                                    |                  |                                                                                        | MySQL DB implementation                                          |
-| Mongo DB setup                                     |                  |                                                                                        |                                                                  |
-| Mongo DB implementation                            |                  |                                                                                        |                                                                  |
-|                                                    |                  | Google IAM                                                                             |                                                                  |
-|                                                    |                  |                                                                                        | Facebook IAM                                                     |
-|                                                    |                  |                                                                                        | GitHub IAM                                                       |
-|                                                    |                  |                                                                                        | Frontend login UI                                                |
-|                                                    |                  | Lending and Authors ID: 24 hexadecimal characters                                      |                                                                  |
-|                                                    |                  | Lending and Authors ID: 20 alphanumeric characters as business entity business id hash |                                                                  |
-|                                                    |                  | Integer Incremental                                                                    |                                                                  |
-|                                                    |                  | Recommending Lendings: X books most lent from the Y most lent genre                    |                                                                  |
-|                                                    |                  | Recommending Lendings: age<10: X books of genre “children”                             |                                                                  |
-|                                                    |                  | Recommending Lendings: 10=<age<18: X books of genre “juvenile”                         |                                                                  |
-|                                                    |                  | Recommending Lendings: 18=<age: X books of the most lent genre of the reader           |                                                                  |
-|                                                    |                  | Recommending Lendings: NB: preferably, 10 and 18 would be configurable.                |                                                                  |
-|                                                    | Write report     |                                                                                        |                                                                  ||                                                    | Write report     |                                                                                        |                                                                  |
+| Not addressed                                      | Work-in-progress | Addressed  | Completed                                                                              |
+|----------------------------------------------------|------------------|------------|----------------------------------------------------------------------------------------|
+|                                                    |                  |            | Design UML diagrams for the MySQL server implementation                                |
+| Design UML diagrams for the MongoDB implementation |                  |            |                                                                                        |
+|                                                    |                  |            | Design UML diagrams for the IAM (Identity and Access Management)                       |
+|                                                    |                  |            | Design UML diagrams for the Lending and Authors ID                                     |
+|                                                    |                  |            | Design UML diagrams for recommending lendings                                          |
+|                                                    |                  |            | MySQL server setup                                                                     |
+|                                                    |                  |            | MySQL DB implementation                                                                |
+| Mongo DB setup                                     |                  |            |                                                                                        |
+| Mongo DB implementation                            |                  |            |                                                                                        |
+|                                                    |                  | Google IAM |                                                                                        |
+|                                                    |                  |            | Facebook IAM                                                                           |
+|                                                    |                  |            | GitHub IAM                                                                             |
+|                                                    |                  |            | Frontend login UI                                                                      |
+|                                                    |                  |            | Lending and Authors ID: 24 hexadecimal characters                                      |
+|                                                    |                  |            | Lending and Authors ID: 20 alphanumeric characters as business entity business id hash |
+|                                                    |                  |            | Integer Incremental                                                                    |
+|                                                    |                  |            | Recommending Lendings: X books most lent from the Y most lent genre                    |
+|                                                    |                  |            | Recommending Lendings: age<10: X books of genre “children”                             |
+|                                                    |                  |            | Recommending Lendings: 10=<age<18: X books of genre “juvenile”                         |
+|                                                    |                  |            | Recommending Lendings: 18=<age: X books of the most lent genre of the reader           |
+|                                                    |                  |            | Recommending Lendings: NB: preferably, 10 and 18 would be configurable                 |
+|                                                    |                  |            | Write report                                                                           |
 
 ---------------------------------------------------------------
 
@@ -70,7 +70,7 @@ This phase focuses on incorporating software quality attributes missing in previ
 
 | Stakeholder        | Concern                                                |
 |--------------------|--------------------------------------------------------|
-| End users          | Functional login and lending features                  |
+| End users          | Functional login and signup                            |
 | Developers         | A modular and configurable architecture                |
 | Project Evaluators | Verifiable quality through UML-diagrams, and test code |
 
@@ -80,7 +80,9 @@ This phase focuses on incorporating software quality attributes missing in previ
 The following quality attributes have guided the architecture of Phase 1:
 
 ### 3.1 Extensibility
-- Add new ID formats and IAM providers with minimal code changes
+- Add IAM providers with minimal code changes
+- Add new ID formats with minimal code changes
+- Give lending recommendations
 
 ### 3.2 Configurability
 - Select ID generation or lending strategy at runtime/config level
@@ -114,7 +116,7 @@ The following quality attributes have guided the architecture of Phase 1:
 - Modular setup allows new providers to be added without rewriting auth logic, like GitHub, Azure, etc
 - Azure IAM requires a paid subscription, therefore this was not implemented
 - Thus, GitHub IAM was implemented instead
-- a landing page was not part of the requirements, but still a very basic landing page was made.
+- A landing page was not part of the requirements, but still a very minimalistic landing page was made
 
 ### 5.3 ID Generation Strategy
 - Strategy pattern implemented to support:
@@ -191,7 +193,7 @@ The diagrams that were made with for the 4+1 model.
 ## Access
 
 1. Run PsoftG1Application.java
-2. Use POSTMAN or go to http://localhost:8081/login 
+2. Use POSTMAN or go to http://localhost:8091/login 
 
 ---------------------------------------------------------------
 

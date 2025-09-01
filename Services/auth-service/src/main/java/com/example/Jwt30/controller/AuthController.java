@@ -15,4 +15,9 @@ public class AuthController {
     public String landingPage() {
         return "landing"; // will resolve to landing.html
     }
+
+    @GetMapping("/register")
+    public String registerPage() {
+        return "register"; // Thymeleaf: templates/register.html
+    }
 }

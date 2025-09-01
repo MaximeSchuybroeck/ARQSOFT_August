@@ -75,24 +75,16 @@ public class UserService implements UserDetailsService {
 			}
 		}
 
-		User user;
-		switch(request.getRole()) {
-			case Role.READER: {
-				user = Reader.newReader(request.getUsername(), request.getPassword(), request.getName());
-				break;
-			}
-			case Role.LIBRARIAN: {
-				user = Librarian.newLibrarian(request.getUsername(), request.getPassword(), request.getName());
-				break;
-			}
-			default: {
-				return null;
-			}
-		}
-		user.setAge(request.getAge());
+        User user;
+        switch (request.getRole()) {
+            case Role.READER -> user = Reader.newReader(request.getUsername(), request.getPassword(), request.getName());
+            case Role.LIBRARIAN -> user = Librarian.newLibrarian(request.getUsername(), request.getPassword(), request.getName());
+            default -> { return null; }
+        }
+        user.setAge(request.getAge());
 
 		//final User user = userEditMapper.create(request);
-		user.setPassword(passwordEncoder.encode(request.getPassword()));
+		//user.setPassword(passwordEncoder.encode(request.getPassword()));
 		//user.addAuthority(new Role(request.getRole()));
 
 		return userRepo.save(user);
