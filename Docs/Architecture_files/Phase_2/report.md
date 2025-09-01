@@ -104,10 +104,38 @@ For example:
 
 These **domain events** represent facts that have already occurred. Other services subscribe to them via RabbitMQ. The **reporting service**, for instance, listens for lending.book-lent events to update its projection tables. This decouples write-side logic from read-side analytics, and allows additional services to join the flow without impacting the core lending process.
 
-## Saga pattern 
-The system incorporates the **Saga pattern** in a lightweight, **choreography-based form**. Each local transaction (such as lending or returning a book) completes inside the lending service and then publishes an event. Other services react to these events, effectively participating in a distributed transaction through event choreography.
+### Saga pattern 
+#### Current status — not implemented
+In Phase 2 we do not implement a Saga. Our **transactions are single-service**: for example, the lending-service performs a local ACID write after read-only validations against book/reader. Cross-service communication is used after the fact to publish domain events that the reporting-service consumes to build read models (CQRS).
+Because there is **no multi-step, cross-service treansactions** that must succeed atomically or be compensated, adding a Saga now would introduce complexity (state tracking, compensation logic, timeouts, retries) without a clear benefit.
 
-At this stage, no central orchestrator is used (so this is not orchestration-based). Instead, the flow is driven by events: for example, the reporting service updates its read models whenever it receives a book-lent event, while future extensions (such as reader penalties or book availability checks) could be added as new subscribers. This design favors loose coupling and extensibility. Should stricter sequencing across multiple services be required in the future, the architecture can evolve toward orchestration.
+#### When a Saga would be useful
+
+Adopt a Saga only **when a business workflow spans multiple services that each change state, and failures require compensations (roll-back)**:
+
+For example with: 
+- Real inventory reservations: Reserving a physical copy in book/inventory-service and then creating a lending in lending-service, with a need to release the reservation if lending creation fails.
+- Payments/fines: Charging or refunding in a separate payment-service coordinated with lending.
+- Acquisition workflow: Suggestion → approval → vendor order → cataloging → inventory availability across multiple services where some steps need rollback.
+- Cross-service user provisioning: Creating entries in auth-service and reader-service atomically.
+
+#### Recommended style for this project
+If/when we need a Saga, start with **orchestration-based Saga**:
+A **single coordinator** (could live inside lending-service or a small dedicated orchestrator service) drives the steps, manages timeouts, and issues compensation commands.
+It’s easier to reason about, test, and observe than a pure choreography for the sorts of flows we anticipate.
+Choreography can work for simple, linear processes (e.g., a lightweight acquisition pipeline) but tends to create distributed spaghetti as rules evolve.
+
+**Example future design — “Borrow with Reservation” (orchestrated)**
+Goal: Ensure a book copy is actually reserved in inventory before finalizing a lending; compensate cleanly on failures.
+
+Happy path (commands):
+(1) ReserveCopy(bookId, readerId) → book/inventory-service
+(2) CreateLending(readerId, bookId, dueDate) → lending-service
+(3) ConfirmReservation(reservationId) → book/inventory-service
+
+Compensations (on failure):
+- If (2) fails after (1) succeeded → ReleaseReservation(reservationId)
+- If (3) fails after (2) succeeded → CancelLending(lendingId) then ReleaseReservation(reservationId)
 
 ### Authentication (IAM)
 - Dedicated **auth-service** using OAuth2 login via **Google** and **Facebook**
