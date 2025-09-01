@@ -1,0 +1,54 @@
+@startuml saga-context
+title Future Saga – System Context (Borrow with Reservation)
+
+skinparam backgroundColor #ffffff
+skinparam componentStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 8
+skinparam defaultTextAlignment center
+
+actor User as user
+rectangle "Client UI / API Consumer" as client
+cloud "API Gateway" as gateway
+
+package "Coordination" {
+  component "Lending Orchestrator\n(Saga Coordinator)\n• may live inside lending-service\n• tracks saga state\n• timeouts & compensation" as orchestrator <<Microservice>>
+}
+
+package "Domain Services" {
+  component "Inventory/Book Service\n(copy availability, reservations)" as inventory
+  component "Lending Service\n(create/cancel lending)" as lending
+  component "Payment Service (optional)\n(fines/deposits)" as payment
+  component "Reporting Service\n(CQRS read models)" as reporting
+}
+
+queue "RabbitMQ\nTopic Exchanges:\n• inventory.exchange\n• lending.exchange\n• payment.exchange" as mq
+database "Postgres\nPer-service schemas" as db
+
+user --> client
+client --> gateway
+gateway --> orchestrator : POST /borrow\n(readerId, bookId, dueDate)
+
+orchestrator -down-> mq : publish commands/events
+inventory -down-> mq
+lending -down-> mq
+payment -down-> mq
+reporting -down-> mq : consume domain events\n(update projections)
+
+orchestrator --> db : Saga state store\n(table: lending_saga)
+inventory --> db
+lending --> db
+payment --> db
+reporting --> db
+
+note right of orchestrator
+Responsibilities:
+• Start saga for Borrow
+• Send ReserveCopy command
+• On CopyReserved → CreateLending
+• On LendingCreated → ConfirmReservation
+• Handle failures/timeouts with compensations
+• Emit final outcome (Completed/Failed)
+end note
+
+@enduml
