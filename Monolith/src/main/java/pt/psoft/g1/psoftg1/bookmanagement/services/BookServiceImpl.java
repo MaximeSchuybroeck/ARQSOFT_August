@@ -223,4 +223,29 @@ public class BookServiceImpl implements BookService {
             return bookRepository.findByGenre_GenreIgnoreCase(mostLentGenre);
         }
     }
+
+    @Override
+    public List<TopByGenreDTO> findTopXWithinTopYGenres(int topX, int topY) {
+        LocalDate since = LocalDate.now().minusYears(1);
+
+        var yPage = PageRequest.of(0, topY);
+        org.springframework.data.domain.Page<Object[]> topGenresPage =
+                lendingRepository.findTopGenresByLendCountSince(since, yPage);
+
+        List<TopByGenreDTO> result = new ArrayList<>();
+        for (Object[] row : topGenresPage.getContent()) {
+            String genre = (String) row[0];
+
+            var xPage = PageRequest.of(0, topX);
+            org.springframework.data.domain.Page<Object[]> topBooksPage =
+                    lendingRepository.findTopBooksByGenreSince(genre, since, xPage);
+
+            List<Book> books = topBooksPage.getContent().stream()
+                    .map(r -> (Book) r[0])   // r is Object[]: [Book, count]
+                    .toList();
+
+            result.add(new TopByGenreDTO(genre, books));
+        }
+        return result;
+    }
 }
