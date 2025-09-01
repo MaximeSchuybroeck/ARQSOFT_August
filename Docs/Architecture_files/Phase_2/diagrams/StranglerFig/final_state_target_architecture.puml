@@ -1,0 +1,45 @@
+@startuml
+title Final State — Target Microservice Architecture
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+cloud "Clients" as Clients
+rectangle "Edge" {
+  [API Gateway] as Gateway
+  [OIDC Provider (auth-service)] as Auth
+}
+package "Domain Services" {
+  [reader-service] as Reader
+  [author-service] as Author
+  [book-service] as Book
+  [lending-service] as Lending
+  [reporting-service] as Reporting
+}
+queue "Event Bus" as Bus
+database "Reader DB" as ReaderDB
+database "Author DB" as AuthorDB
+database "Book DB" as BookDB
+database "Lending DB" as LendingDB
+database "Reporting Store" as ReportDB
+
+Clients --> Gateway : HTTPS + JWT
+Gateway --> Auth : /auth/**
+Gateway --> Reader : /readers/**
+Gateway --> Author : /authors/**
+Gateway --> Book : /books/**
+Gateway --> Lending : /lendings/**
+Gateway --> Reporting : /reports/**
+
+Reader --> ReaderDB
+Author --> AuthorDB
+Book --> BookDB
+Lending --> LendingDB
+Reporting --> ReportDB
+
+Lending -[#green,bold]-> Bus : Borrowed/Returned/Recommended
+Book -[#green,bold]-> Bus : BookCreated/Updated
+Reader -[#green,bold]-> Bus : ReaderCreated/Updated
+Reporting -[#green,bold]-> Bus : subscribe
+
+@enduml

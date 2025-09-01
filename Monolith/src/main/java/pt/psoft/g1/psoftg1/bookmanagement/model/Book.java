@@ -79,7 +79,7 @@ public class Book extends EntityWithPhoto {
         setPhotoInternal(photoURI);
     }
 
-    protected Book() {
+    public Book() {
         // got ORM only
     }
 

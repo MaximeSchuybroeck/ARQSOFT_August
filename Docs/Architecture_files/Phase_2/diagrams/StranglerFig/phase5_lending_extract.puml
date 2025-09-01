@@ -1,0 +1,59 @@
+@startuml
+title Phase 5 — Extract Lending Service (Core Transaction)
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+cloud "Clients" as Clients
+rectangle "Edge" {
+  [API Gateway] as Gateway
+}
+node "Legacy" {
+  [Monolith] as Monolith
+  database "Monolith DB" as MonoDB
+}
+node "Microservices" {
+  [auth-service] as Auth
+  [reader-service] as Reader
+  [author-service] as Author
+  [book-service] as Book
+  [lending-service] as Lending
+  [reporting-service] as Reporting
+  queue "Event Bus" as Bus
+  database "Auth DB" as AuthDB
+  database "Reader DB" as ReaderDB
+  database "Author DB" as AuthorDB
+  database "Book DB" as BookDB
+  database "Lending DB" as LendingDB
+  database "Reporting Store" as ReportDB
+}
+
+Clients --> Gateway
+Gateway --> Auth : /auth/**
+Gateway --> Reader : /readers/**
+Gateway --> Author : /authors/**
+Gateway --> Book : /books/**
+Gateway --> Lending : /lendings/** (borrow/return/recommend)
+Gateway --> Monolith : /reports (remaining)
+
+Auth --> AuthDB
+Reader --> ReaderDB
+Author --> AuthorDB
+Book --> BookDB
+Lending --> LendingDB
+Reporting --> ReportDB
+
+Lending --> Reader : verify reader
+Lending --> Book : check availability, hold/release
+Lending -[#green,bold]-> Bus : domain events (Borrowed, Returned, Recommended)
+Reporting -[#green,bold]-> Bus : subscribe
+Reporting --> ReportDB : materialize views
+
+Monolith --> MonoDB
+
+note right of Lending
+  Owns lending lifecycle and recommendations.
+  Emits events to decouple reporting.
+end note
+
+@enduml

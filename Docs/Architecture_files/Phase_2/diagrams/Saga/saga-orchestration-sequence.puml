@@ -1,0 +1,88 @@
+@startuml saga-orchestration-sequence
+title Orchestrated Saga – Borrow with Reservation (Happy path + Compensations)
+
+skinparam backgroundColor #ffffff
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam shadowing false
+
+actor User as user
+participant "Client UI" as client
+participant "API Gateway" as gw
+participant "Lending Orchestrator" as orch
+participant "Inventory Service" as inv
+participant "Lending Service" as lend
+participant "Payment Service" as pay
+queue "RabbitMQ" as mq
+database "Saga Store" as sagaDB
+
+== Start ==
+user -> client : Click "Borrow"
+client -> gw : POST /borrow {readerId, bookId, dueDate}
+gw -> orch : Forward request
+orch -> sagaDB : INSERT saga(started, sagaId, readerId, bookId, dueDate)
+
+== Step 1: Reserve inventory ==
+orch -> mq : Command: inventory.reserve (sagaId, bookId, readerId)
+mq -> inv : deliver
+inv -> mq : Event: inventory.copy-reserved (sagaId, reservationId)
+mq -> orch : deliver
+orch -> sagaDB : UPDATE saga SET state=Reserved, reservationId=...
+
+== Step 2: Create lending ==
+orch -> mq : Command: lending.create (sagaId, readerId, bookId, dueDate)
+mq -> lend : deliver
+lend -> mq : Event: lending.created (sagaId, lendingId)
+mq -> orch : deliver
+orch -> sagaDB : UPDATE saga SET state=LendingCreated, lendingId=...
+
+== Step 3: Confirm reservation ==
+orch -> mq : Command: inventory.confirm (sagaId, reservationId)
+mq -> inv : deliver
+inv -> mq : Event: inventory.reservation-confirmed (sagaId)
+mq -> orch : deliver
+orch -> sagaDB : UPDATE saga SET state=Confirmed
+
+== Optional: Payment (if deposit/fine) ==
+orch -> mq : Command: payment.charge (sagaId, amount, readerId)
+mq -> pay : deliver
+pay -> mq : Event: payment.captured (sagaId, paymentId)
+mq -> orch : deliver
+orch -> sagaDB : UPDATE saga SET paymentId=..., state=PaymentCaptured
+
+== Complete ==
+orch -> sagaDB : UPDATE saga SET state=Completed, endedAt=now()
+orch --> gw : 201 Created { lendingId }
+
+== Failure paths (compensation) ==
+group If lending.create fails
+  lend -> mq : Event: lending.create-rejected (sagaId, reason)
+  mq -> orch : deliver
+  orch -> mq : Command: inventory.release (sagaId, reservationId)
+  mq -> inv : deliver
+  inv -> mq : Event: inventory.reservation-released (sagaId)
+  mq -> orch : deliver
+  orch -> sagaDB : UPDATE saga SET state=Failed, reason=...
+  orch --> gw : 409 Conflict { reason }
+end
+
+group If inventory.confirm fails after lending.created
+  inv -> mq : Event: inventory.confirm-rejected (sagaId, reason)
+  mq -> orch : deliver
+  orch -> mq : Command: lending.cancel (sagaId, lendingId)
+  mq -> lend : deliver
+  lend -> mq : Event: lending.cancelled (sagaId)
+  mq -> orch : deliver
+  orch -> mq : Command: inventory.release (sagaId, reservationId)
+  mq -> inv : deliver
+  inv -> mq : Event: inventory.reservation-released (sagaId)
+  mq -> orch : deliver
+  orch -> sagaDB : UPDATE saga SET state=Failed, reason=...
+  orch --> gw : 409 Conflict { reason }
+end
+
+== Timeouts ==
+orch -> sagaDB : periodically scan for timeouts
+orch -> mq : emit compensation commands as needed
+
+@enduml

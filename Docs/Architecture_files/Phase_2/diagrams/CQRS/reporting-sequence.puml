@@ -1,0 +1,23 @@
+@startuml reporting-sequence
+title Reporting query – Top 5 most lent authors
+
+skinparam backgroundColor #ffffff
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam shadowing false
+
+actor User as user
+participant "Client UI" as client
+participant "Gateway" as gw
+participant "Reporting Service" as reporting
+database "Postgres\nreporting_service schema" as db
+
+user -> client : View dashboard
+client -> gw : GET /api/reports/top5 (JWT)
+gw -> reporting : Forward
+reporting -> db : SELECT * FROM author_borrow_stats\nORDER BY borrow_count DESC LIMIT 5
+db --> reporting : rows
+reporting --> gw : 200 OK [top 5 authors]
+gw --> client : 200 OK
+
+@enduml

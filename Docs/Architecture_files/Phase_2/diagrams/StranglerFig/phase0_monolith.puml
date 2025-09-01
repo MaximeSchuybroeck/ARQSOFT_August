@@ -1,0 +1,26 @@
+@startuml
+title Phase 0 — Monolith (Before Migration)
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+cloud "Clients" as Clients
+node "On-Prem DC" as DC {
+  [Monolith Library System] as Monolith
+  database "Monolith DB" as MonoDB
+}
+
+Clients --> Monolith : HTTP (REST/HTML)
+Monolith --> MonoDB : SQL (all domains)
+
+legend right
+  == Domains inside Monolith ==
+  * Auth & Sessions
+  * Readers (profiles)
+  * Authors
+  * Books & Catalog
+  * Lending
+  * Reporting/Analytics
+endlegend
+
+@enduml

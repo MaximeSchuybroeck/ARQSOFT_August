@@ -16,6 +16,7 @@ import java.time.LocalDate;
 import java.util.Optional;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.assertj.core.api.AssertionsForClassTypes.assertThatThrownBy;
 import static org.mockito.Mockito.*;
 
 @ExtendWith(org.mockito.junit.jupiter.MockitoExtension.class)
@@ -71,4 +72,44 @@ public class LendingServiceReturn {
         verify(repo).save(any(Lending.class));
         verify(recRepo, never()).save(any(Recommendation.class));
     }
+
+    // Opaque+: returning with NEGATIVE recommendation -> persist recommendation and close lending
+    @Test
+    void returnById_withNegativeRecommendation_persistsRecAndClosesLending() {
+        Lending l = newActiveLending(100L, 55L, "lea@example.com");
+        when(repo.findByIdAndReturnedDateIsNull(100L)).thenReturn(Optional.of(l));
+        when(recRepo.existsByLendingId(100L)).thenReturn(false);
+
+        service.returnById(100L, false, "did not enjoy"); // false -> NEGATIVE
+
+        verify(repo, times(1)).save(any(Lending.class));
+        verify(recRepo, times(1)).save(any(Recommendation.class));
+    }
+
+    // Opaque+: duplicate recommendation on the same lending -> throw and do not save
+    @Test
+    void returnById_duplicateRecommendation_throws_butStillClosesLending_andDoesNotPersistRecommendation() {
+        Lending l = newActiveLending(101L, 56L, "sam@example.com");
+        when(repo.findByIdAndReturnedDateIsNull(101L)).thenReturn(Optional.of(l));
+        when(recRepo.existsByLendingId(101L)).thenReturn(true); // already recommended
+
+        assertThatThrownBy(() -> service.returnById(101L, true, "great"))
+                .isInstanceOf(IllegalStateException.class)
+                .hasMessageContaining("recommendation"); // keep message flexible
+
+        // The service saves the lending (marks it returned) before discovering the duplicate
+        verify(repo, times(1)).save(any(Lending.class));
+
+        // But it must NOT save a new recommendation
+        verify(recRepo, never()).save(any(Recommendation.class));
+
+        // Verify the interaction order to make the spec explicit
+        InOrder inOrder = inOrder(repo, recRepo);
+        inOrder.verify(repo).save(any(Lending.class));               // close lending
+        inOrder.verify(recRepo).existsByLendingId(101L);             // then check duplicate
+        // no recRepo.save afterwards
+        verifyNoMoreInteractions(recRepo);
+        verifyNoInteractions(rabbitTemplate, bookClient, readerClient);
+    }
 }
+

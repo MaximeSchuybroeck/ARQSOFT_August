@@ -1,0 +1,35 @@
+@startuml saga-state-machine
+title Orchestrated Saga – State Machine (Borrow with Reservation)
+
+skinparam backgroundColor #ffffff
+skinparam shadowing false
+skinparam roundCorner 10
+
+[*] --> Started : POST /borrow\n(create saga row)
+Started --> Reserved : inventory.copy-reserved
+Reserved --> LendingCreated : lending.created
+LendingCreated --> Confirmed : inventory.reservation-confirmed
+Confirmed --> PaymentCaptured : payment.captured
+PaymentCaptured --> Completed
+Confirmed --> Completed : (no payment required)
+
+Started --> Failed : inventory.reservation-rejected / timeout
+Reserved --> Failed : lending.create-rejected / timeout
+LendingCreated --> Compensating : inventory.confirm-rejected / timeout
+Compensating --> Failed : lending.cancelled + inventory.reservation-released
+
+state Compensating {
+  [*] --> CancelLending
+  CancelLending --> ReleaseReservation
+  ReleaseReservation --> [*]
+}
+
+state Completed #DDFFDD
+state Failed #FFDDDD
+state Started #FFFFDD
+state Reserved #FFFFDD
+state LendingCreated #FFFFDD
+state Confirmed #DDFFFF
+state PaymentCaptured #DDFFFF
+
+@enduml

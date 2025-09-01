@@ -1,0 +1,35 @@
+@startuml
+title Phase 2 — Carve Out Auth First
+
+skinparam componentStyle rectangle
+skinparam shadowing false
+
+cloud "Clients" as Clients
+rectangle "Edge" {
+  [API Gateway] as Gateway
+}
+node "Legacy" {
+  [Monolith] as Monolith
+  database "Monolith DB" as MonoDB
+}
+node "Microservices" {
+  [auth-service] as Auth
+  database "Auth DB" as AuthDB
+}
+
+Clients --> Gateway : HTTPS
+Gateway --> Monolith : /books, /lending, /readers, /authors, /reports
+Gateway --> Auth : /auth/** (login, token, introspect)
+Auth --> AuthDB
+
+' Optional SSO token handoff
+Gateway -[#blue,bold]-> Clients : JWT/OAuth2 tokens
+
+note right of Auth
+  Central identity provider.
+  Issues JWT for downstream services.
+end note
+
+Monolith --> MonoDB
+
+@enduml
