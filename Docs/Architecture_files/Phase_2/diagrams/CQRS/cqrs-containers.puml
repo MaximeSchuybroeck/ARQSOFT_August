@@ -1,0 +1,63 @@
+@startuml cqrs-containers
+title Library Management – Containers & Data Flow (CQRS)
+
+skinparam backgroundColor #ffffff
+skinparam componentStyle rectangle
+skinparam shadowing false
+skinparam roundCorner 8
+
+rectangle "Gateway\nport 8080" as gw <<Gateway>>
+rectangle "Eureka\nport 8761" as eure <<Infra>>
+rectangle "Auth Service\nport 8081" as auth <<Svc>>
+rectangle "Book Service\nport 8083" as book <<Svc>>
+rectangle "Author Service\nport 8082" as author <<Svc>>
+rectangle "Reader Service\nport 8084" as reader <<Svc>>
+rectangle "Lending Service\nport 8085" as lending <<Svc>>
+rectangle "Reporting Service\nport 8086" as reporting <<Svc>>
+
+queue "RabbitMQ\n5672 / 15672\nExchange: lending.exchange\nQueues:\n- reporting.book-lent.queue" as mq
+database "Postgres 15\nDB: library_management" as pg
+
+frame "Schemas" {
+  database "auth_service" as s_auth
+  database "book_service" as s_book
+  database "author_service" as s_author
+  database "reader_service" as s_reader
+  database "lending_service" as s_lending
+  database "reporting_service\n(read models)" as s_reporting
+}
+
+gw --> auth : /auth/**
+gw --> author : /api/authors/**
+gw --> book : /api/books/**
+gw --> reader : /api/readers/**
+gw --> lending : /api/lendings/**
+gw --> reporting : /api/reports/**
+
+auth --> s_auth
+book --> s_book
+author --> s_author
+reader --> s_reader
+lending --> s_lending
+
+lending -right-> mq : publish\nroutingKey: lending.book-lent
+mq -left-> reporting : consume\nqueue: reporting.book-lent.queue
+
+reporting --> s_reporting
+
+gw ..> eure
+auth ..> eure
+book ..> eure
+author ..> eure
+reader ..> eure
+lending ..> eure
+reporting ..> eure
+
+pg -[hidden]- s_auth
+pg -[hidden]- s_book
+pg -[hidden]- s_author
+pg -[hidden]- s_reader
+pg -[hidden]- s_lending
+pg -[hidden]- s_reporting
+
+@enduml

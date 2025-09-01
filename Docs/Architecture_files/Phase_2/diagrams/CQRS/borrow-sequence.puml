@@ -1,0 +1,50 @@
+@startuml borrow-sequence
+title Borrow flow – Command -> Event -> Read Model
+
+skinparam backgroundColor #ffffff
+skinparam sequenceMessageAlign center
+skinparam responseMessageBelowArrow true
+skinparam shadowing false
+
+actor User as user
+participant "Client UI" as client
+participant "Gateway" as gw
+participant "Lending Service" as lending
+participant "Book Service" as book
+participant "Reader Service" as reader
+queue "RabbitMQ\nlending.exchange" as mq
+participant "Reporting Service" as reporting
+database "Postgres\nlending_service schema" as db_cmd
+database "Postgres\nreporting_service schema" as db_query
+
+user -> client : Click "Borrow"
+client -> gw : POST /api/lendings/borrow\nbookId, readerEmail, days (JWT)
+gw -> lending : Forward request
+
+== Validate & persist ==
+lending -> book : GET /api/books/{id}\n(exists/available?)
+book --> lending : 200 OK
+lending -> reader : GET /api/readers/{email}\n(exists?)
+reader --> lending : 200 OK
+lending -> db_cmd : INSERT Lending\n(startDate, dueDate, ...)
+db_cmd --> lending : OK
+
+== Publish domain event ==
+lending -> mq : Publish BookLent\n(exchange: lending.exchange,\nroutingKey: lending.book-lent,\npayload: {bookId, readerEmail,\nauthorId, authorName, genre, startDate})
+
+== Async projection update ==
+mq -> reporting : Deliver BookLent to reporting.book-lent.queue
+reporting -> db_query : UPSERT LendingStats, AuthorBorrowStats
+db_query --> reporting : OK
+
+== Response to caller ==
+lending --> gw : 201 Created\n{lendingId, dueDate, ...}
+gw --> client : 201 Created
+
+note over reporting, db_query
+Read model is updated asynchronously.
+Clients may not immediately see the change
+in reporting endpoints due to eventual consistency.
+end note
+
+@enduml
